@@ -748,6 +748,8 @@
         function carousel() {
                 var i;
                 var x = document.getElementsByClassName("tab");
+                var dots = document.getElementsByClassName("dot123");
+
                 for (i = 0; i < x.length; i++) {
                         x[i].style.display = "none";
                 }
@@ -755,7 +757,11 @@
                 if (myIndex > x.length) {
                         myIndex = 1
                 }
+                for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" slick-active", "");
+                }
                 x[myIndex - 1].style.display = "block";
-                setTimeout(carousel, 10000); // Change image every 2 seconds
+                  dots[myIndex - 1].className += " slick-active";
+                setTimeout(carousel, 2000); // Change image every 2 seconds
         }
 </script>
