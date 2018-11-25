@@ -1,0 +1,114 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>DoAnWebCuoiKy</Name>
+    <ProjectGuid>{01e1bcc0-85b6-4709-9481-da9cdb21825b}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <RuntimeVersion>7.1</RuntimeVersion>
+    <SpecificPageValue>index.php</SpecificPageValue>
+    <StartAction>SpecificPage</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="lib\db.php" />
+    <Compile Include="modules\include.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\ico\" />
+    <Folder Include="assets\img\" />
+    <Folder Include="assets\js\" />
+    <Folder Include="Cornerstone Demo_files\" />
+    <Folder Include="lib\" />
+    <Folder Include="New folder\" />
+    <Folder Include="New folder\Cornerstone Demo - Sign in_files\" />
+    <Folder Include="New folder\Cornerstone Demo_files\" />
+    <Folder Include="modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\css\theme.1.css" />
+    <Content Include="assets\css\theme.css" />
+    <Content Include="assets\ico\logo.svg" />
+    <Content Include="assets\img\logo.jpg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\logo1.jpg" />
+    <Content Include="assets\img\logo1.png" />
+    <Content Include="assets\img\logowhite.png" />
+    <Content Include="assets\js\jquery-3.3.1.min.js" />
+    <Content Include="assets\js\theme-bundle.main.js" />
+    <Content Include="modules\content.php" />
+    <Content Include="Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />
+    <Content Include="Cornerstone Demo_files\barrsalve1_1024x1024_1024x1024__06826.1456436687.jpg" />
+    <Content Include="Cornerstone Demo_files\bread__92578.jpg" />
+    <Content Include="Cornerstone Demo_files\CommonGoodAllPurposeCleaner_d37aa1e8_e16f_4309_bddd_8fae0d94efc7_1024x1024__40180.1456436663.jpg" />
+    <Content Include="Cornerstone Demo_files\CommonGoodDishSoap_1024x1024__74820.1456436679.jpg" />
+    <Content Include="Cornerstone Demo_files\CommonGoodHandSoap_1024x1024__94874.1456436671.jpg" />
+    <Content Include="Cornerstone Demo_files\dustpan1_1024x1024_1024x1024__43447.1456436714.jpg" />
+    <Content Include="Cornerstone Demo_files\featherduster_1024x1024__94858.1456436683.jpg" />
+    <Content Include="Cornerstone Demo_files\foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg" />
+    <Content Include="Cornerstone Demo_files\gather_1024x1024__17195.1456436664.jpg" />
+    <Content Include="Cornerstone Demo_files\kinfolkessentialissue_1024x1024__22507.1456436715.jpg" />
+    <Content Include="Cornerstone Demo_files\leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg" />
+    <Content Include="Cornerstone Demo_files\livingwithplants_grande__26452.1456436666.jpg" />
+    <Content Include="Cornerstone Demo_files\milkandcreamer1_1024x1024__69117.1456436712.jpg" />
+    <Content Include="Cornerstone Demo_files\naturalcanvascart2_1024x1024__92347.1456436682.jpg" />
+    <Content Include="Cornerstone Demo_files\ofsheroillustration_wide.jpg" />
+    <Content Include="Cornerstone Demo_files\openhousevol3_1024x1024__59692.1456436667.jpg" />
+    <Content Include="Cornerstone Demo_files\plants__69660.jpg" />
+    <Content Include="Cornerstone Demo_files\smithjournal1_1024x1024__85081.1456436718.jpg" />
+    <Content Include="Cornerstone Demo_files\SshapedScrubBrush2_1024x1024__94308.1456436686.jpg" />
+    <Content Include="Cornerstone Demo_files\tieredbasket_1024x1024__81717.1456436704.jpg" />
+    <Content Include="Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
+    <Content Include="modules\footer.php" />
+    <Content Include="modules\header.php" />
+    <Content Include="index.php" />
+    <Content Include="Login.php" />
+    <Content Include="New folder\Cornerstone Demo - Sign in.html" />
+    <Content Include="New folder\Cornerstone Demo - Sign in_files\css" />
+    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-b6bb87c0-c601-0136-b53a-63846fc3d82a.css" />
+    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-bundle.chunk.6.js.tải xuống" />
+    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-bundle.main.js.tải xuống" />
+    <Content Include="New folder\Cornerstone Demo.html" />
+    <Content Include="New folder\Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\barrsalve1_1024x1024_1024x1024__06826.1456436687.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\beacon_api.js.tải xuống" />
+    <Content Include="New folder\Cornerstone Demo_files\bread__92578.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\CommonGoodAllPurposeCleaner_d37aa1e8_e16f_4309_bddd_8fae0d94efc7_1024x1024__40180.1456436663.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\CommonGoodDishSoap_1024x1024__74820.1456436679.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\CommonGoodHandSoap_1024x1024__94874.1456436671.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\css" />
+    <Content Include="New folder\Cornerstone Demo_files\dustpan1_1024x1024_1024x1024__43447.1456436714.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\featherduster_1024x1024__94858.1456436683.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\gather_1024x1024__17195.1456436664.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\kinfolkessentialissue_1024x1024__22507.1456436715.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\livingwithplants_grande__26452.1456436666.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\loading.svg" />
+    <Content Include="New folder\Cornerstone Demo_files\milkandcreamer1_1024x1024__69117.1456436712.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\naturalcanvascart2_1024x1024__92347.1456436682.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\ofsheroillustration_wide.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\openhousevol3_1024x1024__59692.1456436667.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\plants__69660.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\smithjournal1_1024x1024__85081.1456436718.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\SshapedScrubBrush2_1024x1024__94308.1456436686.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\theme-b6bb87c0-c601-0136-b53a-63846fc3d82a.css" />
+    <Content Include="New folder\Cornerstone Demo_files\theme-bundle.chunk.18.js.tải xuống" />
+    <Content Include="New folder\Cornerstone Demo_files\theme-bundle.main.js.tải xuống" />
+    <Content Include="New folder\Cornerstone Demo_files\tieredbasket_1024x1024__81717.1456436704.jpg" />
+    <Content Include="New folder\Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
+    <Content Include="New folder\new-2.html" />
+    <Content Include="Register.html" />
+    <Content Include="tam.html" />
+  </ItemGroup>
+</Project>
