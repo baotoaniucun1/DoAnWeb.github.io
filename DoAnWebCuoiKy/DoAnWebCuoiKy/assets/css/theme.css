@@ -1,5 +1,88 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+    
+    /* Add a background color when the inputs get focus */
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+    
+    button {
+        background-color: #4f4f4f;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    
+    button:hover {
+        opacity:1;
+    }
+    
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #CC6633;
+    }
+    
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+    }
+   
+    
+    .modal {
+        display: none;
+        position: fixed; 
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto;
+        background-color: #454545;
+        padding-top: 50px;
+    }
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; 
+        width: 50%; 
+    }
+    
+    hr {
+        border: 1px solid #454545;
+        margin-bottom: 25px;
+    }
+         .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+           width: 100%;
+        }
+    }
+    
+    .error {
+      color: #330000;
+      font-size: 14px;
+      }
+/**//**//**//**//**/
+/**//**//**//**//**/
 .u-textNoWrap,
 .u-textTruncate {
     white-space: nowrap !important

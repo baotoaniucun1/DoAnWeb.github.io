@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\.DS_Store" />
-    <Content Include="assets\css\theme.1.css" />
     <Content Include="assets\css\theme.css" />
     <Content Include="assets\ico\logo.svg" />
     <Content Include="assets\img\logo.jpg" />
@@ -108,7 +108,7 @@
     <Content Include="New folder\Cornerstone Demo_files\tieredbasket_1024x1024__81717.1456436704.jpg" />
     <Content Include="New folder\Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
     <Content Include="New folder\new-2.html" />
-    <Content Include="Register.html" />
+    <Content Include="Register.php" />
     <Content Include="tam.html" />
   </ItemGroup>
 </Project>
