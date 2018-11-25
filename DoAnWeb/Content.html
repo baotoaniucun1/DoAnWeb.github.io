@@ -1,13 +1,11 @@
 <div class="container">
-        <div class="main full">
-
+        <div>
                 <h2 class="page-heading">TOP 10 SẢN PHẨM BÁN CHẠY</h2>
                 <section class="productCarousel slick-initialized slick-slider slick-dotted">
-                        <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button"
-                                aria-disabled="true" style="">Previous</button>
-                        <div class="slick-list draggable">
+                      
+                        <div class="slick-list">
                                 <div class="slick-track" style="opacity: 1; width: 3420px; transform: translate3d(0px, 0px, 0px);">
-                                        <div class="tab">
+                                        <div class="top10sell">
                                                 <div class="productCarousel-slide" data-slick-index="0" aria-hidden="false"
                                                         tabindex="0" role="tabpanel" id="slick-slide10"
                                                         aria-describedby="slick-slide-control10" style="width: 285px;">
@@ -307,7 +305,7 @@
                                                         </article>
                                                 </div>
                                         </div>
-                                        <div class="tab">
+                                        <div class="top10sell">
                                                
                                                 <div class="productCarousel-slide" aria-hidden="false" tabindex="0"
                                                         role="tabpanel" id="slick-slide11" style="width: 285px;">
@@ -534,7 +532,7 @@
                                         </div>
 
 
-                                        <div class="tab">
+                                        <div class="top10sell">
                                                
                                                 <div class="productCarousel-slide" aria-hidden="false" tabindex="0"
                                                         role="tabpanel" id="slick-slide11" style="width: 285px;">
@@ -695,18 +693,19 @@
                                 onclick="plusSlides(-1)">Prev</button>
 
                         <ul class="slick-dots">
-                                <li  class="dot123" class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control10"
+                                <li  class="dottop10sell" class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control10"
                                                 aria-controls="slick-slide10" aria-label="1 of 3" tabindex="0"
                                                 aria-selected="true"  onclick="currentSlide(1)">1</button></li>
-                                <li class="dot123" class="slick-active"  role="presentation"><button type="button" role="tab" id="slick-slide-control11"
+                                <li class="dottop10sell" class="slick-active"  role="presentation"><button type="button" role="tab" id="slick-slide-control11"
                                                 aria-controls="slick-slide13" aria-label="2 of 3" tabindex="-1" 
                                                 onclick="currentSlide(2)">2</button></li>
-                                <li class="dot123" class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control11"
+                                <li class="dottop10sell" class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control11"
                                                 aria-controls="slick-slide13" aria-label="2 of 3" tabindex="-1"
                                                 onclick="currentSlide(3)">3</button></li>
                         </ul>
                 </section>
         </div>
+
 
 </div>
 <script>
@@ -723,8 +722,8 @@
 
         function showSlides(n) {
                 var i;
-                var slides = document.getElementsByClassName("tab");
-                var dots = document.getElementsByClassName("dot123");
+                var slides = document.getElementsByClassName("top10sell");
+                var dots = document.getElementsByClassName("dottop10sell");
                 if (n > slides.length) {
                         slideIndex = 1
                 }
@@ -747,7 +746,9 @@
 
         function carousel() {
                 var i;
-                var x = document.getElementsByClassName("tab");
+                var x = document.getElementsByClassName("top10sell");
+                var dots = document.getElementsByClassName("dottop10sell");
+
                 for (i = 0; i < x.length; i++) {
                         x[i].style.display = "none";
                 }
@@ -755,7 +756,12 @@
                 if (myIndex > x.length) {
                         myIndex = 1
                 }
+                for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" slick-active", "");
+                }
                 x[myIndex - 1].style.display = "block";
-                setTimeout(carousel, 2000); // Change image every 2 seconds
+
+                dots[myIndex - 1].className += " slick-active";
+                setTimeout(carousel, 6000); // Change image every 2 seconds
         }
 </script>

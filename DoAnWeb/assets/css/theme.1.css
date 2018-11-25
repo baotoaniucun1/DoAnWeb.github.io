@@ -2470,7 +2470,7 @@ body.has-activeModal {
 .slick-slider,
 .slick-track {
     position: relative;
-    display: block;
+    display: block
 }
 ul.khoalai
 {
@@ -2481,7 +2481,7 @@ ul.khoalai
     -webkit-touch-callout: none;
     user-select: none;
     -ms-touch-action: pan-y;
-    touch-action: pan-y;
+    touch-action: pan-y
 }
 
 .slick-list {
@@ -2541,7 +2541,7 @@ ul.khoalai
 }
 
 .slick-initialized .slick-slide {
-    display: block;
+    display: block
 }
 
 .slick-vertical .slick-slide {
@@ -6446,7 +6446,7 @@ h6 {
 }
 
 .heroCarousel:not(.slick-initialized) :not(.heroCarousel-slide--first).heroCarousel-slide {
-    display: block;
+    display: none
 }
 
 .heroCarousel .slick-next,
@@ -6783,7 +6783,7 @@ h6 {
     min-width: 100%;
     margin: 0 -.75rem;
     max-width: none;
-    width: auto;
+    width: auto
 }
 
 .productCarousel-slide {
