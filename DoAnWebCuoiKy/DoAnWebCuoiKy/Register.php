@@ -1,122 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Register</title>
 
+      <?php
+    include 'modules/include.php';
+      ?>
 
-
-    <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
-
-
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-
-    <script>
-        $(function () {
-        $('#menu').load('Menu.html');
-      });
-
-      $(function () {
-        $('#header').load('Header.html');
-      });
-
-      $(function () {
-        $('#footer').load('Footer.html');
-      });
-    </script>
 </head>
-<style>
 
-
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
-    }
-    
-    /* Add a background color when the inputs get focus */
-    input[type=text]:focus, input[type=password]:focus {
-        background-color: #ddd;
-        outline: none;
-    }
-    
-    button {
-        background-color: #4f4f4f;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-    }
-    
-    button:hover {
-        opacity:1;
-    }
-    
-    .cancelbtn {
-        padding: 14px 20px;
-        background-color: #CC6633;
-    }
-    
-    .cancelbtn, .signupbtn {
-      float: left;
-      width: 50%;
-    }
-   
-    
-    .modal {
-        display: none;
-        position: fixed; 
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto;
-        background-color: #454545;
-        padding-top: 50px;
-    }
-    
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto; 
-        width: 50%; 
-    }
-    
-    hr {
-        border: 1px solid #454545;
-        margin-bottom: 25px;
-    }
-         .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-    
-    @media screen and (max-width: 300px) {
-        .cancelbtn, .signupbtn {
-           width: 100%;
-        }
-    }
-    
-    .error {
-      color: #330000;
-      font-size: 14px;
-      }
-    </style>
 
 <body>
+    <?php
+    include 'modules/header.php';
+    ?>
     <div>
         <header class="header" role="banner">
             <div id="header"> </div>
@@ -137,7 +34,7 @@
             <div class="login">
                 <ul class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                     <li class="breadcrumb " itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                        <a href="index.html" class="breadcrumb-label" itemprop="item"><span
+                        <a href="index.php" class="breadcrumb-label" itemprop="item"><span
                                 itemprop="name">Home</span></a>
                         <meta itemprop="position" content="0">
                     </li>
@@ -183,11 +80,9 @@
         </div>
     </div>
 
-    <footer class="footer" role="contentinfo">
-        <div id="footer"> </div>
-    </footer>
-
-
+   <?php
+    include 'modules/footer.php';
+      ?>
     <script src="/assets/js/theme-bundle.main.js"></script>
 </body>
 
