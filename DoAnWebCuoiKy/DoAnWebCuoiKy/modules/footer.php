@@ -6,13 +6,13 @@
                 <h5 class="footer-info-heading">Navigate</h5>
                 <ul class="footer-info-list">
                     <li>
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/journal/">Journal</a>
+                        <a href="#">Journal</a>
                     </li>
                     <li>
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/our-story/">Our Story</a>
+                        <a href="#">Our Story</a>
                     </li>
                     <li>
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/contact-us/">
+                        <a href="#">
                             Contact
                             Us
                         </a>

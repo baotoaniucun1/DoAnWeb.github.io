@@ -1,11 +1,8 @@
 
 
-<header class="header" role="banner">
+<header>
     <nav class="navUser">
-
         <ul class="navUser-section navUser-section--alt">
-
-
             <li class="navUser-item navUser-item--account">
                 <a class="navUser-action" href="Login.php">Sign in</a>
                 <span class="navUser-or">or</span>
@@ -15,33 +12,18 @@
 
     </nav>
 
-    <h1 class="header-logo header-logo--center">
-        <a href="index.html">
+    <h1 class="header-logo">
+        <a href="index.php">
             <span class="header-logo-text">Chích Chòe Shop</span>
         </a>
     </h1>
 
     <div class="navPages-container" id="menu" data-menu="" aria-hidden="true">
         <nav class="navPages">
-            <div class="navPages-quickSearch">
-                <div class="container">
-                    <!-- snippet location forms_search -->
-                    <form class="form" action="http://cornerstone-light-demo.mybigcommerce.com/search.php">
-                        <fieldset class="form-fieldset">
-                            <div class="form-field">
-                                <label class="is-srOnly" for="search_query">Search</label>
-                                <input class="form-input" data-search-quick="" name="search_query"
-                                       id="search_query" data-error-message="Search field cannot be empty."
-                                       placeholder="Search the store" autocomplete="off">
-                            </div>
-                        </fieldset>
-                    </form>
-                    <section class="quickSearchResults" data-bind="html: results"></section>
-                </div>
-            </div>
+          
             <ul class="navPages-list">
                 <li class="navPages-item">
-                    <a class="navPages-action has-subMenu" href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden/"
+                    <a class="navPages-action has-subMenu" href="#"
                        data-collapsible="navPages-19" aria-controls="navPages-19" aria-expanded="false">
                         Garden <i class="icon navPages-action-moreIcon" aria-hidden="true">
                             <svg>
@@ -52,22 +34,22 @@
                     <div class="navPage-subMenu" id="navPages-19" aria-hidden="true" tabindex="-1">
                         <ul class="navPage-subMenu-list">
                             <li class="navPage-subMenu-item">
-                                <a class="navPage-subMenu-action navPages-action" href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden/">
+                                <a class="navPage-subMenu-action navPages-action" href="#">
                                     All
                                     Garden
                                 </a>
                             </li>
                             <li class="navPage-subMenu-item">
-                                <a class="navPage-subMenu-action navPages-action" href="http://cornerstone-light-demo.mybigcommerce.com/garden/bath/">Bath</a>
+                                <a class="navPage-subMenu-action navPages-action" href="#">Bath</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="navPages-item">
-                    <a class="navPages-action" href="http://cornerstone-light-demo.mybigcommerce.com/all/">All</a>
+                    <a class="navPages-action" href="#">All</a>
                 </li>
                 <li class="navPages-item">
-                    <a class="navPages-action" href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/kitchen/">Kitchen</a>
+                    <a class="navPages-action" href="#">Kitchen</a>
                 </li>
                 <li class="navPages-item">
                     <a class="navPages-action" href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/publications/">Publications</a>

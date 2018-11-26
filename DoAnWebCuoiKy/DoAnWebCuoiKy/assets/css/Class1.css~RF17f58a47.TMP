@@ -1,5 +1,88 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+    
+    /* Add a background color when the inputs get focus */
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+    
+    button {
+        background-color: #4f4f4f;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    
+    button:hover {
+        opacity:1;
+    }
+    
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #CC6633;
+    }
+    
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+    }
+   
+    
+    .modal {
+        display: none;
+        position: fixed; 
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto;
+        background-color: #454545;
+        padding-top: 50px;
+    }
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; 
+        width: 50%; 
+    }
+    
+    hr {
+        border: 1px solid #454545;
+        margin-bottom: 25px;
+    }
+         .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+           width: 100%;
+        }
+    }
+    
+    .error {
+      color: #330000;
+      font-size: 14px;
+      }
+/**//**//**//**//**/
+/**//**//**//**//**/
 .u-textNoWrap,
 .u-textTruncate {
     white-space: nowrap !important
@@ -2618,7 +2701,7 @@ ul.khoalai
 
 .slick-dots {
     position: absolute;
-    bottom: -25px;
+    /*bottom: -25px;*/
     list-style: none;
     display: block;
     text-align: center;
@@ -4668,11 +4751,7 @@ h6 {
     text-transform: inherit
 }
 
-.navPages-action,
-.navUser-action,
-.ribbon {
-    text-transform: uppercase
-}
+
 
 .accordion--navList .accordion-indicator {
     fill: #a5a5a5
@@ -5010,11 +5089,6 @@ h6 {
     padding: 1px
 }
 
-.navList-action--checkbox.is-disabled,
-.navUser-or,
-.ribbon {
-    cursor: default
-}
 
 .form-option:hover {
     border-color: #989898
@@ -5093,22 +5167,6 @@ h6 {
     }
 }
 
-.account--addReturn-row:after,
-.banner:after,
-.cart-item,
-.cart-item-info,
-.facetedSearch-toggle:after,
-.navUser-section:after,
-.navUser:after,
-.productCarousel:after,
-.productReviews-list:after,
-.productView-info-name,
-.productView-info:after,
-.productView-options:after,
-.quickView:after,
-.socialLinks:after {
-    clear: both
-}
 
 [data-product-attribute] .form-option {
     overflow: hidden;
@@ -5138,17 +5196,6 @@ h6 {
     text-decoration: line-through
 }
 
-.card-title>a,
-.facetLabel,
-.heroCarousel-slide a,
-.navBar-action,
-.navList-action,
-.navPages-action,
-.navUser-action,
-.socialLinks .icon,
-.tag a {
-    text-decoration: none
-}
 
 .card-figure {
     margin-top: 0;
@@ -5363,13 +5410,6 @@ h6 {
     visibility: hidden
 }
 
-.icon,
-.icon svg,
-.navPages-action svg,
-.navUser-action svg,
-.socialLinks .icon svg {
-    transition: all .15s ease
-}
 
 .navList-action-close .icon {
     height: .92857rem;
@@ -5485,11 +5525,7 @@ h6 {
     position: relative
 }
 
-.navUser,
-.ribbon {
-    position: absolute;
-    right: 0
-}
+
 
 .ribbon {
     background-color: #454545;

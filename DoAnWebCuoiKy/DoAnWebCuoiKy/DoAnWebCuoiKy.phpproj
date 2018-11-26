@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\css\Class1.css" />
     <Content Include="assets\css\theme.css" />
     <Content Include="assets\ico\logo.svg" />
     <Content Include="assets\img\logo.jpg" />
