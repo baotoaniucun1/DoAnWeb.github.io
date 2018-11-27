@@ -21,6 +21,7 @@
   <ItemGroup>
     <Compile Include="lib\db.php" />
     <Compile Include="modules\include.php" />
+    <Compile Include="modules\menu.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
@@ -36,8 +37,14 @@
     <Folder Include="modules\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="400x460.png" />
+    <Content Include="700x400.png" />
+    <Content Include="900x350.png" />
     <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\css\blog.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\Class1.css" />
+    <Content Include="assets\css\style.css" />
     <Content Include="assets\css\theme.css" />
     <Content Include="assets\ico\logo.svg" />
     <Content Include="assets\img\logo.jpg" />
@@ -45,8 +52,13 @@
     <Content Include="assets\img\logo1.jpg" />
     <Content Include="assets\img\logo1.png" />
     <Content Include="assets\img\logowhite.png" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\holder.min.js" />
+    <Content Include="assets\js\jquery-3.2.1.slim.min.js" />
     <Content Include="assets\js\jquery-3.3.1.min.js" />
+    <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\theme-bundle.main.js" />
+    <Content Include="index.php" />
     <Content Include="modules\content.php" />
     <Content Include="Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />
     <Content Include="Cornerstone Demo_files\barrsalve1_1024x1024_1024x1024__06826.1456436687.jpg" />
@@ -72,7 +84,6 @@
     <Content Include="Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
     <Content Include="modules\footer.php" />
     <Content Include="modules\header.php" />
-    <Content Include="index.php" />
     <Content Include="Login.php" />
     <Content Include="New folder\Cornerstone Demo - Sign in.html" />
     <Content Include="New folder\Cornerstone Demo - Sign in_files\css" />
@@ -110,6 +121,5 @@
     <Content Include="New folder\Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
     <Content Include="New folder\new-2.html" />
     <Content Include="Register.php" />
-    <Content Include="tam.html" />
   </ItemGroup>
 </Project>
