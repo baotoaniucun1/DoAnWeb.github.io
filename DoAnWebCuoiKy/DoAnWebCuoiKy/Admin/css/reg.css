@@ -1,0 +1,215 @@
+.nav-sidebar > .nav-item .nav-link .fa{
+  padding-right: 10px;
+}
+.pagination {
+  display: inline-block;
+  padding-left: 8px;
+  margin-top: 30px;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* ACCOUNT PAGE */
+.account .card, .product .card
+{
+  display: block;
+}
+.account .row, .product .row{
+  display: block;
+}
+ .account .table, .product .table{
+  display: inline-table;
+}
+
+.product .card .table tbody td img{
+  margin: 0 auto;
+  display: block;
+}
+.product .card .table thead th, .account .card .table thead th{
+    text-align: center;
+}
+.product .card .table tbody td, .account .card .table tbody td{
+  text-align: center;
+}
+.card-body.p-0 .table thead > tr > th:first-of-type{
+  padding-left: 0;
+}
+
+.product  .add, .account  .add{
+  display: inline-block;
+  margin-bottom: 30px;
+  padding-left: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px 4px;
+  color: #fff;
+  background-color: #19a3a1;
+  margin-left: 10px;
+}
+.action{
+  min-height: 95px;
+}
+.account .action .search, .product .action .search{
+  margin-bottom: 30px;
+  display: inline-block;
+  float: right;
+  padding-right: 15px;
+}
+.account .action .search input, .product .action .search input{
+  font-size: 17px;
+  border: 1px ridge #19a3a1;
+  width: 250px;
+}
+.account .action .search button, .product .action .search button{
+  background-color: #19a3a1;
+  border: 1px ridge #19a3a1;
+  margin-left: 5px;
+} 
+
+.product  .add input,  .account  .add input{
+  padding:5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px 4px;
+  color: #fff;
+  background-color: #19a3a1;
+  cursor: pointer;
+}
+
+.product  .add i, .account  .add i{
+  cursor: pointer;
+}
+
+/* PRODUCT PAGE */
+.product .card .table tbody td button{
+  display: block;
+  margin-left: 12px;
+}
+
+@media (max-width: 320px)
+{ 
+
+  .account .card .table{
+    display: block;
+  }
+  .account .card .table thead th:nth-child(1)
+  {
+    min-width: 75px;
+  }
+  .account .card .table thead th:nth-child(2)
+  {
+    
+  }
+  .account .card .table thead th:nth-child(3)
+  {
+    min-width: 100px;
+  }
+  .account .card .table thead th:nth-child(4)
+  {
+    min-width: 125px;
+  }
+  .account .card .table thead th:nth-child(5)
+  {
+    min-width: 125px;
+  }
+  .account .card .table thead th:nth-child(6)
+  {
+    min-width: 75px;
+    text-align: center;
+  }
+}
+
+@media(max-width: 380px)
+{
+
+}
+
+@media(max-width:  421px)
+{
+
+}
+
+@media(max-width: 769px)
+{
+
+}

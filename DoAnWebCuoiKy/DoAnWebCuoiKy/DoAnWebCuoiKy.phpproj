@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>index.php</SpecificPageValue>
+    <SpecificPageValue>Login.php</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -19,27 +19,71 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="lib\db.php" />
+    <Compile Include="Admin\Account.php" />
+    <Compile Include="Admin\index.php" />
+    <Compile Include="Admin\modules\footer.php" />
+    <Compile Include="Admin\modules\header.php" />
+    <Compile Include="Admin\modules\include.php" />
+    <Compile Include="Admin\modules\sidebar.php" />
+    <Compile Include="Admin\Order.php" />
+    <Compile Include="Admin\Product.php" />
+    <Compile Include="Admin\Review.php" />
+    <Compile Include="lib\Class.validate.php" />
+    <Compile Include="lib\Database.class.php" />
+    <Compile Include="Logout.php" />
     <Compile Include="modules\include.php" />
     <Compile Include="modules\menu.php" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
+    <Folder Include="Admin\css\" />
+    <Folder Include="Admin\css\font-awesome\" />
+    <Folder Include="Admin\css\font-awesome\css\" />
+    <Folder Include="Admin\css\font-awesome\fonts\" />
+    <Folder Include="Admin\img\" />
+    <Folder Include="Admin\img\credit\" />
+    <Folder Include="Admin\js\" />
+    <Folder Include="Admin\modules\" />
     <Folder Include="assets\" />
     <Folder Include="assets\css\" />
     <Folder Include="assets\ico\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
-    <Folder Include="Cornerstone Demo_files\" />
     <Folder Include="lib\" />
-    <Folder Include="New folder\" />
-    <Folder Include="New folder\Cornerstone Demo - Sign in_files\" />
-    <Folder Include="New folder\Cornerstone Demo_files\" />
     <Folder Include="modules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="400x460.png" />
     <Content Include="700x400.png" />
     <Content Include="900x350.png" />
+    <Content Include="Admin\css\adminlte.css" />
+    <Content Include="Admin\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Admin\css\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Admin\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Admin\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Admin\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Admin\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Admin\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Admin\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Admin\css\reg.css" />
+    <Content Include="Admin\img\AdminLTELogo.png" />
+    <Content Include="Admin\img\credit\american-express.png" />
+    <Content Include="Admin\img\credit\cirrus.png" />
+    <Content Include="Admin\img\credit\mastercard.png" />
+    <Content Include="Admin\img\credit\mestro.png" />
+    <Content Include="Admin\img\credit\paypal.png" />
+    <Content Include="Admin\img\credit\paypal2.png" />
+    <Content Include="Admin\img\credit\visa.png" />
+    <Content Include="Admin\img\default-150x150.png" />
+    <Content Include="Admin\img\icons.png" />
+    <Content Include="Admin\img\user2-160x160.jpg" />
+    <Content Include="Admin\js\adminlte.js" />
+    <Content Include="Admin\js\bootstrap.bundle.js" />
+    <Content Include="Admin\js\Chart.min.js" />
+    <Content Include="Admin\js\dashboard3.js" />
+    <Content Include="Admin\js\function.js" />
+    <Content Include="Admin\js\jquery.min.js" />
     <Content Include="assets\css\.DS_Store" />
     <Content Include="assets\css\blog.css" />
     <Content Include="assets\css\bootstrap.min.css" />
@@ -58,66 +102,9 @@
     <Content Include="assets\js\popper.min.js" />
     <Content Include="index.php" />
     <Content Include="modules\content.php" />
-    <Content Include="Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />
-    <Content Include="Cornerstone Demo_files\barrsalve1_1024x1024_1024x1024__06826.1456436687.jpg" />
-    <Content Include="Cornerstone Demo_files\bread__92578.jpg" />
-    <Content Include="Cornerstone Demo_files\CommonGoodAllPurposeCleaner_d37aa1e8_e16f_4309_bddd_8fae0d94efc7_1024x1024__40180.1456436663.jpg" />
-    <Content Include="Cornerstone Demo_files\CommonGoodDishSoap_1024x1024__74820.1456436679.jpg" />
-    <Content Include="Cornerstone Demo_files\CommonGoodHandSoap_1024x1024__94874.1456436671.jpg" />
-    <Content Include="Cornerstone Demo_files\dustpan1_1024x1024_1024x1024__43447.1456436714.jpg" />
-    <Content Include="Cornerstone Demo_files\featherduster_1024x1024__94858.1456436683.jpg" />
-    <Content Include="Cornerstone Demo_files\foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg" />
-    <Content Include="Cornerstone Demo_files\gather_1024x1024__17195.1456436664.jpg" />
-    <Content Include="Cornerstone Demo_files\kinfolkessentialissue_1024x1024__22507.1456436715.jpg" />
-    <Content Include="Cornerstone Demo_files\leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg" />
-    <Content Include="Cornerstone Demo_files\livingwithplants_grande__26452.1456436666.jpg" />
-    <Content Include="Cornerstone Demo_files\milkandcreamer1_1024x1024__69117.1456436712.jpg" />
-    <Content Include="Cornerstone Demo_files\naturalcanvascart2_1024x1024__92347.1456436682.jpg" />
-    <Content Include="Cornerstone Demo_files\ofsheroillustration_wide.jpg" />
-    <Content Include="Cornerstone Demo_files\openhousevol3_1024x1024__59692.1456436667.jpg" />
-    <Content Include="Cornerstone Demo_files\plants__69660.jpg" />
-    <Content Include="Cornerstone Demo_files\smithjournal1_1024x1024__85081.1456436718.jpg" />
-    <Content Include="Cornerstone Demo_files\SshapedScrubBrush2_1024x1024__94308.1456436686.jpg" />
-    <Content Include="Cornerstone Demo_files\tieredbasket_1024x1024__81717.1456436704.jpg" />
-    <Content Include="Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
     <Content Include="modules\footer.php" />
     <Content Include="modules\header.php" />
     <Content Include="Login.php" />
-    <Content Include="New folder\Cornerstone Demo - Sign in.html" />
-    <Content Include="New folder\Cornerstone Demo - Sign in_files\css" />
-    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-b6bb87c0-c601-0136-b53a-63846fc3d82a.css" />
-    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-bundle.chunk.6.js.tải xuống" />
-    <Content Include="New folder\Cornerstone Demo - Sign in_files\theme-bundle.main.js.tải xuống" />
-    <Content Include="New folder\Cornerstone Demo.html" />
-    <Content Include="New folder\Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\barrsalve1_1024x1024_1024x1024__06826.1456436687.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\beacon_api.js.tải xuống" />
-    <Content Include="New folder\Cornerstone Demo_files\bread__92578.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\CommonGoodAllPurposeCleaner_d37aa1e8_e16f_4309_bddd_8fae0d94efc7_1024x1024__40180.1456436663.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\CommonGoodDishSoap_1024x1024__74820.1456436679.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\CommonGoodHandSoap_1024x1024__94874.1456436671.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\css" />
-    <Content Include="New folder\Cornerstone Demo_files\dustpan1_1024x1024_1024x1024__43447.1456436714.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\featherduster_1024x1024__94858.1456436683.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\gather_1024x1024__17195.1456436664.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\kinfolkessentialissue_1024x1024__22507.1456436715.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\livingwithplants_grande__26452.1456436666.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\loading.svg" />
-    <Content Include="New folder\Cornerstone Demo_files\milkandcreamer1_1024x1024__69117.1456436712.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\naturalcanvascart2_1024x1024__92347.1456436682.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\ofsheroillustration_wide.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\openhousevol3_1024x1024__59692.1456436667.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\plants__69660.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\smithjournal1_1024x1024__85081.1456436718.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\SshapedScrubBrush2_1024x1024__94308.1456436686.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\theme-b6bb87c0-c601-0136-b53a-63846fc3d82a.css" />
-    <Content Include="New folder\Cornerstone Demo_files\theme-bundle.chunk.18.js.tải xuống" />
-    <Content Include="New folder\Cornerstone Demo_files\theme-bundle.main.js.tải xuống" />
-    <Content Include="New folder\Cornerstone Demo_files\tieredbasket_1024x1024__81717.1456436704.jpg" />
-    <Content Include="New folder\Cornerstone Demo_files\utilitybucket1_1024x1024__78563.1456436713.jpg" />
-    <Content Include="New folder\new-2.html" />
     <Content Include="Register.php" />
   </ItemGroup>
 </Project>
