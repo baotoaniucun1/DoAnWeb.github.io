@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
 
@@ -13,7 +13,9 @@
 <body>
     <div class="container">
         <?php
+        session_start();
         include 'modules/header.php';
+
         ?>
         <div class="container register">
                 <div class="row">
