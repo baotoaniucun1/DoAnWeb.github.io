@@ -55,9 +55,7 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\holder.min.js" />
     <Content Include="assets\js\jquery-3.2.1.slim.min.js" />
-    <Content Include="assets\js\jquery-3.3.1.min.js" />
     <Content Include="assets\js\popper.min.js" />
-    <Content Include="assets\js\theme-bundle.main.js" />
     <Content Include="index.php" />
     <Content Include="modules\content.php" />
     <Content Include="Cornerstone Demo_files\ablebrewingsystem4_1024x1024__07155.1456436672.jpg" />

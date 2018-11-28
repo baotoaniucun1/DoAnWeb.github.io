@@ -1,4 +1,4 @@
-﻿<?php
+<?php
   session_start();
 
 ?>
@@ -37,9 +37,9 @@
     <script>
         window.jQuery || document.write('<script src="assets/js//jquery-slim.min.js"><\/script>')
     </script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/holder.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/holder.min.js"></script>
     <script>
         Holder.addTheme('thumb', {
             bg: '#55595c',
