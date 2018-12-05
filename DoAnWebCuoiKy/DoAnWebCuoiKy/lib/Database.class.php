@@ -1,6 +1,6 @@
 <?php
-	
 class Database{
+	private $host = "127.0.0.1";
 	private $server = "localhost";
 	private $username = "root";
 	private $password = "";
@@ -10,7 +10,7 @@ class Database{
 	
 	public function connect()
 	{
-		$this->conn = mysqli_connect($this->server, $this->username, $this->password);
+		$this->conn = mysqli_connect($this->host, $this->username, $this->password);
 		mysqli_select_db($this->conn, $this->db_name);
 	}
 	public function query($sql)
