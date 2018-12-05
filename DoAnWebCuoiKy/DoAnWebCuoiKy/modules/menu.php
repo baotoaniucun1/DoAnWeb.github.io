@@ -1,4 +1,4 @@
-﻿
+
 <div class="col-12" style="width: 100%; display: grid;">
 
     <div class="navbar">

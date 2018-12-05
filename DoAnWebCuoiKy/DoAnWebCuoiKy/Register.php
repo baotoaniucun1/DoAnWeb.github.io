@@ -44,18 +44,7 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">

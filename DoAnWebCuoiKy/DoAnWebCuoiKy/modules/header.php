@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // trường hợp đăng nhập bằng member
 if(isset($_SESSION['username']) && $_SESSION['role'] == 0)

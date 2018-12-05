@@ -1,46 +1,43 @@
 
 <?php
 	session_start();
+	
+	require_once 'lib/db.php';
 
-	require_once 'lib/Database.class.php';
-	require_once 'config.php';
-
-	$database = new Database();
-    $database->connect();
-
-  	$errorLogin = '';
-      $username = $password = "";
-
+    $errorLogin = '';
+    $username = $password = "";
+    
     if(!empty($_POST))
-	{
-		$username = trim($_POST['txtUserName']);
-		$password =  $_POST['txtPassword'];
+    {
+        $username = $_POST['txtUserName'];
+        $password =  $_POST['txtPassword'];
         $enc_password = md5($password);
-
-        $password;//md5($password);
-		$query_login = "SELECT * FROM taikhoan WHERE TenDangNhap = '$username' AND MatKhau = '$enc_password'";
-		$result = $database->query($query_login);
-		$info_account = $database->singleRecord();
-
-		$count = mysqli_num_rows($result);
-		if($count == 1)
-		{	$role = $info_account['MaLoaiTaiKhoan'];
-			$_SESSION['username'] = $username;
+    
+       
+        $query_login = "SELECT * FROM taikhoan WHERE TenDangNhap = '$username' AND MatKhau = '$enc_password'";
+    
+        $rs = load($query_login);
+       
+    
+       
+        if($row = $rs->fetch_assoc())
+        {
+            $role = $row['MaLoaiTaiKhoan'];
+            $_SESSION['username'] = $username;  
             $_SESSION['role'] = $role;
-            $TenHienThi = $info_account['TenHienThi'];
-			$_SESSION['TenHienThi'] = $TenHienThi;
-			header('Location: index.php');
-		}
-		else{
-			$errorLogin = '<b class="error" style="font-size:19px; padding-top:20px">Tên đăng nhập hoặc mật khẩu không chính xác! </b>';
-		}
-	}
-	else{
-		$errorLogin = '';
-	}
-
-
-
+            $TenHienThi = $row['TenHienThi'];
+            $_SESSION['TenHienThi'] = $TenHienThi;
+            header('Location: index.php');
+        }
+        else{
+            $errorLogin = '<b class="error" style="font-size:19px; padding-top:20px">Tên đăng nhập hoặc mật khẩu không chính xác! </b>';
+        }
+    }
+    else{
+        $errorLogin = '';
+    }
+    
+    
 ?>
 
 
@@ -61,7 +58,7 @@
         <?php
         include 'modules/header.php';
         ?>
-        
+
 
         <div class="container login-container">
             <div class="row">
@@ -85,9 +82,23 @@
                         <div class="form-group" style="text-align:center">
                             <a href="register.php" class="ForgetPwd" value="Register">Register</a>
                         </div>
+                        <div style="text-align:center; color:yellow">
+                            <?php
+
+                            if(!isset($_SESSION['username']))
+                            {
+                                echo $errorLogin;
+                            }
+                            ?>
+                        </div>
+
+
                     </form>
 
                 </div>
+
+
+
                 <div class="col-md-3"></div>
             </div>
         </div>

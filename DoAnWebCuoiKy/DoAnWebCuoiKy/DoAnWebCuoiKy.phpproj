@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>Login.php</SpecificPageValue>
+    <SpecificPageValue>details.php</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -28,11 +28,15 @@
     <Compile Include="Admin\Order.php" />
     <Compile Include="Admin\Product.php" />
     <Compile Include="Admin\Review.php" />
+    <Compile Include="Class1.php" />
+    <Compile Include="details.php" />
     <Compile Include="lib\Class.validate.php" />
     <Compile Include="lib\Database.class.php" />
+    <Compile Include="lib\db.php" />
     <Compile Include="Logout.php" />
     <Compile Include="modules\include.php" />
     <Compile Include="modules\menu.php" />
+    <Compile Include="product.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
@@ -87,6 +91,7 @@
     <Content Include="assets\css\.DS_Store" />
     <Content Include="assets\css\blog.css" />
     <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\bootstrap.min1.css" />
     <Content Include="assets\css\Class1.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\theme.css" />
@@ -98,6 +103,7 @@
     <Content Include="assets\img\logowhite.png" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\holder.min.js" />
+    <Content Include="assets\js\jquery-1.11.1.min.js" />
     <Content Include="assets\js\jquery-3.2.1.slim.min.js" />
     <Content Include="assets\js\jquery-3.3.1.min.js" />
     <Content Include="assets\js\popper.min.js" />
