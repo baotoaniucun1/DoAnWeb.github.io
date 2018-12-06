@@ -21,13 +21,13 @@ session_start();
        include 'modules/header.php';
         include 'modules/menu.php';
        include 'modules/content.php';
-        include 'modules/footer.php';
+      
         ?>
 
        
 
     </div>
-
+<?php   include 'modules/footer.php'; ?>
 
 
     <script src="assets/js/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>

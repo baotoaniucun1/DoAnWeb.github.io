@@ -50,11 +50,11 @@
     <div class="container">
         <?php
         include 'modules/header.php';
-        
+        include 'modules/menu.php';
         ?>
 
 
-        <div class="container">
+       
       
             <div class="row" style="padding-top:40px">
                 <div class="col-4 my-auto">
@@ -164,14 +164,15 @@
 
             </div>
                
-        </div>
+        
 
 
 
-        <?php
+       
+    </div>
+    <?php
         include 'modules/footer.php';
         ?>
-    </div>
     <script src="/assets/js/theme-bundle.main.js"></script>
    
 

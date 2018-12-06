@@ -49,3 +49,293 @@ else{
 
 
  <?php if($flag ==0)  echo $kichhoatactive?> 
+
+
+
+ $tenloai = "Phân Khúc Cao Cấp";
+                        switch($i)
+                        {
+                            case 1:
+                                $mahang = 1;
+                                
+                                $giatien = "sp.GiaSanPham < 4000000";
+
+                                break; 
+                               
+                            // case 2:
+                            //     $masp ; 
+                            //     $tensp;
+                            //     $gia;
+                            // case 3:
+                            //     $masp ; 
+                            //     $tensp;
+                            //     $gia;
+                            // case 4:
+                            //     $masp ; 
+                            //     $tensp;
+                            //     $gia;
+                            // case 5:
+                            //     $masp ; 
+                            //     $tensp;
+                            //     $gia;
+    
+                            
+    
+    
+                        }
+                   
+
+                         $query = "SELECT sp.TenSanPham, hsx.LogoURL FROM sanpham as sp , hangsanxuat as hsx
+                        where sp.MaHangSanXuat = hsx.MaHangSanXuat and hsx.MaHangSanXuat = $mahang and $giatien LIMIT 5";
+
+                        $rs = load($query);
+
+
+
+                              <div class="column">
+                
+                <a href="#"><img src="" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+            <div class="column">
+                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+            <div class="column">
+                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+            <div class="column">
+                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+            <div class="column">
+                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+            <div class="column">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="dropdown1">
+        <button class="dropbtn">
+            <a href="#"> Phân Khúc Cận Cao Cấp</a>
+
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <div class="column">
+                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="dropdown1">
+        <button class="dropbtn">
+            <a href="#"> Phân Khúc Tầm Trung </a>
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <div class="column">
+                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="dropdown1">
+        <button class="dropbtn">
+            <a href="#"> Phân Khúc Giá Rẻ </a>
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <div class="column">
+                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
+
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+
+            <div class="column">
+            </div>
+
+        </div>
+    </div>
+

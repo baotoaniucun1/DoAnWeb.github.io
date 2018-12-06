@@ -97,10 +97,14 @@
                                     <h5>
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style=" text-align: center;">
+                                        <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
+                                            <button class="btn btn-sm btn-giohang" type="submit">
 
-                                        <button class="btn btn-sm btn-giohang" type="button">
-                                            <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-                                        </button>
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
+
                                     </div>
 
 
@@ -197,9 +201,14 @@
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style=" text-align: center;">
 
-                                        <button class="btn btn-sm btn-giohang" type="button">
-                                            <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-                                        </button>
+                                           <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
+                                            <button class="btn btn-sm btn-giohang" type="submit">
+
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -293,9 +302,14 @@
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style=" text-align: center;">
 
-                                        <button class="btn btn-sm btn-giohang" type="button">
-                                            <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-                                        </button>
+                                         <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
+                                            <button class="btn btn-sm btn-giohang" type="submit">
+
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>

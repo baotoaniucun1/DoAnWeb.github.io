@@ -75,10 +75,10 @@
 
             </div>
     
-        <?php
+    </div>
+    <?php
         include 'modules/footer.php';
         ?>
-    </div>
     <script src="/assets/js/theme-bundle.main.js"></script>
 </body>
 

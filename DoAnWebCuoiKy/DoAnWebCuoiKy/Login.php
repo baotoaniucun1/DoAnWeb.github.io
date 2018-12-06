@@ -1,7 +1,10 @@
 
 <?php
 	session_start();
-	
+	if (isset($_SESSION["dang_nhap_chua"])) {
+       
+        header('Location: index.php');
+	}
 	require_once 'lib/db.php';
 
     $errorLogin = '';
@@ -26,6 +29,7 @@
             $_SESSION['username'] = $username;  
             $_SESSION['role'] = $role;
             $TenHienThi = $row['TenHienThi'];
+            $_SESSION["dang_nhap_chua"] = 1;
             $_SESSION['TenHienThi'] = $TenHienThi;
             header('Location: index.php');
         }
@@ -102,10 +106,11 @@
                 <div class="col-md-3"></div>
             </div>
         </div>
-        <?php
+      
+    </div>
+    <?php
         include 'modules/footer.php';
         ?>
-    </div>
     <script src="/assets/js/theme-bundle.main.js"></script>
 </body>
 

@@ -3,10 +3,13 @@
 // trường hợp đăng nhập bằng member
 if(isset($_SESSION['username']) && $_SESSION['role'] == 0)
 {
-    $card = '<a class="btn btn-sm btn-outline-secondary ml-2" href="#">Đon Hàng Của Tôi</a>';
+    $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="#">
+    <span class="badge badge-danger">11</span>
+<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+   </a>';
     $register = '';
     $member = '<div class="dropdown ml-2">
-                    <button class="btn btn-sm btn-outline-secondary"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -20,9 +23,12 @@ if(isset($_SESSION['username']) && $_SESSION['role'] == 0)
 }
 // trường hợp đăng nhập bằng admin
 elseif(isset($_SESSION['username']) && $_SESSION['role'] == 1) {
-    $card = '<a class="btn btn-sm btn-outline-secondary ml-2" href="#">Đon Hàng Của Tôi</a>';
+    $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="#">
+    <span class="badge badge-danger">11</span>
+<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+   </a>';
     $member = '<div class="dropdown ml-2">
-                    <button class="btn btn-sm btn-outline-secondary"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -33,16 +39,16 @@ elseif(isset($_SESSION['username']) && $_SESSION['role'] == 1) {
                         <a class="dropdown-item" href="Logout.php">Đăng Xuất</a>
                     </div>
                 </div>';
-    $register = '<a class="btn btn-sm btn-outline-secondary ml-2" href="Admin/index.php?id='.$_SESSION['username'].'"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
+    $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php?id='.$_SESSION['username'].'"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
 }
 // trường hợp chưa đăng nhập
 else {
-    $card = '<a class="btn btn-sm btn-outline-secondary ml-2 btn-5" href="#"> Đon Hàng Của Tôi
+    $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="#">
                                          <span class="badge badge-danger">11</span>
             <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
                                         </a>';
-    $register = '<a class="btn btn-sm btn-outline-secondary ml-2" href="register.php">Đăng Ký</a>';
-    $member = ' <a class="btn btn-sm btn-outline-secondary ml-2" href="login.php">Đăng Nhập</a>';
+    $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="register.php">Đăng Ký</a>';
+    $member = ' <a class="btn btn-sm btn-giohang1 ml-2" href="login.php">Đăng Nhập</a>';
 }
 
 
