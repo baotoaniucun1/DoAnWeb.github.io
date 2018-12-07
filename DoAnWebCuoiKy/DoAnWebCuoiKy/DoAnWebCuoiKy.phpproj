@@ -29,6 +29,7 @@
     <Compile Include="Admin\Product.php" />
     <Compile Include="Admin\Review.php" />
     <Compile Include="Class1.php" />
+    <Compile Include="Class2.php" />
     <Compile Include="details.php" />
     <Compile Include="lib\Class.validate.php" />
     <Compile Include="lib\Database.class.php" />

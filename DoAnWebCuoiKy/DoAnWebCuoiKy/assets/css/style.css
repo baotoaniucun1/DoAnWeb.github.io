@@ -780,3 +780,8 @@ border-color: #f6bb4d;
 .blog-header-logo:hover {
   text-decoration: none;
 }
+
+button
+{
+  border: none !important;
+}

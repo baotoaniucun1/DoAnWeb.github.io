@@ -1,45 +1,56 @@
 
   <?php
-  session_start();
-      require_once "lib/db.php";
-      
-        if(!isset($_GET["id"]))
-        {  
-            header('Location: index.php');
-        }
-        $masp = $_GET["id"];
-        
-        $query = "SELECT mt.*,sp.HinhURL,sp.TenSanPham,sp.GiaSanPham FROM sanpham as sp , motasanpham as mt
+  
+  require_once "lib/db.php";
+  
+  if(!isset($_GET["idsanpham"]))
+  {  
+      header('Location: index.php');
+  }
+  $masp = $_GET["idsanpham"];
+  
+  $query = "SELECT mt.*,sp.HinhURL,sp.TenSanPham,sp.GiaSanPham,sp.MoTa,sp.MaLoaiSanPham,sp.MaHangSanXuat   FROM sanpham as sp , motasanpham as mt
                     where sp.MaSanPham = mt.MaSanPham and sp.MaSanPham = $masp";
-       
-         $rs = load($query);
-        
-             while($row = $rs->fetch_assoc())
-                {
-                   $hinh = $row['HinhURL']; 
-                  $tensp= $row['TenSanPham']; 
-                   $gia= number_format($row['GiaSanPham']);
-                   $manhinh = $row['ManHinh']; 
-                    $hedieuhanh= $row['HeDieuHanh'];
-                   $camerasau =  $row['CameraSau']; 
-                     $cameratruoc = $row['CameraTruoc']; 
-                     $cpu = $row['CPU']; 
-                    $ram=   $row['RAM']; 
-                     $bonhotrong=   $row['BoNhoTrong']; 
-                      $thesim =  $row['TheSim'];
-                        $dungluongpin = $row['DungLuongPin']; 
-                        
+  
+  $rs = load($query);
+  if($rs->num_rows <=0)
+  {
+      header('Location: index.php');
+  }
+  while($row = $rs->fetch_assoc())
+  {
+      $hinh = $row['HinhURL']; 
+      $tensp= $row['TenSanPham']; 
+      $gia= number_format($row['GiaSanPham']);
+      $manhinh = $row['ManHinh']; 
+      $hedieuhanh= $row['HeDieuHanh'];
+      $camerasau =  $row['CameraSau']; 
+      $cameratruoc = $row['CameraTruoc']; 
+      $cpu = $row['CPU']; 
+      $ram=   $row['RAM']; 
+      $bonhotrong=   $row['BoNhoTrong']; 
+      $thesim =  $row['TheSim'];
+      $dungluongpin = $row['DungLuongPin']; 
+      $mota = $row['MoTa']; 
+      $loaisp =  $row['MaLoaiSanPham'];
+      $mahang =  $row['MaHangSanXuat']; 
 
-                }
-?>
+  }
+
+  
+  
+  
+
+
+  ?>
 
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
 <?php
-    include 'modules/include.php';
-    ?>
+include 'modules/include.php';
+?>
    
     <title><?php echo  $tensp ?></title>
     
@@ -77,7 +88,7 @@
                         <p style="font-size:14px; color:blue;">Xuất Xứ: │Loại Sản phẩm:│Nhà Sản Xuất: </P>
                     </p>
                     <p style="font-size:15px;">
-                        <clr></clr>
+                    <?php echo  $mota ?>
 
                     </p>
                     <hr class="border">
@@ -105,7 +116,13 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <a class="btn btn-sm btn-outline-secondary" href="#">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span></a>
+                            <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST" style="padding-top:20px;padding-bottom: 20px;">
+                                            <button class="btn btn-giohang" type="submit">
+
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
                         </div>
 
 
@@ -166,16 +183,223 @@
                
         
 
+<div class="row">
+    <div class="col-md-12 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+            <span style="color:red">
+                
+                <span style="font-size:30px">5 Sản phẩm </span>
+            </span>cùng hãng
+        </h3>
+
+        <div id="Top5CungHang" class="carousel slide" data-ride="carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner ">
+                <?php 
+                
+                $i = 0;
+                $limit = 4;
+                $flag = 0;
+                $kichhoatactive = 'active';
+                while ($i<6) 
+                {
+                    if($i == 4)
+                    {
+                        $limit = 1;
+                    }
+                    $query1 = "SELECT * FROM sanpham as sp  where  sp.MaHangSanXuat = $mahang  order by rand() LIMIT $limit  OFFSET $i ";
+                    
+                    $rs1 = load($query1);
+                    
+                ?>
+
+                <div class="item  <?php if($flag ==0)  echo $kichhoatactive?>  carousel-item">
+                    <div class="row">
+                        <?php 
+                    while($row1 = $rs1->fetch_assoc())
+                    {
+                        ?>
+
+                        <div class="col-3 col-md-3 mb-4">
+                            <div class="card h-1100">
+                                <div class="preview_image">
+                                    <a href="details.php?idsanpham=<?php echo $row1['MaSanPham']; ?>">
+                                        <img class="card-img-top" src="<?php echo $row1['HinhURL']; ?>" alt="" />
+                                    </a>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <h6 class="card-title">
+                                        <a href="details.php?idsanpham=<?php echo $row1['MaSanPham']; ?>">
+                                            <?php echo $row1['TenSanPham']; ?></a>
+                                    </h6>
+
+                                    <h5><b><?php echo number_format($row1['GiaSanPham']); ?> ₫</b></h5>
+                                    <div style=" text-align: center;">
+                                        <form action="#?idgiohang=<?php echo $row1['MaSanPham']; ?>" method="POST">
+                                            <button class="btn btn-giohang" type="submit">
+
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                    <?php $i = $i + 4; 
+                          $flag = $flag +1;
+                    ?>
+                </div>
+                <?php } ?>
+
+
+
+            </div>
+
+
+            <div style="text-align: center;padding-bottom:10px">
+                <a href="#Top5CungHang" data-slide="prev">
+                    <button class="btn btn-secondary leftLst"> <b>
+                            <</b> </button> </a> <a href="#Top5CungHang" data-slide="next">
+                                <button class="btn btn-secondary rightLst"><b>></b></button>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+            <span style="color:red">
+                
+                <span style="font-size:30px">5 Sản phẩm </span>
+            </span>cùng loại phân khúc
+        </h3>
+
+        <div id="Top5CungLoai" class="carousel slide" data-ride="carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner ">
+                <?php 
+                
+                $i = 0;
+                $limit = 4;
+                $flag = 0;
+                $kichhoatactive = 'active';
+                while ($i<6) 
+                {
+                    if($i == 4)
+                    {
+                        $limit = 1;
+                    }
+                    $query2 = "SELECT * FROM sanpham as sp  where  sp.MaLoaiSanPham = $loaisp  order by rand() LIMIT $limit  OFFSET $i ";
+                    
+                    $rs2 = load($query2);
+                    
+                ?>
+
+                <div class="item  <?php if($flag ==0)  echo $kichhoatactive?>  carousel-item">
+                    <div class="row">
+                        <?php 
+                    while($row2 = $rs2->fetch_assoc())
+                    {
+                        ?>
+
+                        <div class="col-3 col-md-3 mb-4">
+                            <div class="card h-1100">
+                                <div class="preview_image">
+                                    <a href="details.php?idsanpham=<?php echo $row2['MaSanPham']; ?>">
+                                        <img class="card-img-top" src="<?php echo $row2['HinhURL']; ?>" alt="" />
+                                    </a>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <h6 class="card-title">
+                                        <a href="details.php?idsanpham=<?php echo $row2['MaSanPham']; ?>">
+                                            <?php echo $row2['TenSanPham']; ?></a>
+                                    </h6>
+
+                                    <h5><b><?php echo number_format($row2['GiaSanPham']); ?> ₫</b></h5>
+                                    <div style=" text-align: center;">
+                                        <form action="#?idgiohang=<?php echo $row2['MaSanPham']; ?>" method="POST">
+                                            <button class="btn btn-giohang" type="submit">
+
+                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+
+                                            </button>
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                    <?php $i = $i + 4; 
+                          $flag = $flag +1;
+                    ?>
+                </div>
+                <?php } ?>
+
+
+
+            </div>
+
+
+            <div style="text-align: center;padding-bottom:10px">
+                <a href="#Top5CungLoai" data-slide="prev">
+                    <button class="btn btn-secondary leftLst"> <b>
+                            <</b> </button> </a> <a href="#Top5CungLoai" data-slide="next">
+                                <button class="btn btn-secondary rightLst"><b>></b></button>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
 
 
        
     </div>
     <?php
-        include 'modules/footer.php';
-        ?>
+    include 'modules/footer.php';
+    ?>
     <script src="/assets/js/theme-bundle.main.js"></script>
    
+    <script src="assets/js/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+   
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/holder.min.js"></script>
 
 </body>
 
 </html>
+
