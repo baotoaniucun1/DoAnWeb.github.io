@@ -9,8 +9,9 @@
   }
   $masp = $_GET["idsanpham"];
   
-  $query = "SELECT mt.*,sp.HinhURL,sp.TenSanPham,sp.GiaSanPham,sp.MoTa,sp.MaLoaiSanPham,sp.MaHangSanXuat   FROM sanpham as sp , motasanpham as mt
-                    where sp.MaSanPham = mt.MaSanPham and sp.MaSanPham = $masp";
+  $query = "SELECT mt.*,sp.*, l.*,h.*   FROM sanpham as sp , motasanpham as mt,hangsanxuat as h, loaisanpham as l
+  where sp.MaSanPham = mt.MaSanPham  and  sp.MaLoaiSanPham = l.MaLoaiSanPham and sp.MaHangSanXuat = h.MaHangSanXuat
+                      and sp.MaSanPham = $masp ";
   
   $rs = load($query);
   if($rs->num_rows <=0)
@@ -22,6 +23,10 @@
       $hinh = $row['HinhURL']; 
       $tensp= $row['TenSanPham']; 
       $gia= number_format($row['GiaSanPham']);
+
+        $luongban = $row['SoLuongBan']; 
+        $luotxem = $row['SoLuotXem']; 
+
       $manhinh = $row['ManHinh']; 
       $hedieuhanh= $row['HeDieuHanh'];
       $camerasau =  $row['CameraSau']; 
@@ -34,7 +39,10 @@
       $mota = $row['MoTa']; 
       $loaisp =  $row['MaLoaiSanPham'];
       $mahang =  $row['MaHangSanXuat']; 
-
+      
+      $tenloaisp =  $row['TenLoaiSanPham'];
+      $tenhangsx =  $row['TenHangSanXuat']; 
+        $xuatxu = $row['XuatXu'];
   }
 
   
@@ -84,8 +92,24 @@ include 'modules/include.php';
                     <?php echo  $tensp ?>
                     </h3>
                     <p>
-                        <p>02 Lượt mua │ Lượt xem</p>
-                        <p style="font-size:14px; color:blue;">Xuất Xứ: │Loại Sản phẩm:│Nhà Sản Xuất: </P>
+                    
+                        <h6>  <?php echo  $luongban ?>: Lượt mua │ <?php echo  $luotxem ?>: Lượt xem</h6>
+
+                        <b style="font-size:14px; color:red;">
+                        Xuất Xứ: </b> 
+                        <b style="font-size:14px; color:blue;">
+                        <?php echo  $xuatxu ?> |</b> 
+
+                        <b style="font-size:14px; color:red;">
+                        Loại Sản phẩm: </b> 
+                        <b style="font-size:14px; color:blue;">
+                        <?php echo  $tenloaisp ?> |</b> 
+
+                        <b style="font-size:14px; color:red;">
+                        Nhà Sản Xuất: </b> 
+                        <b style="font-size:14px; color:blue;">
+                        <?php echo  $tenhangsx ?>
+                        </b>
                     </p>
                     <p style="font-size:15px;">
                     <?php echo  $mota ?>
