@@ -81,7 +81,7 @@
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
                                 <div class="preview_image">
-                                    <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                    <a href="details.php?idsanpham=<?php echo $row['MaSanPham'];?>">
                                         <img class="card-img-top" src="<?php echo $row['HinhURL']; ?>" alt="" />
                                     </a>
 
@@ -90,15 +90,14 @@
                                 <div class="card-body">
 
                                     <h6 class="card-title">
-                                        <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                        <a href="details.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                             <?php echo $row['TenSanPham']; ?></a>
                                     </h6>
 
-                                    <h5>
-                                        <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
+                                    <h5><b><?php echo number_format($row['GiaSanPham']); ?> ₫</b></h5>
                                     <div style=" text-align: center;">
                                         <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-sm btn-giohang" type="submit">
+                                            <button class="btn btn-giohang" type="submit">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
@@ -185,7 +184,7 @@
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
                                 <div class="preview_image">
-                                    <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                    <a href="details.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                         <img class="card-img-top" src="<?php echo $row['HinhURL']; ?>" alt="" />
                                     </a>
 
@@ -193,7 +192,7 @@
                                 <div class="card-body">
 
                                     <h6 class="card-title">
-                                        <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                        <a href="details.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                             <?php echo $row['TenSanPham']; ?></a>
                                     </h6>
 
@@ -286,7 +285,7 @@
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
                                 <div class="preview_image">
-                                    <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                    <a href="details.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                         <img class="card-img-top" src="<?php echo $row['HinhURL']; ?>" alt="" />
                                     </a>
 
@@ -294,7 +293,7 @@
                                 <div class="card-body">
 
                                     <h6 class="card-title">
-                                        <a href="details.php?id=<?php echo $row['MaSanPham']; ?>">
+                                        <a href="details.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                             <?php echo $row['TenSanPham']; ?></a>
                                     </h6>
 

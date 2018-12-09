@@ -1,32 +1,33 @@
 
 <?php
 	session_start();
+   
 	if (isset($_SESSION["dang_nhap_chua"])) {
-       
+
         header('Location: index.php');
 	}
 	require_once 'lib/db.php';
 
     $errorLogin = '';
     $username = $password = "";
-    
+
     if(!empty($_POST))
     {
         $username = $_POST['txtUserName'];
         $password =  $_POST['txtPassword'];
         $enc_password = md5($password);
-    
-       
+
+
         $query_login = "SELECT * FROM taikhoan WHERE TenDangNhap = '$username' AND MatKhau = '$enc_password'";
-    
+
         $rs = load($query_login);
-       
-    
-       
+
+
+
         if($row = $rs->fetch_assoc())
         {
             $role = $row['MaLoaiTaiKhoan'];
-            $_SESSION['username'] = $username;  
+            $_SESSION['username'] = $username;
             $_SESSION['role'] = $role;
             $TenHienThi = $row['TenHienThi'];
             $_SESSION["dang_nhap_chua"] = 1;
@@ -40,8 +41,8 @@
     else{
         $errorLogin = '';
     }
-    
-    
+
+
 ?>
 
 

@@ -8,7 +8,7 @@
 <link href="assets/css/blog.css" rel="stylesheet">
  <script src="assets/js/jquery-1.11.1.min.js"></script>
 <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″/>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <?php
 	require_once "lib/db.php";
