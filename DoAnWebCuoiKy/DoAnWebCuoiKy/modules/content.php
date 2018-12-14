@@ -168,9 +168,9 @@
                             $limit = 2;
                         }
                        
-                        $query_Top10New = "SELECT * FROM sanpham ORDER BY SoLuongBan desc LIMIT $limit OFFSET $i";
+                        $query_Top10Sel = "SELECT * FROM sanpham ORDER BY SoLuongBan desc LIMIT $limit OFFSET $i";
     
-                        $rs = load($query_Top10New);
+                        $rs = load($query_Top10Sel);
                        
                     ?>
 
@@ -269,15 +269,16 @@
                             $limit = 2;
                         }
                        
-                        $query_Top10New = "SELECT * FROM sanpham ORDER BY SoLuocXem desc LIMIT $limit OFFSET $i";
+                        $query_Top10See = "SELECT * FROM sanpham ORDER BY SoLuotXem desc LIMIT $limit OFFSET $i";
     
-                        $rs = load($query_Top10New);
+                        $rs = load($query_Top10See);
                        
                     ?>
 
                 <div class="item <?php if($flag ==0)  echo $kichhoatactive?> carousel-item">
                     <div class="row">
                         <?php 
+
                             while($row = $rs->fetch_assoc())
                             {
                             ?>
@@ -299,7 +300,7 @@
 
                                     <h5>
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
-                                    <div style=" text-align: center;">
+                                    <div style="text-align: center;">
 
                                          <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
                                             <button class="btn btn-sm btn-giohang" type="submit">

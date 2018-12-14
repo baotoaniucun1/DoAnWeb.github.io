@@ -11,7 +11,7 @@ function load($sql) {
 	    die("FAILED");
 	}
 
-	
+
 	$cn->query("set names 'utf8'");
 	$rs = $cn->query($sql);
 	return $rs;
@@ -25,5 +25,6 @@ function write($sql) {
 
 	$cn->query("set names 'utf8'");
 	$cn->query($sql);
-	
+
+    return $cn->insert_id;
 }

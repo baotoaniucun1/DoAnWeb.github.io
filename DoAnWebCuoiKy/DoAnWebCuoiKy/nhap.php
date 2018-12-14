@@ -1,342 +1,169 @@
 <?php
+
 session_start();
+require_once 'lib/db.php';
+if(!isset($_GET["user"]))
+{  
+    header('Location: index.php');
+}
+$user = $_GET["user"];
 
-require_once 'lib/Database.class.php';
-require_once 'config.php';
 
-$database = new Database();
-$database->connect();
 
-$errorLogin = '';
-$username = $password = "";
+if (!isset($_SESSION["dang_nhap_chua"])) {
 
-if(!empty($_POST))
+    header('Location: index.php');
+}
+
+
+$profile = "SELECT * FROM taikhoan WHERE TenDangNhap = '$user'";
+
+$rsprofile = load($profile);
+while($rowpro = $rsprofile->fetch_assoc())
 {
-    $username = trim($_POST['txtUserName']);
-    $password =  $_POST['txtPassword'];
-    $enc_password = md5($password);
-
-    $password;//md5($password);
-    $query_login = "SELECT * FROM taikhoan WHERE TenDangNhap = '$username' AND MatKhau = '$enc_password'";
-
-    $database->query("set names 'utf8'");
-    $result = $database->query($query_login);
-    $info_account = $database->singleRecord();
-
-    $count = mysqli_num_rows($result);
-    if($count == 1)
-    {
-        $role = $info_account['MaLoaiTaiKhoan'];
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $role;
-        $TenHienThi = $info_account['TenHienThi'];
-        $_SESSION['TenHienThi'] = $TenHienThi;
-        header('Location: index.php');
-    }
-    else{
-        $errorLogin = '<b class="error" style="font-size:19px; padding-top:20px">Tên đăng nhập hoặc mật khẩu không chính xác! </b>';
-    }
-}
-else{
-    $errorLogin = '';
+    $linkanh = $rowpro['HinhDaiDien'];
+    $tenhienthi =  $rowpro['TenHienThi'];
+    $diachi = $rowpro['DiaChi'];
+    $sdt  =  $rowpro['SoDienThoai'];
+    $email  =  $rowpro['Email'];
 }
 
+
+if(isset($_POST["btnSaveProfile"]))
+{
+    $tenhienthi =  $_POST["tennguoidung"];
+    $diachi = $_POST["diachi"];
+    $sdt  =  $_POST["sodienthoai"];
+    $email  =  $_POST["email"];
+
+    $destination = null;
+    $f = $_FILES["file"];
+	if ($f["error"] > 0) {
+
+	} else {
+        if(!file_exists("assets/img/ava/$user"))
+        {
+            mkdir("assets/img/ava/$user");
+        }
+		
+
+		
+		$tmp_name = $f["tmp_name"];
+		$name = $f["name"];
+		$destination = "assets/img/ava/$user/";
+        $destination=$destination.$_FILES["file"]["name"];
+
+		move_uploaded_file($tmp_name, $destination);
+	}
+    
+    $updateprofile = "update taikhoan set TenHienThi = '$tenhienthi', DiaChi = '$diachi', SoDienThoai = '$sdt', Email = '$email', HinhDaiDien = '$destination' where TenDangNhap = '$user' ";
+
+    write($updateprofile);
+
+    // echo "<meta http-equiv='refresh' content='0.1'>";
+}
 
 
 ?>
 
 
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <title>Thông Tin Cá Nhân</title>
+    <?php
+    include 'modules/include.php';
+    ?>
+
+</head>
+
+<body>
+    <div class="container">
+        <?php
+        include 'modules/header.php';
+        include 'modules/menu.php';
+        ?>
 
 
- <?php if($flag ==0)  echo $kichhoatactive?> 
-
-
-
- $tenloai = "Phân Khúc Cao Cấp";
-                        switch($i)
-                        {
-                            case 1:
-                                $mahang = 1;
-                                
-                                $giatien = "sp.GiaSanPham < 4000000";
-
-                                break; 
-                               
-                            // case 2:
-                            //     $masp ; 
-                            //     $tensp;
-                            //     $gia;
-                            // case 3:
-                            //     $masp ; 
-                            //     $tensp;
-                            //     $gia;
-                            // case 4:
-                            //     $masp ; 
-                            //     $tensp;
-                            //     $gia;
-                            // case 5:
-                            //     $masp ; 
-                            //     $tensp;
-                            //     $gia;
-    
-                            
-    
-    
-                        }
-                   
-
-                         $query = "SELECT sp.TenSanPham, hsx.LogoURL FROM sanpham as sp , hangsanxuat as hsx
-                        where sp.MaHangSanXuat = hsx.MaHangSanXuat and hsx.MaHangSanXuat = $mahang and $giatien LIMIT 5";
-
-                        $rs = load($query);
-
-
-
-                              <div class="column">
-                
-                <a href="#"><img src="" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
+    <div class="row">
+     
+        <div class="col">
+            <h1 style="color:red; margin-top:20px;margin-bottom:20px;">Thông Tin Cá Nhân</h1>
+        </div>
+      
+    </div>
+  <form id="edit" method="POST" action="" enctype="multipart/form-data">
+    <div class="row">
+         <div class="col-sm-1"> </div>
+        <div class="col-sm-3">
+          			
+            <div class="text-center">
+               
+               <img id="blah" for="file" src="<?php echo $linkanh ?>" class="avatar img-circle img-thumbnail" alt="avatar">
+               
+               
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="imgInp" name="file">
+								</div>
+                <!--<input type="file" class="text-center center-block file-upload">-->
             </div>
-            <div class="column">
-                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
+            </hr><br>
 
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-            <div class="column">
-                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-            <div class="column">
-                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-            <div class="column">
-                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-            <div class="column">
-
-            </div>
 
         </div>
+        <!--/col-3-->
+        <div class="col-sm-8">
+            
+            <div class="tab-content" id="myTabContent">
+               
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row register-form">
+                                  
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input  id="tennguoidung" name="tennguoidung" type="text" class="form-control" placeholder="Họ Tên *" value="<?php  echo $tenhienthi ?>"  />
+                                        </div>
+                                        <div class="form-group">
+                                            <input  id="diachi" name="diachi" type="text" class="form-control" placeholder="Địa Chỉ *" value="<?php  echo $diachi; ?>" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input  id="sodienthoai" name="sodienthoai" type="text" class="form-control" placeholder="Số Di Động *" value="<?php  echo $sdt; ?>" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input  id="email" name="email" type="text" class="form-control"  placeholder="Email *" value="<?php  echo $email; ?>" />
+                                        </div>
+                                        <div >
+                                       <input type="submit" class="btnSaveProfile text-center" name="btnSaveProfile"  id="btnSaveProfile" value="Lưu Thông Tin"/>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+ 
+                                    </div>
+
+                                     
+                                </div>
+            </div>
+       </div>
+               
+
+    </div>
+   
+
+    </div>
     </div>
 
-    <div class="dropdown1">
-        <button class="dropbtn">
-            <a href="#"> Phân Khúc Cận Cao Cấp</a>
-
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <div class="column">
-                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-            </div>
-
-        </div>
-    </div>
+    </form>
+    <?php
+    include 'modules/footer.php';
+    ?>
+    <script src="/assets/js/theme-bundle.main.js"></script>
+   	<script src="assets/js/upload.js"></script>
 
 
-    <div class="dropdown1">
-        <button class="dropbtn">
-            <a href="#"> Phân Khúc Tầm Trung </a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <div class="column">
-                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
+   
+</body>
 
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <div class="dropdown1">
-        <button class="dropbtn">
-            <a href="#"> Phân Khúc Giá Rẻ </a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <div class="column">
-                <a href="#"><img src="assets/img/iPhone.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/SamSung.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Nokia.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Oppo.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-                <a href="#"><img src="assets/img/Huawei.png" alt=""></a>
-
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-            </div>
-
-            <div class="column">
-            </div>
-
-        </div>
-    </div>
-
-
+</html>

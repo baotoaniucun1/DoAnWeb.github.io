@@ -289,7 +289,7 @@ img {
 
 .register-heading {
   text-align: center;
-  margin-top: 8%;
+  margin-top: 5%;
   margin-bottom: -15%;
   color: #495057;
 }
@@ -476,7 +476,7 @@ img {
 .dropdown-content {
   display: none;
   position: absolute;
-  /* background: #f6bb4d; */
+  background: #fff;
   width: 100%;
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

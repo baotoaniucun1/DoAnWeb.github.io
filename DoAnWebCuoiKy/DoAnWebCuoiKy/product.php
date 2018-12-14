@@ -75,7 +75,7 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 
 
 
-                    $query = "SELECT * FROM sanpham as sp  where  sp.MaLoaiSanPham =  $maloai  order by rand()  LIMIT $offset,$rowsPerPage";
+                    $query = "SELECT * FROM sanpham as sp  where  sp.MaLoaiSanPham =  $maloai  order by sp.GiaSanPham  LIMIT $offset,$rowsPerPage";
 
                     $rs = load($query);
                     if($rs->num_rows <=0)
@@ -234,7 +234,7 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 
 
 
-                    $query = "SELECT * FROM sanpham as sp  where  sp.MaHangSanXuat =  $mahangsx  order by rand()  LIMIT $offset,$rowsPerPage";
+                    $query = "SELECT * FROM sanpham as sp  where  sp.MaHangSanXuat =  $mahangsx  order by sp.GiaSanPham LIMIT $offset,$rowsPerPage";
 
                     $rs = load($query);
                     if($rs->num_rows <=0)

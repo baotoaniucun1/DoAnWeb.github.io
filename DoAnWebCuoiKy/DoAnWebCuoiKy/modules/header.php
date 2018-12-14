@@ -48,7 +48,7 @@ if (isset($_POST["btndangxuat"])) {
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="User/MyOrder.php">Đơn hàng của tôi</a>
-                        <a class="dropdown-item" href="User/MyAccount.php">Thông Tin Tài Khoản</a>
+                        <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
                         <a class="dropdown-item" href="#">Quản lí tài khoản</a>
                         <a class="dropdown-item" href="#">Đơn hàng của tôi</a>
                         <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
@@ -64,11 +64,11 @@ if (isset($_POST["btndangxuat"])) {
                 echo $member = '<form method="POST">
                     <div class="dropdown ml-2">
                     <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
+                         <a data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="User/MyOrder.php">Đơn hàng của tôi</a>
-                        <a class="dropdown-item" href="User/MyAccount.php">Thông Tin Tài Khoản</a>
+                        <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
                         <a class="dropdown-item" href="#">Quản lí tài khoản</a>
                         <a class="dropdown-item" href="#">Đơn hàng của tôi</a>
                       <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>

@@ -41,10 +41,13 @@
                 </button>
                 <div class="dropdown-content">
                     <?php
-                while($ilogo<6)
+                     $querydemlogo = "SELECT * FROM hangsanxuat as hsx where hsx.BiXoa = 0 ";
+                     $rsdemlogo = load($querydemlogo);
+                    $demlogomo = $rsdemlogo->num_rows;
+                    while($ilogo<= $demlogomo)
                 {
 
-                    $query = "SELECT * FROM hangsanxuat as hsx where hsx.MaHangSanXuat = $ilogo";
+                    $query = "SELECT * FROM hangsanxuat as hsx where hsx.MaHangSanXuat = $ilogo ";
                     $rs = load($query);
 
                     while($row = $rs->fetch_assoc())
@@ -74,7 +77,7 @@
                     $ilogo = $ilogo +1;
                 }
         ?>
-                 <div class="column"></div> 
+                 <!-- <div class="column"></div>  -->
                 </div>
                 </div>
         <?php       

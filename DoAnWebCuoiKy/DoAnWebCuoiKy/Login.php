@@ -32,6 +32,7 @@
             $TenHienThi = $row['TenHienThi'];
             $_SESSION["dang_nhap_chua"] = 1;
             $_SESSION['TenHienThi'] = $TenHienThi;
+
             header('Location: index.php');
         }
         else{

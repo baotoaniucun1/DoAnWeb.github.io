@@ -93,7 +93,13 @@ include 'modules/include.php';
                     </h3>
                     <p>
                     
-                        <h6>  <?php echo  $luongban ?>: Lượt mua │ <?php echo  $luotxem ?>: Lượt xem</h6>
+                        <h6>  <?php echo  $luongban ?> : Lượt mua │ <?php $xemtam = $luotxem+1;
+                        
+                        $update = " UPDATE sanpham set SoLuotXem = $xemtam where MaSanPham = $masp ";
+  
+                                    write($update);
+                        
+                        echo  $luotxem+1 ?> : Lượt xem</h6>
 
                         <b style="font-size:14px; color:red;">
                         Xuất Xứ: </b> 

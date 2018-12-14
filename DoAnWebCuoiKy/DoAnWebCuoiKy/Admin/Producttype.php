@@ -24,7 +24,7 @@
              include 'modules/sidebar.php';
 
 
-         ?>
+        ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -64,7 +64,8 @@
                         <i class="fa fa-download"></i>
                       </a>
                       <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-bars">
+                        <img src="img/bar.png" alt="Smiley face" height="42" width="42" /></i>
                       </a>
                     </div>
                   </div>

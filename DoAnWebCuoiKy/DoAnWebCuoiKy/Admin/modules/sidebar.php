@@ -1,358 +1,167 @@
-  
+
 <?php
 
-          $getPage = $_SERVER['PHP_SELF'];
-          
-          $arrayPage = explode("/", $getPage);
+$getPage = $_SERVER['PHP_SELF'];
 
-          $getPage = $arrayPage[3];
+$arrayPage = explode("/", $getPage);
 
-          $currentPage = (isset($_GET['page'])) ? $_GET['page'] : 1;
+$getPage = $arrayPage[2];
 
-          if($getPage == "Account.php")
-          {
-            $xhtml = '<li class="nav-item">
-            <a href="#" class="nav-link ">
-              <p>
-                <i class="fa fa-th-list"></i>
-                Dashboard            
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="Account.html" class="nav-link active">
-              <i class="fa fa-users"></i>
-                  <p> Accounts </p>
-                </a>
-          </li>
+$currentPage = (isset($_GET['page'])) ? $_GET['page'] : 1;
 
-            <li class="nav-item">
-            <a href="Product.html" class="nav-link">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="Order.html" class="nav-link">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
-                </a>
-          </li>
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
-                </a>
-          </li>';
-          }
-          elseif($getPage == "Product.php")
-          {
-            $xhtml = '<li class="nav-item">
-            <a href="index.html" class="nav-link ">
+if($getPage == "Product.php")
+{
+    $xphp = '<li class="nav-item">
+            <a href="index.php" class="nav-link">
               <p>
               <i class="fa fa-th-list"></i>
-                Dashboard
+                Quản Lý Sản Phẩm
 
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="Account.html" class="nav-link ">
+            <a href="Producttype.php" class="nav-link">
               <i class="fa fa-users"></i>
-                  <p> Accounts</p>
+                  <p> Quản Lý Loại Sản Phẩm</p>
                 </a>
           </li>
 
             <li class="nav-item">
-            <a href="Product.html" class="nav-link active">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
+            <a href="Product.php" class="nav-link active">
+              <i class="fa fa-dropbox"></i>
+                  <p>Quản Lý Nhà Sản Xuất</p>
                 </a>
           </li>
 
            <li class="nav-item">
-            <a href="Order.html" class="nav-link">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
+            <a href="Order.php" class="nav-link">
+             <i class="fa fa-shopping-bag"></i>
+                  <p>Quản Lý Đơn Hàng</p>
                 </a>
           </li>
-           <li class="nav-item">
-            <a href="Review.html" class="nav-link">
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="Customer.html" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
-                </a>
-          </li>';
-          }
-           elseif($getPage == "Order.php")
-          {
-            $xhtml = '<li class="nav-item">
-            <a href="index.html" class="nav-link ">
+           ';
+}
+elseif($getPage == "Order.php")
+{
+    $xphp = '<li class="nav-item">
+            <a href="index.php" class="nav-link">
               <p>
               <i class="fa fa-th-list"></i>
-                Dashboard
+                Quản Lý Sản Phẩm
 
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="Account.html" class="nav-link ">
+            <a href="Producttype.php" class="nav-link">
               <i class="fa fa-users"></i>
-                  <p> Accounts</p>
+                  <p> Quản Lý Loại Sản Phẩm</p>
                 </a>
           </li>
 
             <li class="nav-item">
-            <a href="Product.html" class="nav-link ">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
+            <a href="Product.php" class="nav-link">
+              <i class="fa fa-dropbox"></i>
+                  <p>Quản Lý Nhà Sản Xuất</p>
                 </a>
           </li>
 
            <li class="nav-item">
-            <a href="Order.html" class="nav-link active">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
+            <a href="Order.php" class="nav-link active">
+             <i class="fa fa-shopping-bag"></i>
+                  <p>Quản Lý Đơn Hàng</p>
                 </a>
           </li>
-           <li class="nav-item">
-            <a href="Review.html" class="nav-link">
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="Customer.php" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
-                </a>
-          </li>';
-          }
-           elseif($getPage == "Review.php")
-          {
-            $xhtml = '<li class="nav-item">
-            <a href="index.html" class="nav-link ">
+           ';
+}
+elseif($getPage == "Producttype.php")
+{
+    $xphp = '<li class="nav-item">
+            <a href="index.php" class="nav-link">
               <p>
               <i class="fa fa-th-list"></i>
-                Dashboard
+                Quản Lý Sản Phẩm
 
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="Account.html" class="nav-link ">
+            <a href="Producttype.php" class="nav-link active">
               <i class="fa fa-users"></i>
-                  <p> Accounts</p>
+                  <p> Quản Lý Loại Sản Phẩm</p>
                 </a>
           </li>
 
             <li class="nav-item">
-            <a href="Product.html" class="nav-link ">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
+            <a href="Product.php" class="nav-link">
+              <i class="fa fa-dropbox"></i>
+                  <p>Quản Lý Nhà Sản Xuất</p>
                 </a>
           </li>
 
            <li class="nav-item">
-            <a href="Order.html" class="nav-link">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
-                </a>
-          </li>
-           <li class="nav-item">
-            <a href="Review.html" class="nav-link active" >
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="Customer.php" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
+            <a href="Order.php" class="nav-link">
+             <i class="fa fa-shopping-bag"></i>
+                  <p>Quản Lý Đơn Hàng</p>
                 </a>
           </li>';
-          }
-           elseif($getPage == "Product.php")
-          {
-            $xhtml = '<li class="nav-item">
-            <a href="index.html" class="nav-link ">
+}
+else{
+    $xphp = '<li class="nav-item">
+            <a href="" class="nav-link active">
               <p>
               <i class="fa fa-th-list"></i>
-                Dashboard
+                Quản Lý Sản Phẩm
 
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="Account.html" class="nav-link ">
+            <a href="Producttype.php" class="nav-link">
               <i class="fa fa-users"></i>
-                  <p> Accounts</p>
+                  <p> Quản Lý Loại Sản Phẩm</p>
                 </a>
           </li>
 
             <li class="nav-item">
-            <a href="Product.html" class="nav-link active">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
+            <a href="Product.php" class="nav-link">
+              <i class="fa fa-dropbox"></i>
+                  <p>Quản Lý Nhà Sản Xuất</p>
                 </a>
           </li>
 
            <li class="nav-item">
-            <a href="Order.html" class="nav-link">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
+            <a href="Order.php" class="nav-link">
+             <i class="fa fa-shopping-bag"></i>
+                  <p>Quản Lý Đơn Hàng</p>
                 </a>
           </li>
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
-                </a>
-          </li>';
-          }
-          else{
-            $xhtml = '<li class="nav-item">
-            <a href="#" class="nav-link active">
-              <p>
-              <i class="fa fa-th-list"></i>
-                Dashboard
-
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="Account.html" class="nav-link">
-              <i class="fa fa-users"></i>
-                  <p> Accounts</p>
-                </a>
-          </li>
-
-            <li class="nav-item">
-            <a href="Product.html" class="nav-link">
-              <i class="fa fa-dropbox"></i>    
-                  <p>Products</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="Order.html" class="nav-link">
-             <i class="fa fa-shopping-bag"></i>    
-                  <p>Orders</p>
-                </a>
-          </li>
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-comments"></i>
-                  <p>Reviews</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link">
-             <i class="fa fa-address-book"></i>    
-                  <p>Customers</p>
-                </a>
-          </li>
-
-           <li class="nav-item">
-            <a href="" class="nav-link"> 
-             <i class="fa fa-globe"></i>        
-                  <p>FAQ</p>
-                </a>
-          </li>';
-          }
+           ';
+}
 ?>
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
   
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="#" class="brand-link">
+        <img src="" class="brand-image img-circle elevation-3"
+            style="opacity: .8" />
+        <span class="brand-text font-weight-light">CHICH CHOE SHOP</span>
     </a>
 
-    <!-- Sidebar -->
-              <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
+ 
+    <div class="sidebar">
+       
+        <nav class="mt-2">
+            <ul id="pagination" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                
+                <?php
+                echo $xphp;
+                ?>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul id="pagination" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class            with font-awesome or any other icon font library -->
-            
-            <?php
-              echo $xhtml;
-            ?>
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>
