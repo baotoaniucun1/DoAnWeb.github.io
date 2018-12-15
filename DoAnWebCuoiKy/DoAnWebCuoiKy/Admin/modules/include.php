@@ -10,3 +10,18 @@
 <script type="text/javascript" src="../libs/jquery.min.js"></script>
 
 <script src="../libs/scroll.js" type="text/javascript"></script>
+
+
+
+<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="../css/responsive.bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
+
+ <script>
+        $(document).ready(function() {
+                $('#example').DataTable({});
+            });
+
+        </script>

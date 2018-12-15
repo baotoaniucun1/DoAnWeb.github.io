@@ -165,7 +165,7 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     }
                     for($page=1;$page<=$sotrang;$page++)
                     {
-                        if($page==$curPage)//không hiện liên kết ở trang đang đứng
+                        if($page==$curPage)
                             echo "    <li class='page-item active'>  <b class='page-link' style='font-size:16px;'> ".$page."</b>    </li>";
                         else
                             echo "   <li class='page-item'>

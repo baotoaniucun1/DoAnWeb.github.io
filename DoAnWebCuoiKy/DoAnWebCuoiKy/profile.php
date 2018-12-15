@@ -85,10 +85,16 @@ if(isset($_POST["tennguoidung"]))
                <img id="blah" for="file" src="<?php echo $linkanh ?>" class="avatar img-circle img-thumbnail" alt="avatar">
                
                
-								<div class="col-sm-10">
-									<input type="file" class="form-control" id="imgInp" name="file">
+								<div class="" >
+                                    <label class="input-group-btn">
+                                        <span class="btn btn-primary">
+                                          Choose File <input type="file" id="imgInp" name="file" style="display: none;">
+                                       </span>
+                                     </label>
+									<input type="file" class="form-control" id="imgInp" name="file" hidden  >
 								</div>
-                <!--<input type="file" class="text-center center-block file-upload">-->
+
+               
             </div>
             </hr><br>
 
@@ -115,7 +121,7 @@ if(isset($_POST["tennguoidung"]))
                                         <div class="form-group">
                                             <input  id="email" name="email" type="text" class="form-control"  placeholder="Email *" value="<?php  echo $email; ?>" />
                                         </div>
-                                        <div >
+                                        <div>
                                        <input type="submit" class="btnSaveProfile text-center" name="btnSaveProfile"  id="btnSaveProfile" value="Lưu Thông Tin"/>
 
                                         </div>
