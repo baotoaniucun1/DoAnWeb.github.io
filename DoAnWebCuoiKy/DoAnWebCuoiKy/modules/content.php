@@ -52,35 +52,36 @@
             <!-- Carousel items -->
             <div class="carousel-inner ">
                 <?php 
-                    $i = 0;
-                    $limit = 4;
-                    $flag = 0;
-                    $kichhoatactive = 'active';
-                    while ($i<10) 
-                    {
+                $i = 0;
+                $limit = 4;
+                $flag = 0;
+                $kichhoatactive = 'active';
+                while ($i<10) 
+                {
 
                     
-                        if($i == 8)
-                        {
-                            $limit = 2;
-                        }
-                       
-                        $query_Top10New = "SELECT * FROM sanpham ORDER BY NgayNhap desc LIMIT $limit OFFSET $i";
-    
-                        $rs = load($query_Top10New);
-                       
-                    ?>
+                    if($i == 8)
+                    {
+                        $limit = 2;
+                    }
+                    
+                    $query_Top10New = "SELECT * FROM sanpham ORDER BY NgayNhap desc LIMIT $limit OFFSET $i";
+                    
+                    $rs = load($query_Top10New);
+                    
+                ?>
 
                 <div class="item  <?php if($flag ==0)  echo $kichhoatactive?>  carousel-item">
                     <div class="row">
                         <?php 
-                            while($row = $rs->fetch_assoc())
-                            {
-                            ?>
+                    while($row = $rs->fetch_assoc())
+                    {
+                        ?>
 
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
                                 <div class="preview_image">
+                              
                                     <a href="details.php?idsanpham=<?php echo $row['MaSanPham'];?>">
                                         <img class="card-img-top" src="<?php echo $row['HinhURL']; ?>" alt="" />
                                     </a>
@@ -95,14 +96,17 @@
                                     </h6>
 
                                     <h5><b><?php echo number_format($row['GiaSanPham']); ?> ₫</b></h5>
-                                    <div style=" text-align: center;">
-                                        <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-giohang" type="submit">
+                                    <div style="text-align: center;">
+                                       
+                                             <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                                   <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                        </form>
+                                             </a>
+                                          
+                                        
 
                                     </div>
 
@@ -113,8 +117,8 @@
                         <?php } ?>
                     </div>
                     <?php $i = $i + 4; 
-                        $flag = $flag +1;
-                        ?>
+                          $flag = $flag +1;
+                    ?>
                 </div>
                 <?php } ?>
 
@@ -155,31 +159,31 @@
             <!-- Carousel items -->
             <div class="carousel-inner ">
                 <?php 
-                    $i = 0;
-                    $limit = 4;
-                    $flag = 0;
-                    $kichhoatactive = 'active';
-                    while ($i<10) 
-                    {
+                $i = 0;
+                $limit = 4;
+                $flag = 0;
+                $kichhoatactive = 'active';
+                while ($i<10) 
+                {
 
                     
-                        if($i == 8)
-                        {
-                            $limit = 2;
-                        }
-                       
-                        $query_Top10Sel = "SELECT * FROM sanpham ORDER BY SoLuongBan desc LIMIT $limit OFFSET $i";
-    
-                        $rs = load($query_Top10Sel);
-                       
-                    ?>
+                    if($i == 8)
+                    {
+                        $limit = 2;
+                    }
+                    
+                    $query_Top10Sel = "SELECT * FROM sanpham ORDER BY SoLuongBan desc LIMIT $limit OFFSET $i";
+                    
+                    $rs = load($query_Top10Sel);
+                    
+                ?>
 
                 <div class="item <?php if($flag ==0)  echo $kichhoatactive?> carousel-item">
                     <div class="row">
                         <?php 
-                            while($row = $rs->fetch_assoc())
-                            {
-                            ?>
+                    while($row = $rs->fetch_assoc())
+                    {
+                        ?>
 
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
@@ -198,15 +202,16 @@
 
                                     <h5>
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
-                                    <div style=" text-align: center;">
+                                    <div style="text-align: center;">
 
-                                           <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-sm btn-giohang" type="submit">
+                                            <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                                   <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                        </form>
+                                             </a>
+                                          
 
                                     </div>
                                 </div>
@@ -215,8 +220,8 @@
                         <?php } ?>
                     </div>
                     <?php $i = $i + 4; 
-                        $flag = $flag +1;
-                        ?>
+                          $flag = $flag +1;
+                    ?>
                 </div>
                 <?php } ?>
 
@@ -256,32 +261,32 @@
             <!-- Carousel items -->
             <div class="carousel-inner ">
                 <?php 
-                    $i = 0;
-                    $limit = 4;
-                    $flag = 0;
-                    $kichhoatactive = 'active';
-                    while ($i<10) 
-                    {
+                $i = 0;
+                $limit = 4;
+                $flag = 0;
+                $kichhoatactive = 'active';
+                while ($i<10) 
+                {
 
                     
-                        if($i == 8)
-                        {
-                            $limit = 2;
-                        }
-                       
-                        $query_Top10See = "SELECT * FROM sanpham ORDER BY SoLuotXem desc LIMIT $limit OFFSET $i";
-    
-                        $rs = load($query_Top10See);
-                       
-                    ?>
+                    if($i == 8)
+                    {
+                        $limit = 2;
+                    }
+                    
+                    $query_Top10See = "SELECT * FROM sanpham ORDER BY SoLuotXem desc LIMIT $limit OFFSET $i";
+                    
+                    $rs = load($query_Top10See);
+                    
+                ?>
 
                 <div class="item <?php if($flag ==0)  echo $kichhoatactive?> carousel-item">
                     <div class="row">
                         <?php 
 
-                            while($row = $rs->fetch_assoc())
-                            {
-                            ?>
+                    while($row = $rs->fetch_assoc())
+                    {
+                        ?>
 
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
@@ -302,13 +307,14 @@
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style="text-align: center;">
 
-                                         <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-sm btn-giohang" type="submit">
+                                           <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                                   <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                        </form>
+                                             </a>
+                                          
 
                                     </div>
                                 </div>
@@ -317,8 +323,8 @@
                         <?php } ?>
                     </div>
                     <?php $i = $i + 4; 
-                        $flag = $flag +1;
-                        ?>
+                          $flag = $flag +1;
+                    ?>
                 </div>
                 <?php } ?>
 

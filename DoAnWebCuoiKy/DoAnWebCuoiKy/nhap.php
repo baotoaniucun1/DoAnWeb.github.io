@@ -167,3 +167,82 @@ if(isset($_POST["btnSaveProfile"]))
 </body>
 
 </html>
+
+
+
+
+
+
+if(isset($_POST['add_item'])){
+
+    $tenloaisp =  $_POST["item_name"];
+    
+    $tinhtrang  =  $_POST["tinhtrang"]; 
+    $insertloaisanpham = "INSERT INTO LoaiSanPham (TenLoaiSanPham,BiXoa) VALUES ('$tenloaisp',$tinhtrang)";
+    write($insertloaisanpham);
+
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+    
+}
+if(isset($_POST['delete'])){
+    
+    $delete_id = $_POST['delete_id'];
+    
+    $deleteloaiSanPham = "DELETE FROM LoaiSanPham WHERE MaLoaiSanPham='$delete_id' ";
+    write($deleteloaiSanPham);
+    
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+}
+if(isset($_POST['update_item'])){
+
+    $idedit = $_POST['edit_id'];
+    $tenspedit =  $_POST["item_nameedit"]; 
+    $tinhtrang  =  $_POST["tinhtrang"];
+    
+
+    $update = "update LoaiSanPham set TenLoaiSanPham = '$tenspedit' , BiXoa = $tinhtrang where MaLoaiSanPham = '$idedit' ";
+    write($update);
+
+    
+	
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+
+    
+    
+}
+
+
+
+
+
+<script>
+                                     function readURL1(input) {
+
+                                    if (input.files && input.files[0]) {
+                                  var reader = new FileReader();
+
+                                  reader.onload = function (e) {
+
+                                    $(<?php echo "'#bla".$rowall['MaSanPham']."'"; ?>).attr('src', e.target.result);
+                                     }
+
+                                    reader.readAsDataURL(input.files[0]);
+                                    }
+                                     }
+
+                                    
+                                  $(<?php echo "'#img".$rowall['MaSanPham']."'"; ?>).change(function () {
+                                readURL1(this);
+                                    });
+                                </script>
+           
+=----------
+ action="#idgiohang=<?php echo $row['MaSanPham']; ?>"
+
+
+  echo "<pre>";
+            print_r($_SESSION['cart']);
+            echo "</pre>";
