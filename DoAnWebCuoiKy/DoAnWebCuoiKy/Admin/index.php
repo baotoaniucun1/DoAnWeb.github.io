@@ -1,20 +1,9 @@
-
-
 <?php
+
 session_start();
-
 require_once '../lib/db.php';
-
 if(isset($_SESSION['username']) && $_SESSION['role'] == 1)
 {
-
-    $demhangsx = "SELECT count( MaHangSanXuat) as SLHSX  FROM HangSanXuat where BiXoa = 0";
-
-    $rshsx = load($demhangsx);
-    while($rowhsx = $rshsx->fetch_assoc())
-    {
-        $soluonghsx=$rowhsx['SLHSX'];
-    }
 
 }
 else
@@ -23,10 +12,22 @@ else
 }
 
 if(isset($_POST['add_item'])){
-    $item_name = $_POST['item_name'];
-    $item_code = $_POST['item_code'];
-    $item_category = $_POST['item_category'];
-    $item_description = $_POST['item_description'];
+
+    $tensp =  $_POST["item_name"];
+    $ngaytao = $_POST["item_date"];
+    $soluong  =  $_POST["item_sl"];
+    $soluongban  =  $_POST["item_slb"];
+    $giasp  =  $_POST["item_gia"];
+
+    $luotxem  =  $_POST["item_view"];
+    $hangsx  =  $_POST["item_hsx"];
+    $loaisp  =  $_POST["item_lsp"]; 
+    $mota =  $_POST["item_description"]; 
+    $insertsanpham = "INSERT INTO SanPham (TenSanPham,GiaSanPham,NgayNhap,SoLuong,SoLuongBan,SoLuotXem,MoTa,MaLoaiSanPham,MaHangSanXuat,BiXoa)VALUES ('$tensp',$giasp,'$ngaytao',$soluong,$soluongban,$luotxem,'$mota',$loaisp,$hangsx,0)";
+    $idong = write($insertsanpham);
+
+    $insertidmotasanpham = "INSERT INTO MoTaSanPham (MaSanPham) VALUES ('$idong')";
+    write($insertidmotasanpham);
 
     $destination = null;
     $f = $_FILES["file"];
@@ -37,33 +38,107 @@ if(isset($_POST['add_item'])){
         {
             mkdir("../assets/img");
         }
+		
 
-
-
+		
 		$tmp_name = $f["tmp_name"];
 		$name = $f["name"];
-		$destination = "assets/img/ava/$user/";
+		$destination = "../assets/img/";
         $destination=$destination.$_FILES["file"]["name"];
 
 		move_uploaded_file($tmp_name, $destination);
+        $link = "assets/img/";
+        $link=$link.$_FILES["file"]["name"];
+        $update = "update SanPham set HinhURL = '$link' where MaSanPham = '$idong' ";
+
+        write($update);
+
+        
 	}
-
-
-
-
-
-
-
-    $sql = "INSERT INTO tbl_items (item_name,item_code,item_description,item_category,item_critical_lvl,item_date)VALUES ('$item_name','$item_code','$item_description','$item_category','$item_critical_lvl','$date')";
-
-
-
-
-
-
-
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+    
 }
 
+
+
+
+if(isset($_POST['update_thongso'])){
+    $id = $_POST['item_id'];
+    $manhinh = $_POST['manhinh'];
+    $hedieuhanh = $_POST['hedieuhanh'];
+    $camtruoc = $_POST['camtruoc'];
+    $camsau = $_POST['camsau'];
+    $cpu = $_POST['cpu'];
+    $ram = $_POST['ram'];
+    $bonhotrong = $_POST['bonhotrong'];
+    $thesim = $_POST['thesim'];
+    $dungluongpin = $_POST['dungluongpin'];
+    $xuatxu = $_POST['xuatxu'];
+
+    $updatemota = "update MoTaSanPham set ManHinh = '$manhinh', HeDieuHanh = '$hedieuhanh', CameraTruoc = '$camtruoc', CameraSau = '$camsau', CPU = '$cpu', RAM = '$ram', BoNhoTrong = '$bonhotrong', TheSim = '$thesim', DungLuongPin = '$dungluongpin', XuatXu = '$xuatxu' where MaSanPham = '$id' ";
+
+    write($updatemota);
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+}
+
+if(isset($_POST['delete'])){
+    
+    $delete_id = $_POST['delete_id'];
+    $deleteMoTa = "DELETE FROM MoTaSanPham WHERE MaSanPham='$delete_id' ";
+    $deleteSanPham = "DELETE FROM SanPham WHERE MaSanPham='$delete_id' ";
+    write($deleteMoTa);
+    write($deleteSanPham);
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+}
+
+if(isset($_POST['update_item'])){
+
+    $idedit = $_POST['edit_id'];
+    $tenspedit =  $_POST["item_nameedit"]; 
+    $soluongedit  =  $_POST["item_sledit"];
+    $giaspedit  =  $_POST["item_giaedit"];
+    $hangsxedit  =  $_POST["item_hsxedit"];
+    $loaispedit  =  $_POST["item_lspedit"]; 
+    $motaedit =  $_POST["item_descriptionedit"]; 
+
+    $destination = null;
+    $f = $_FILES["fileedit"];
+           $sdssdds =$f["size"];
+	if ($f["error"] > 0) {
+        $update = "update SanPham set TenSanPham = '$tenspedit',SoLuong ='$soluongedit', GiaSanPham = '$giaspedit', MaHangSanXuat = '$hangsxedit', MaLoaiSanPham = '$loaispedit', MoTa = '$motaedit' where MaSanPham = '$idedit' ";
+
+        write($update);
+	} else {
+        if(!file_exists("../assets/img"))
+        {
+            mkdir("../assets/img");
+        }
+		
+
+		
+		$tmp_name = $f["tmp_name"];
+		$name = $f["name"];
+		$destination = "../assets/img/";
+        $destination=$destination.$_FILES["fileedit"]["name"];
+
+		move_uploaded_file($tmp_name, $destination);
+        $link = "assets/img/";
+        $link=$link.$_FILES["fileedit"]["name"];
+        $update = "update SanPham set HinhURL = '$link', TenSanPham = '$tenspedit',SoLuong ='$soluongedit', GiaSanPham = '$giaspedit', MaHangSanXuat = '$hangsxedit', MaLoaiSanPham = '$loaispedit', MoTa = '$motaedit' where MaSanPham = '$idedit' ";
+
+        write($update);
+
+        
+	}
+    $path = $_SERVER['REQUEST_URI'];
+    header("Location: $path");
+
+    
+    
+}
 
 
 ?>
@@ -139,6 +214,7 @@ if(isset($_POST['add_item'])){
 
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
+                                     <th scope="col">Thông Tin</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -214,19 +290,266 @@ if(isset($_POST['add_item'])){
                                     </td>-->
                                     <td>
                                         <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                           <a href="#edit<?php echo $rowall['MaSanPham'];?>" data-toggle="modal">
                                             <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
                                                 <span class="glyphicon glyphicon-pencil"></span>
                                             </button>
+                                           </a>
                                         </p>
                                     </td>
                                     <td>
                                         <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                             <a href="#delete<?php echo $rowall['MaSanPham'];?>" data-toggle="modal">
                                             <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
+                                            </a>
+
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p data-placement="top" data-toggle="tooltip" title="Info">
+                                          <a href="#info<?php echo $rowall['MaSanPham'];?>" data-toggle="modal">
+                                            <button class="btn btn-success btn-xs" data-title="Info" data-toggle="modal" data-target="#Info">
+                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                            </button>
+                                          </a>
                                         </p>
                                     </td>
                                 </tr>
+
+                            <!--        khúc này là popup thông số kỹ thuật hiện lên    -->
+                                 <div id="info<?php echo $rowall['MaSanPham']; ?>" class="modal fade" role="dialog">
+                                     <form method="post" class="form-horizontal" role="form">
+                                       <div class="modal-dialog modal-lg">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Thông Số Sản Phẩm:     <?php echo $rowall['TenSanPham']; ?>  </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="item_id" value="<?php echo $rowall['MaSanPham']; ?>">
+                                         <div class="row">
+                           
+                                              <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <?php 
+                                    
+                                    $sqlthongso = "SELECT * FROM MotaSanPham where MaSanPham = '".$rowall['MaSanPham']."'";
+
+                                    $rsthongso = load($sqlthongso);
+
+                                    while($rowthongso = $rsthongso->fetch_assoc())
+                                    {
+                                        
+                                        ?>
+                                        <div class="col-sm-6">
+                                            <label class="control-label" for="manhinh">Màn Hình</label>
+                                            <input type="text" class="form-control" id="manhinh" name="manhinh" autofocus value="<?php echo $rowthongso["ManHinh"]?>" />
+                                            <br />
+                                            <label class="control-label" for="hedieuhanh">Hệ Điều Hành:</label>
+                                            <input type="text" class="form-control" id="hedieuhanh" name="hedieuhanh"  value="<?php echo $rowthongso["HeDieuHanh"]?>" />
+                                            <br />
+                                            <label class="control-label" for="camtruoc">Camera Trước:</label>
+                                            <input type="text" class="form-control" id="camtruoc" name="camtruoc" autofocus  autocomplete="off" value="<?php echo $rowthongso["CameraTruoc"]?>"  />
+                                            <br />
+                                             <label class="control-label" for="camsau">Camera Sau:</label>
+                                         <input type="text" class="form-control" id="camsau" name="camsau" autofocus  value="<?php echo $rowthongso["CameraSau"]?>"/>
+                                               <br />
+                                              <label class="control-label" for="cpu">CPU:</label>
+                                            <input type="text" class="form-control" id="cpu" name="cpu"  value="<?php echo $rowthongso["CPU"]?>" />
+                                          
+                                         
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                          
+                                            <label class="control-label" for="ram">RAM:</label>
+                                            <input type="text" class="form-control" id="ram" name="ram"  value="<?php echo $rowthongso["RAM"]?>" />
+                                            <br />
+                                            <label class="control-label" for="bonhotrong">Bộ Nhớ Trong:</label>
+                                            <input type="text" class="form-control" id="bonhotrong" name="bonhotrong"   value="<?php echo $rowthongso["BoNhoTrong"]?>"/>
+                                            <br />
+                                            <label class="control-label" for="thesim">Thẻ Sim:</label>
+                                            <input type="text" class="form-control" id="thesim" name="thesim" autofocus  value="<?php echo $rowthongso["TheSim"]?>"/>
+                                              <br />
+                                            <label class="control-label" for="dungluongpin">Dung Lượng Pin:</label>
+                                            <input type="text" class="form-control" id="dungluongpin" name="dungluongpin" autofocus  value="<?php echo $rowthongso["DungLuongPin"]?>"/>
+                                              <br />
+                                            <label class="control-label" for="xuatxu">Xuất Sứ:</label>
+                                            <input type="text" class="form-control" id="xuatxu" name="xuatxu" autofocus  value="<?php echo $rowthongso["XuatXu"]?>"/>
+
+                                        </div>
+
+                                        <?php } ?>
+                                    </div>
+                                </div>      
+                                               </div>
+                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" name="update_thongso"><span class="glyphicon glyphicon-edit"></span> Sửa</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Hủy</button>
+                                    </div>
+                                </div>
+                                            </div>
+                                            </form>
+                                </div>
+
+                                <!--    kết thúc popup thông tin-->
+
+
+                                   <!--        khúc này là popup thông báo xóa sản phẩm lên    -->
+
+                              <div id="delete<?php echo $rowall['MaSanPham'];  ?>" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <form method="post">
+                                <!-- Modal content-->
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                                <h4 class="modal-title">Xóa Sản Phẩm</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                             
+                                          </div>  
+                                          <div class="modal-body">
+                                            <input type="hidden" name="delete_id" value="<?php echo $rowall['MaSanPham']; ?>">
+                                                <div class="alert alert-danger">Bạn có chắc muốn xóa sản phẩm 
+                                                     <strong> <?php echo $rowall['TenSanPham']; ?>?</strong> 
+                                                 </div>
+                                          
+                                         </div>
+
+                                           <div class="modal-footer">
+                                            <button type="submit" name="delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Không</button>
+                                        </div>
+                                        </div>
+                                   </form>
+                              </div>
+                             </div>
+                                  <!--    kết thúc popup xóa sản phẩm-->
+
+                                  <!--        khúc này là popup sửa sản phẩm  -->
+
+                                <div id="edit<?php echo $rowall['MaSanPham']; ?>" class="modal fade" role="dialog">
+                                    <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Sửa Sản Phẩm</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                                                </div>
+                                               
+                                                <div class="modal-body">
+                                                       <input type="hidden" name="edit_id" value="<?php echo $rowall['MaSanPham']; ?>">
+                                                    <div class="row">
+                                                        <div class="col-sm-3" style="text-align:center">
+                                                         <div>
+                                                            <img id="<?php echo "bla".$rowall['MaSanPham']; ?>"  src="../<?php echo $rowall['HinhURL']; ?>" class="img-size-150 blahedit" />
+                                                            <div style="margin-top:10px">
+                                                              <label class="input-group-btn">
+                                                              <span class="btn btn-primary">Chọn File Ảnh:
+                                                                <input type="file" id="<?php echo "img".$rowall['MaSanPham']; ?>" name="fileedit" class="imgInpedit" style="display: none;" />
+                                                              </span>
+                                                            </label>
+                                                           </div>
+
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                     <label class="control-label" for="item_nameedit">Tên Sản Phẩm:</label>
+                                                                     <input type="text" class="form-control" id="item_nameedit" name="item_nameedit" value="<?php  echo $rowall['TenSanPham'];?>" required />
+                                                                     <br />
+                                                                     <label class="control-label" for="item_dateedit">Ngày Nhập:</label>
+                                                                     <input type="text" class="form-control" id="item_dateedit" name="item_dateedit" readonly value="<?php echo $rowall['NgayNhap'];?>" />
+                                                                     <br />
+                                                                     <label class="control-label" for="item_sledit">Số Lượng:</label>
+                                                                     <input type="number" class="form-control" id="item_sledit" name="item_sledit" autofocus  value="<?php echo $rowall['SoLuong'];?>" required />
+                                                                     <br />
+                                                                     <label class="control-label" for="item_lspedit">Loại Sản Phẩm:</label>
+                                                                     <select class="form-control" type="text" id="item_lspedit" name="item_lspedit" autofocus >
+
+                                                                     <?php 
+                                    $demlsp = "SELECT * FROM LoaiSanPham where BiXoa = 0";
+                                    $rslsp = load($demlsp);
+                                    while($rowlsp = $rslsp->fetch_assoc())
+                                    {
+                                                                     ?>
+                                                                     <option    <?php if($rowall['MaLoaiSanPham']== $rowlsp["MaLoaiSanPham"]) echo "selected"  ?>     value="<?php echo $rowlsp["MaLoaiSanPham"]?>"><?php  echo $rowlsp["TenLoaiSanPham"] ?></option>
+
+                                                                    <?php  } ?>
+                                                                    </select>
+                                                                   </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label class="control-label" for="item_giaedit">Giá Sản Phẩm:</label>
+                                                                        <input type="number" class="form-control" id="item_giaedit" name="item_giaedit" required value="<?php echo $rowall['GiaSanPham'];?>" />
+                                                                        <br />
+                                                                        <label class="control-label" for="item_viewedit">Số Lượt Xem:</label>
+                                                                        <input type="number" class="form-control" id="item_viewedit" name="item_viewedit" readonly value="<?php echo $rowall['SoLuotXem'];?>" />
+                                                                        <br />
+                                                                        <label class="control-label" for="item_slbedit">Số Lượng Bán:</label>
+                                                                        <input type="number" class="form-control" id="item_slbedit" name="item_slbedit" readonly value="<?php echo $rowall['SoLuongBan'];?>" />
+                                                                        <br />
+                                                                        <label class="control-label" for="item_hsxedit">Hãng:</label>
+                                                                        <select class="form-control" type="text" id="item_hsxedit" name="item_hsxedit" autofocus required>
+
+                                                                         <?php 
+                                    $demhangsx = "SELECT *  FROM HangSanXuat where BiXoa = 0";
+                                    $rshsx = load($demhangsx);
+                                    while($rowhsx = $rshsx->fetch_assoc())
+                                    {                                                    
+                                                                         ?>
+                                                                        <option <?php if($rowall['MaHangSanXuat']== $rowhsx["MaHangSanXuat"]) echo "selected"      ?> value="<?php echo $rowhsx["MaHangSanXuat"]?>"><?php  echo $rowhsx["TenHangSanXuat"] ?></option>
+
+                                                                         <?php  } ?>
+                                                                        </select>
+
+                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                <label class="control-label" for="item_sub_category">Mô Tả:</label>
+                                                                 <textarea class="form-control" id="item_descriptionedit" name="item_descriptionedit" autocomplete="off" required><?php echo $rowall['MoTa'];?></textarea>
+
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success" name="update_item"><span class="glyphicon glyphicon-edit"></span>
+                                                    Sửa</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>
+                                                    Hủy</button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+                                  <!--      kết thúc popup sửa sản phẩm  -->
+
+                                
+       
+
+
+
+
+
                                 <?php
                                 }
 
@@ -284,8 +607,6 @@ if(isset($_POST['add_item'])){
                                 <?php
                                 }
                                 ?>
-
-
                             </ul>
                         </div>
                     </div>
@@ -301,27 +622,27 @@ if(isset($_POST['add_item'])){
     <?php
     include 'modules/footer.php';
     ?>
+
+           <!--        khúc này là popup thêm san phẩm    -->
     <div id="add" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="post" class="form-horizontal" role="form">
+                <form method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm Sản Phẩm</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                     </div>
 
-
-
-
                     <div class="modal-body">
+                       
                         <div class="row">
                             <div class="col-sm-3" style="text-align:center">
 
                                 <div>
 
-                                    <img id="blah" for="file" src="img/user2-160x160.jpg" class="img-size-150" />
+                                    <img id="blah" for="file" src="img/Photo-icon.png" class="img-size-150" />
 
                                     <div style="margin-top:10px">
                                         <label class="input-group-btn">
@@ -330,7 +651,7 @@ if(isset($_POST['add_item'])){
                                                 <input type="file" id="imgInp" name="file" style="display: none;" />
                                             </span>
                                         </label>
-                                        <input type="file" class="form-control" id="imgInp" name="file" hidden />
+                                     
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +667,25 @@ if(isset($_POST['add_item'])){
                                             <input type="text" class="form-control" id="item_date" name="item_date" readonly value="<?php  echo $today = date('Y-m-d H:i:s');?>" />
                                             <br />
                                             <label class="control-label" for="item_sl">Số Lượng:</label>
-                                            <input type="number" class="form-control" id="item_sl" name="item_sl" autofocus required />
+                                            <input type="number" class="form-control" id="item_sl" name="item_sl" autofocus  autocomplete="off" required />
+                                            <br />
+                                             <label class="control-label" for="item_lsp">Loại Sản Phẩm:</label>
+                                            <select class="form-control" type="text" id="item_lsp" name="item_lsp" autofocus required>
+
+                                                <?php 
+
+                                                $demlsp = "SELECT * FROM LoaiSanPham where BiXoa = 0";
+
+                                                $rslsp = load($demlsp);
+                                                while($rowlsp = $rslsp->fetch_assoc())
+                                                {
+                                                    
+
+                                                ?>
+                                                 <option value="<?php echo $rowlsp["MaLoaiSanPham"]?>"><?php  echo $rowlsp["TenLoaiSanPham"] ?></option>
+
+                                                <?php  } ?>
+                                            </select>
                                         </div>
 
                                         <div class="col-sm-6">
@@ -360,7 +699,23 @@ if(isset($_POST['add_item'])){
                                             <input type="number" class="form-control" id="item_slb" name="item_slb" readonly value="0" />
                                             <br />
                                             <label class="control-label" for="item_hsx">Hãng:</label>
-                                            <select class="form-control" type="text" id="item_hsx" name="item_hsx" autofocus required></select>
+                                            <select class="form-control" type="text" id="item_hsx" name="item_hsx" autofocus required>
+
+                                                <?php 
+
+                                                $demhangsx = "SELECT *  FROM HangSanXuat where BiXoa = 0";
+
+                                                $rshsx = load($demhangsx);
+                                                while($rowhsx = $rshsx->fetch_assoc())
+                                                {
+                                                    
+                                                    
+
+                                                ?>
+                                                 <option value="<?php echo $rowhsx["MaHangSanXuat"]?>"><?php  echo $rowhsx["TenHangSanXuat"] ?></option>
+
+                                                <?php  } ?>
+                                            </select>
 
                                         </div>
                                     </div>
@@ -386,14 +741,15 @@ if(isset($_POST['add_item'])){
                         </button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">
                             <span class="glyphicon glyphicon-remove-circle"></span> Hủy
-                        </button>
+                        </button> 
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
 
-
+    <!--         kết thúc  thêm san phẩm    -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/adminlte.js"></script>
@@ -402,7 +758,7 @@ if(isset($_POST['add_item'])){
 
     <script src="js/dashboard3.js"></script>
     <script>
-       
+
         function readURL(input) {
 
             if (input.files && input.files[0]) {
@@ -420,13 +776,11 @@ if(isset($_POST['add_item'])){
             readURL(this);
         });
 
+    
 
-        var select = document.getElementById("item_hsx");
-        for (var i = <?php echo $soluonghsx; ?>; i >= 1; --i) {
-            var option = document.createElement('option');
-            option.text = option.value = i;
-            select.add(option, 0);
-        }
+
+
+
     </script>
 </body>
 </html>

@@ -32,7 +32,7 @@
                             break; 
 
                     }
-                    $ilogo = 1;
+                    
         ?>
                 <div class="dropdown1">
                 <button class="dropbtn">
@@ -41,12 +41,13 @@
                 </button>
                 <div class="dropdown-content">
                     <?php
+                    $ilogo = 1;
+
                      $querydemlogo = "SELECT * FROM hangsanxuat as hsx where hsx.BiXoa = 0 ";
                      $rsdemlogo = load($querydemlogo);
-                    $demlogomo = $rsdemlogo->num_rows;
-                    while($ilogo<= $demlogomo)
-                {
-
+                     while($rowdemlogo = $rsdemlogo->fetch_assoc())
+                     {
+                         $ilogo = $rowdemlogo["MaHangSanXuat"];
                     $query = "SELECT * FROM hangsanxuat as hsx where hsx.MaHangSanXuat = $ilogo ";
                     $rs = load($query);
 
@@ -54,7 +55,7 @@
                     {
                     ?>
                         <div class="column">
-                        <a class="logo" href="product.php?mahangsx=<?php echo $ilogo?>"><img src="<?php echo $row['LogoURL']; ?>" alt=""></a>
+                        <a class="logo" href="product.php?mahangsx=<?php echo $ilogo?>"><img src="<?php echo $row['LogoURL']; ?>"  style="height:50px" alt=""></a>
                             <?php
 
                         $query1 = "SELECT sp.TenSanPham,sp.MaSanPham,sp.GiaSanPham FROM sanpham as sp , hangsanxuat as hsx  where sp.MaHangSanXuat = hsx.MaHangSanXuat and hsx.MaHangSanXuat = $ilogo and $giatien LIMIT 5";
@@ -74,7 +75,7 @@
         <?php
                         
                     }
-                    $ilogo = $ilogo +1;
+                   
                 }
         ?>
                  <!-- <div class="column"></div>  -->

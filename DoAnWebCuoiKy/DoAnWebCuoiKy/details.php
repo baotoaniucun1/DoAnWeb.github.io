@@ -1,6 +1,6 @@
 
   <?php
-  
+  session_start();
   require_once "lib/db.php";
   
   if(!isset($_GET["idsanpham"]))
@@ -24,8 +24,8 @@
       $tensp= $row['TenSanPham']; 
       $gia= number_format($row['GiaSanPham']);
 
-        $luongban = $row['SoLuongBan']; 
-        $luotxem = $row['SoLuotXem']; 
+      $luongban = $row['SoLuongBan']; 
+      $luotxem = $row['SoLuotXem']; 
 
       $manhinh = $row['ManHinh']; 
       $hedieuhanh= $row['HeDieuHanh'];
@@ -42,7 +42,7 @@
       
       $tenloaisp =  $row['TenLoaiSanPham'];
       $tenhangsx =  $row['TenHangSanXuat']; 
-        $xuatxu = $row['XuatXu'];
+      $xuatxu = $row['XuatXu'];
   }
 
   
@@ -94,12 +94,12 @@ include 'modules/include.php';
                     <p>
                     
                         <h6>  <?php echo  $luongban ?> : Lượt mua │ <?php $xemtam = $luotxem+1;
-                        
-                        $update = " UPDATE sanpham set SoLuotXem = $xemtam where MaSanPham = $masp ";
-  
-                                    write($update);
-                        
-                        echo  $luotxem+1 ?> : Lượt xem</h6>
+                                                                          
+                                                                          $update = " UPDATE sanpham set SoLuotXem = $xemtam where MaSanPham = $masp ";
+                                                                          
+                                                                          write($update);
+                                                                          
+                                                                          echo  $luotxem+1 ?> : Lượt xem</h6>
 
                         <b style="font-size:14px; color:red;">
                         Xuất Xứ: </b> 
@@ -131,31 +131,13 @@ include 'modules/include.php';
                         </span>
                     </div>
                     <hr class="border">
-                    <div class="wided">
-                        <div class="qty">
-                            Số Lượng: &nbsp;&nbsp;:
-                            <select>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST" style="padding-top:20px;padding-bottom: 20px;">
-                                            <button class="btn btn-giohang" type="submit">
+                    <div class="wided" style="margin-bottom:20px">
 
-                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-
-                                            </button>
-                                        </form>
-                        </div>
-
-
+                             <a href="../cartproduct.php?idsanpham=<?php echo $masp; ?>">
+                             <button class="btn btn-giohang">
+                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+                              </button>             
+                              </a>
                     </div>
 
                 </div>
@@ -267,15 +249,13 @@ include 'modules/include.php';
                                     </h6>
 
                                     <h5><b><?php echo number_format($row1['GiaSanPham']); ?> ₫</b></h5>
-                                    <div style=" text-align: center;">
-                                        <form action="#?idgiohang=<?php echo $row1['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-giohang" type="submit">
-
-                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-
-                                            </button>
-                                        </form>
-
+                                    <div style="text-align: center;">
+                                        
+                                          <a href="../cartproduct.php?idsanpham=<?php echo $row1['MaSanPham']; ?>">
+                             <button class="btn btn-giohang">
+                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+                              </button>             
+                              </a>
                                     </div>
 
 
@@ -369,14 +349,12 @@ include 'modules/include.php';
 
                                     <h5><b><?php echo number_format($row2['GiaSanPham']); ?> ₫</b></h5>
                                     <div style=" text-align: center;">
-                                        <form action="#?idgiohang=<?php echo $row2['MaSanPham']; ?>" method="POST">
-                                            <button class="btn btn-giohang" type="submit">
-
-                                                <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-
-                                            </button>
-                                        </form>
-
+                                       
+                                          <a href="../cartproduct.php?idsanpham=<?php echo $row2['MaSanPham']; ?>">
+                             <button class="btn btn-giohang">
+                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
+                              </button>             
+                              </a>
                                     </div>
 
 
@@ -428,6 +406,15 @@ include 'modules/include.php';
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/holder.min.js"></script>
+    
+
+
+
+
+
+
+
+
 
 </body>
 

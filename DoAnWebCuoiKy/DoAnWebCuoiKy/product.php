@@ -78,11 +78,14 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     $query = "SELECT * FROM sanpham as sp  where  sp.MaLoaiSanPham =  $maloai  order by sp.GiaSanPham  LIMIT $offset,$rowsPerPage";
 
                     $rs = load($query);
-                    if($rs->num_rows <=0)
-                    {
-                        header('Location: index.php');
-                    }
+                    //if($rs->num_rows <=0)
+                    //{
+                    //    header('Location: product.php');
+                      
+                    //}
 
+
+                
 
 
 
@@ -109,15 +112,14 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                                             <h5>
                                                 <?php echo number_format($row['GiaSanPham']); ?> ₫
                                             </h5>
-                                            <div style=" text-align: center;">
+                                            <div style="text-align: center;">
 
-                                                <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                                    <button class="btn btn-sm btn-giohang" type="submit">
-
+                                               
+                                                <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                                    <button class="btn btn-giohang">
                                                         <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-
                                                     </button>
-                                                </form>
+                                                </a>
 
                                             </div>
                                         </div>
@@ -237,10 +239,10 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     $query = "SELECT * FROM sanpham as sp  where  sp.MaHangSanXuat =  $mahangsx  order by sp.GiaSanPham LIMIT $offset,$rowsPerPage";
 
                     $rs = load($query);
-                    if($rs->num_rows <=0)
-                    {
-                        header('Location: index.php');
-                    }
+                    //if($rs->num_rows <=0)
+                    //{
+                    //    header('Location: index.php');
+                    //}
 
 
 
@@ -270,13 +272,13 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                                             </h5>
                                             <div style=" text-align: center;">
 
-                                                <form action="#?idgiohang=<?php echo $row['MaSanPham']; ?>" method="POST">
-                                                    <button class="btn btn-sm btn-giohang" type="submit">
 
+                                                <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                                    <button class="btn btn-giohang">
                                                         <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
-
                                                     </button>
-                                                </form>
+                                                </a>
+
 
                                             </div>
                                         </div>

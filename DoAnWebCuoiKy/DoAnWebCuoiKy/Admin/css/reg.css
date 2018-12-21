@@ -94,9 +94,9 @@
 {
   display: block;
 }
-.account .row, .product .row{
+/*.account .row, .product .row{
   display: block;
-}
+}*/
  .account .table, .product .table{
   display: inline-table;
 }
