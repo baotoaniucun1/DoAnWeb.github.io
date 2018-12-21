@@ -348,8 +348,8 @@ include 'modules/include.php';
                                     </h6>
 
                                     <h5><b><?php echo number_format($row2['GiaSanPham']); ?> ₫</b></h5>
-                                    <div style=" text-align: center;">
-                                       
+                                    <div style="text-align: center;">
+                                        
                                           <a href="../cartproduct.php?idsanpham=<?php echo $row2['MaSanPham']; ?>">
                              <button class="btn btn-giohang">
                                  <i class="fa fa-search fa-fw"></i> Thêm vào giỏ

@@ -35,8 +35,9 @@ if(!isset($_SESSION['username']))
             </h3>
 
             <?php
-
-          
+            if (isset($_SESSION['cart']))
+            {
+                
 
 
             ?>
@@ -60,6 +61,7 @@ if(!isset($_SESSION['username']))
 
                 </thead>
                 <tbody>
+
                     <?php $cart = $_SESSION['cart'];
                           $demsl = 0;
                           $stt = 1;
@@ -107,8 +109,16 @@ if(!isset($_SESSION['username']))
                     </tr>
                 </tbody>
             </table>
-        </div>
+            <?php }
 
+            else
+            {
+
+                echo "  <h3> Chưa có sản phẩm trong giỏ hàng</h3>";
+            }
+            ?>
+        </div>
+     
 
 
 

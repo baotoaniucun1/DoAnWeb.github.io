@@ -1,9 +1,22 @@
 
 <?php
+if (!isset($_SESSION['cart']))
+{
+    $dem =0;
+}
+else
+{
+    $cart = $_SESSION['cart'];
+    $dem =0;
+    foreach($cart as $value)
+    {
+        $dem +=$value['SoLuong'];
+    }
+}
 
 
 if (isset($_POST["btndangxuat"])) {
-   
+
         header('Location: Logout.php');
     }
 
@@ -50,8 +63,14 @@ if (isset($_POST["btndangxuat"])) {
             // trường hợp đăng nhập bằng member
             if(isset($_SESSION['username']) && $_SESSION['role'] == 0)
             {
+                if($dem<0)
+                {
+                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
+                            <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+                             </a>';
+                }
                 echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-    <span class="badge badge-danger">11</span>
+    <span class="badge badge-danger">'.$dem.'</span>
 <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
    </a>';
                 echo $register = '';
@@ -68,8 +87,14 @@ if (isset($_POST["btndangxuat"])) {
             }
             // trường hợp đăng nhập bằng admin
             elseif(isset($_SESSION['username']) && $_SESSION['role'] == 1) {
-                echo   $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-    <span class="badge badge-danger">11</span>
+                if($dem<0)
+                {
+                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
+                            <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+                             </a>';
+                }
+                echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
+    <span class="badge badge-danger">'.$dem.'</span>
 <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
    </a>';
                 echo $member = '<form method="POST">
