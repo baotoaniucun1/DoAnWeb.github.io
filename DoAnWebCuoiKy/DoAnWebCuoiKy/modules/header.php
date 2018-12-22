@@ -1,5 +1,7 @@
 
 <?php
+
+
 if (!isset($_SESSION['cart']))
 {
     $dem =0;
@@ -11,6 +13,12 @@ else
     foreach($cart as $value)
     {
         $dem +=$value['SoLuong'];
+    }
+
+    $d = sizeof($_SESSION["cart"]);
+    if(  $d == 0)
+    {
+        unset($_SESSION['cart']);
     }
 }
 
@@ -63,41 +71,53 @@ if (isset($_POST["btndangxuat"])) {
             // trường hợp đăng nhập bằng member
             if(isset($_SESSION['username']) && $_SESSION['role'] == 0)
             {
-                if($dem<0)
+                if($dem<=0)
                 {
                     echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
                             <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
                              </a>';
-                }
-                echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-    <span class="badge badge-danger">'.$dem.'</span>
-<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
-   </a>';
-                echo $register = '';
-                echo  $member = '<form method="POST"><div class="dropdown ml-2">
+                    echo  $member = '<form method="POST" style="margin-block-end: unset;"><div class="dropdown ml-2">
                     <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
+                             <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
                         <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </form>';
+                }
+                else
+                {
+                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
+                     <span class="badge badge-danger">'.$dem.'</span>
+                <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+                      </a>';
+                    echo  $member = '<form method="POST" style="margin-block-end: unset;"><div class="dropdown ml-2">
+                    <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
+                         <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
+                        <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
+                    </div>
+                </form>';
+                }
+
+                echo $register = '';
+
             }
             // trường hợp đăng nhập bằng admin
             elseif(isset($_SESSION['username']) && $_SESSION['role'] == 1) {
-                if($dem<0)
+                if($dem<=0)
                 {
                     echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
                             <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
                              </a>';
-                }
-                echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-    <span class="badge badge-danger">'.$dem.'</span>
-<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
-   </a>';
-                echo $member = '<form method="POST">
+                    echo $member = '<form method="POST" style="margin-block-end: unset;">
                     <div class="dropdown ml-2">
                     <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <a data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
@@ -105,13 +125,37 @@ if (isset($_POST["btndangxuat"])) {
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-
+                         <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
                       <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </div>
  </form>';
-                echo  $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
-            }
+                    echo  $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
+
+                }
+                else{
+                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
+    <span class="badge badge-danger">'.$dem.'</span>
+<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+   </a>';
+                    echo $member = '<form method="POST" style="margin-block-end: unset;">
+                    <div class="dropdown ml-2">
+                    <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <a data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
+                        <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
+                      <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
+                    </div>
+                </div>
+ </form>';
+                    echo  $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
+
+                }
+
+             }
             // trường hợp chưa đăng nhập
             else {
                 echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">

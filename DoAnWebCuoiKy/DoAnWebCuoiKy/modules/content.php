@@ -1,3 +1,6 @@
+
+
+
 <div class="row">
     <div class="col"></div>
 
@@ -351,3 +354,20 @@
 
 
 </div>
+<?php 
+
+if(isset($_SESSION["vuotsoluong"]) )
+{
+    if($_SESSION["vuotsoluong"] == "")
+    {
+        
+    }
+    else
+    {
+        echo $_SESSION["vuotsoluong"];
+        unset($_SESSION['vuotsoluong']);
+    }
+}
+
+
+?>

@@ -1,7 +1,7 @@
 
 <?php
 	session_start();
-   
+
 	if (isset($_SESSION["dang_nhap_chua"])) {
 
         header('Location: index.php');
@@ -32,7 +32,7 @@
             $TenHienThi = $row['TenHienThi'];
             $_SESSION["dang_nhap_chua"] = 1;
             $_SESSION['TenHienThi'] = $TenHienThi;
-
+            $_SESSION['MaTaiKhoan'] = $row['MaTaiKhoan'];
             header('Location: index.php');
         }
         else{
