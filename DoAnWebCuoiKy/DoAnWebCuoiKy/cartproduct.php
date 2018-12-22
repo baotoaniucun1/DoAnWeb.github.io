@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require_once 'lib/db.php';
 if(!isset($_SESSION['username']))
@@ -13,11 +13,13 @@ else{
     $maSP = $_GET["idsanpham"];
 
 
+
     $querychonsanphamthemvaogiohang = "SELECT * FROM sanpham where MaSanPham = $maSP";
     $rsthemspvaogio = load($querychonsanphamthemvaogiohang);
 
     while($rowthemspvaogio = $rsthemspvaogio->fetch_assoc())
     {
+
         if (!isset($_SESSION['cart'])) //Nếu như cart chưa tồn tại -> tạo mới
         {
             $_SESSION['cart'][$maSP]['MaTaiKhoan'] = $_SESSION['username'];
@@ -37,10 +39,20 @@ else{
         {
             if (isset($_SESSION['cart'][$maSP])) // Nếu trong cart đã tồn tại sản phẩm đó -> tăng số lượng, tính lại thành tiền
             {
-                $_SESSION['cart'][$maSP]['SoLuong'] += 1;
-                $_SESSION['cart'][$maSP]['ThanhTien'] = $_SESSION['cart'][$maSP]['SoLuong'] * $_SESSION['cart'][$maSP]['Gia'];
-                $trangtruoc = $_SERVER['HTTP_REFERER'];
-                header('Location: '.$trangtruoc.'');
+                if(  $_SESSION['cart'][$maSP]['SoLuong'] + 1 > 10)
+                {
+                    $_SESSION["vuotsoluong"] = "<script>alert('Sản phẩm ".$_SESSION['cart'][$maSP]['TenSanPham']." vượt quá số lượng có thể mua.');</script>";
+                    $trangtruoc = $_SERVER['HTTP_REFERER'];
+                    header('Location: '.$trangtruoc.'');
+                }
+                else{
+                    $_SESSION['cart'][$maSP]['SoLuong'] += 1;
+                    $_SESSION['cart'][$maSP]['ThanhTien'] = $_SESSION['cart'][$maSP]['SoLuong'] * $_SESSION['cart'][$maSP]['Gia'];
+                    $trangtruoc = $_SERVER['HTTP_REFERER'];
+                    header('Location: '.$trangtruoc.'');
+                    $_SESSION["vuotsoluong"] = "";
+                }
+
             }
             else // Chưa tồn tại trong cart -> thêm mới
             {

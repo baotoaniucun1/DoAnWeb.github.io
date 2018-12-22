@@ -51,6 +51,24 @@
 
 
   ?>
+<?php 
+
+if(isset($_SESSION["vuotsoluong"]) )
+{
+    if($_SESSION["vuotsoluong"] == "")
+    {
+        
+    }
+    else
+    {
+        echo $_SESSION["vuotsoluong"];
+        unset($_SESSION['vuotsoluong']);
+    }
+}
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -419,4 +437,3 @@ include 'modules/include.php';
 </body>
 
 </html>
-

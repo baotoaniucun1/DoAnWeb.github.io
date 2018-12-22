@@ -2,7 +2,18 @@
 session_start();
 
 require_once "lib/db.php";
+if(isset($_SESSION["vuotsoluong"]) )
+{
+    if($_SESSION["vuotsoluong"] == "")
+    {
 
+    }
+    else
+    {
+        echo $_SESSION["vuotsoluong"];
+        unset($_SESSION['vuotsoluong']);
+    }
+}
 if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 {
     header('Location: index.php');
@@ -10,6 +21,7 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -378,3 +390,4 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 </body>
 
 </html>
+
