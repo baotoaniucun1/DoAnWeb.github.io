@@ -27,6 +27,7 @@
     <Compile Include="Admin\Order.php" />
     <Compile Include="Admin\Product.php" />
     <Compile Include="Admin\Producttype.php" />
+    <Compile Include="api\call_ajax.php" />
     <Compile Include="api\process.php" />
     <Compile Include="api\user_check.php" />
     <Compile Include="assets\js\process.php" />
