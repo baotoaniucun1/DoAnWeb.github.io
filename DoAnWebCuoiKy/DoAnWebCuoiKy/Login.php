@@ -78,15 +78,13 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Your Password *" value="" />
                         </div>
-                        <div class="form-group">
-
-                            <a href="#" class="ForgetPwd" value="Forget">Forget Password?</a>
+                        
+                        <div class="form-group" style="text-align:center">
+                            <input type="submit" name="btnLogin" class="btnSubmit" value="Đăng Nhập" />
                         </div>
                         <div class="form-group" style="text-align:center">
-                            <input type="submit" name="btnLogin" class="btnSubmit" value="Login" />
-                        </div>
-                        <div class="form-group" style="text-align:center">
-                            <a href="register.php" class="ForgetPwd" value="Register">Register</a>
+                            <a href="register.php" class="ForgetPwd" value="Register">Đăng Ký
+                            </a>
                         </div>
                         <div style="text-align:center; color:yellow">
                             <?php
