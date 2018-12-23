@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>orderhistory.php</SpecificPageValue>
+    <SpecificPageValue>search.php</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -44,6 +44,7 @@
     <Compile Include="modules\menu.php" />
     <Compile Include="nhap.php" />
     <Compile Include="process.php" />
+    <Compile Include="search.php" />
     <Compile Include="product.php" />
     <Compile Include="profile.php" />
   </ItemGroup>

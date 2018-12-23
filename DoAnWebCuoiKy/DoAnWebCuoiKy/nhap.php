@@ -246,3 +246,18 @@ if(isset($_POST['update_item'])){
   echo "<pre>";
             print_r($_SESSION['cart']);
             echo "</pre>";
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+

@@ -78,9 +78,9 @@ if (isset($_POST["btndangxuat"])) {
     <div class="row flex-nowrap justify-content-between align-items-center">
 
         <div class="col-4">
-
-            <form class="input-group" method="get">
-                <input type="text" class="form-control" placeholder="Tìm kiếm..." onkeyup="fx(this.value)" autocomplete="off" name="qu" id="qu"  />
+            
+            <form class="input-group" method="get" action="../search.php">
+                <input type="text" class="form-control" placeholder="Tìm kiếm..." onkeyup="fx(this.value)" autocomplete="off" name="qu" id="qu" />
                 <span class="input-group-btn">
                     <button class="btn btn-search" type="submit" tabindex="2">
                         <i class="fa fa-search fa-fw"></i> Tìm
@@ -88,9 +88,7 @@ if (isset($_POST["btndangxuat"])) {
 
                 </span>
 
-                <div id="livesearch">
-
-                </div >
+                <div id="livesearch"></div>
             </form>
 
 
