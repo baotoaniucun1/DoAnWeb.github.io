@@ -1162,6 +1162,11 @@ input[type="checkbox"], input[type="radio"]{
 }
 
 /*Check box*/
+@font-face {
+    font-family: 'FontAwesome';
+    
+    src: url('../fontawesome-webfont.ttf') format('truetype');
+}
 input[type="checkbox"] + .label-text:before{
 	content: "\f096";
 	font-family: "FontAwesome";
