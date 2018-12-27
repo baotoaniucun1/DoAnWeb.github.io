@@ -278,11 +278,11 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
                     $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
                 }
-            //}
+            }
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
         }
-    }
+    //}
     if(!empty($_SESSION['hedieuhanh'])) {
         //if($gan_and > 1)
         //{
@@ -321,10 +321,10 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
                     $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
                 }
-            //}
+            }
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
-        }
+        //}
     }
 
 
@@ -366,10 +366,10 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or mtsp.BoNhoTrong like '%$value%' ";
                     $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%' ";
                 }
-            //}
+            }
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
-        }
+        //}
     }
 }
 
