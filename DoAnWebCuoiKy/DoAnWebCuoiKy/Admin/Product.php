@@ -75,7 +75,8 @@ if(isset($_POST['update_item'])){
         $update = "update HangSanXuat set TenHangSanXuat = '$tenhsxedit' , BiXoa = $tinhtrang where MaHangSanXuat = '$idedit' ";
         write($update);
 
-	} else {
+	} 
+    else {
         if(!file_exists("../assets/img"))
         {
             mkdir("../assets/img");
@@ -112,6 +113,7 @@ if(isset($_POST['update_item'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -164,7 +166,7 @@ if(isset($_POST['update_item'])){
                                 <thead class="thead-yellow" style="text-align:center">
                                     <tr>
                                         <th scope="col"># </th>
-                                          <th scope="col">Hình Ảnh</th>
+                                        <th scope="col">Hình Ảnh</th>
                                         <th scope="col">Tên Nhà Sản Xuất</th>
                                         <th scope="col">Tình Trạng</th>
                                         <th scope="col">Sửa</th>
@@ -182,9 +184,9 @@ if(isset($_POST['update_item'])){
                                         <td>
                                             <?php echo $rowhsx['MaHangSanXuat']; ?>
                                         </td>
-                                         <td>
-                                        <img src="../<?php echo $rowhsx['LogoURL']; ?>" class="img-size-100" />
-                                    </td>
+                                        <td>
+                                            <img src="../<?php echo $rowhsx['LogoURL']; ?>" class="img-size-100" />
+                                        </td>
                                         <td>
                                             <?php echo $rowhsx['TenHangSanXuat']; ?>
                                         </td>
@@ -203,7 +205,8 @@ if(isset($_POST['update_item'])){
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Edit">
                                                 <a href="#edit<?php echo $rowhsx['MaHangSanXuat'];?>" data-toggle="modal">
-                                                    <button class="btn btn-primary" data-title="Edit" data-toggle="modal" data-target="#edit">
+                                                    <button class="btn btn-primary" data-title="Edit" data-toggle="modal"
+                                                        data-target="#edit">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </button>
                                                 </a>
@@ -212,7 +215,8 @@ if(isset($_POST['update_item'])){
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Delete">
                                                 <a href="#delete<?php echo $rowhsx['MaHangSanXuat'];?>" data-toggle="modal">
-                                                    <button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                    <button class="btn btn-danger" data-title="Delete" data-toggle="modal"
+                                                        data-target="#delete">
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </a>
@@ -221,107 +225,122 @@ if(isset($_POST['update_item'])){
                                         </td>
                                     </tr>
 
-                                      <!--        khúc này là popup thông báo xóa Nhà sản xuất    -->
+                                    <!--        khúc này là popup thông báo xóa Nhà sản xuất    -->
 
-                              <div id="delete<?php echo $rowhsx['MaHangSanXuat'];  ?>" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <form method="post">
-                                <!-- Modal content-->
-                                       <div class="modal-content">
-                                          <div class="modal-header">
-                                                <h4 class="modal-title">Xóa Nhà Sản Xuất</h4>
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                             
-                                          </div>  
-                                          <div class="modal-body">
-                                            <input type="hidden" name="delete_id" value="<?php echo $rowhsx['MaHangSanXuat']; ?>">
-                                                <div class="alert alert-danger">Bạn có chắc muốn xóa Nhà này 
-                                                     <strong> <?php echo $rowhsx['TenHangSanXuat']; ?>?</strong> 
-                                                 </div>
-                                          
-                                         </div>
+                                    <div id="delete<?php echo $rowhsx['MaHangSanXuat'];  ?>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <form method="post">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Xóa Nhà Sản Xuất</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                           <div class="modal-footer">
-                                            <button type="submit" name="delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Không</button>
-                                        </div>
-                                        </div>
-                                   </form>
-                              </div>
-                             </div>
-                                  <!--    kết thúc popup xóa Nhà sãn xuất-->
-
-                                    
-                                  <!--        khúc này là popup sửa Nhà sản xuất  -->
-
-                                <div id="edit<?php echo  $rowhsx['MaHangSanXuat'];  ?>" class="modal fade" role="dialog">
-                                    <form method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Sửa Nhà sản xuất</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>   
-                                                </div>
-
-                                                <div class="modal-body">
-                                                       <input type="hidden" name="edit_id" value="<?php echo  $rowhsx['MaHangSanXuat']; ?>">
-                                                    <div class="row">
-                                                        <div class="col-sm-3" style="text-align:center">
-                                                          <div>
-                                                            <img id="blahedit" for="file" src="../<?php echo $rowhsx['LogoURL']; ?>" class="img-size-150" />
-
-                                                            <div style="margin-top:10px">
-                                                                <label class="input-group-btn">
-                                                                     <span class="btn btn-primary"> Chọn File Ảnh:
-                                                                        <input type="file" id="imgInpedit" name="fileedit" style="display: none;" />
-                                                                    </span>
-                                                                </label>
-                                     
-                                                            </div>
-                                                         </div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="delete_id" value="<?php echo $rowhsx['MaHangSanXuat']; ?>">
+                                                        <div class="alert alert-danger">Bạn có chắc muốn xóa Nhà này
+                                                            <strong>
+                                                                <?php echo $rowhsx['TenHangSanXuat']; ?>?</strong>
                                                         </div>
-                                                         <div class="col-sm-9">
-                                                                  <div class="row">
-                                                          <div class="col-sm-6">
-                                                              <label class="control-label" for="item_nameedit">Tên Nhà Sản Xuất:</label>
-                                                              <input type="text" class="form-control" id="item_nameedit" name="item_nameedit" autofocus required  value="<?php echo $rowhsx['TenHangSanXuat']  ?>"/>
-                                                              <br />
-                                           
-                                                           </div>
 
-                                                           <div class="col-sm-6">
-                                           
-                                                                <label class="control-label" for="tinhtrangedit">Tình Trạng:</label>
-                                                                <select class="form-control" type="text" id="tinhtrangedit" name="tinhtrangedit" autofocus required>
-                                                                    <option  <?php if($rowhsx['BiXoa']== 0) echo "selected"  ?>   value="0">Hiện</option>
-                                                                    <option  <?php if($rowhsx['BiXoa']== 1) echo "selected"  ?>  value="1">Ẩn</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                         </div>
                                                     </div>
 
-                                                  
+                                                    <div class="modal-footer">
+                                                        <button type="submit" name="delete" class="btn btn-danger"><span
+                                                                class="glyphicon glyphicon-trash"></span> Xóa</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span
+                                                                class="glyphicon glyphicon-remove-circle"></span> Không</button>
+                                                    </div>
                                                 </div>
-
-
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success" name="update_item"><span class="glyphicon glyphicon-edit"></span>
-                                                    Sửa</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>
-                                                    Hủy</button>
-                                                </div>
-
-
-                                            </div>
+                                            </form>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <!--    kết thúc popup xóa Nhà sãn xuất-->
+
+
+                                    <!--        khúc này là popup sửa Nhà sản xuất  -->
+
+                                    <div id="edit<?php echo  $rowhsx['MaHangSanXuat'];  ?>" class="modal fade" role="dialog">
+                                        <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Sửa Nhà sản xuất</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="edit_id" value="<?php echo  $rowhsx['MaHangSanXuat']; ?>">
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="text-align:center">
+                                                                <div>
+                                                                    <img id="blahedit" for="file" src="../<?php echo $rowhsx['LogoURL']; ?>"
+                                                                        class="img-size-150" />
+
+                                                                    <div style="margin-top:10px">
+                                                                        <label class="input-group-btn">
+                                                                            <span class="btn btn-primary"> Chọn File
+                                                                                Ảnh:
+                                                                                <input type="file" id="imgInpedit" name="fileedit"
+                                                                                    style="display: none;" />
+                                                                            </span>
+                                                                        </label>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <label class="control-label" for="item_nameedit">Tên
+                                                                            Nhà Sản Xuất:</label>
+                                                                        <input type="text" class="form-control" id="item_nameedit"
+                                                                            name="item_nameedit" autofocus required
+                                                                            value="<?php echo $rowhsx['TenHangSanXuat']  ?>" />
+                                                                        <br />
+
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+
+                                                                        <label class="control-label" for="tinhtrangedit">Tình
+                                                                            Trạng:</label>
+                                                                        <select class="form-control" type="text" id="tinhtrangedit"
+                                                                            name="tinhtrangedit" autofocus required>
+                                                                            <option <?php if($rowhsx['BiXoa']==0) echo
+                                                                                              "selected" ?> value="0">Hiện</option>
+                                                                            <option <?php if($rowhsx['BiXoa']==1) echo
+                                                                                              "selected" ?> value="1">Ẩn</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success" name="update_item"><span
+                                                                class="glyphicon glyphicon-edit"></span>
+                                                            Sửa</button>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                                                class="glyphicon glyphicon-remove-circle"></span>
+                                                            Hủy</button>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
 
 
 
-                                  <!--      kết thúc popup sửa Nhà sản xuất -->
+                                    <!--      kết thúc popup sửa Nhà sản xuất -->
 
 
                                     <?php }?>
@@ -340,56 +359,58 @@ if(isset($_POST['update_item'])){
     include 'modules/footer.php';
     ?>
 
-               <!--        khúc này là popup thêm Nhà sản xuất   -->
+    <!--        khúc này là popup thêm Nhà sản xuất   -->
     <div id="add" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
+                <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm Nhà Sản Xuất</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                 <div class="modal-body">
-                   
-                    <div class="row">
-                      <div class="col-sm-3" style="text-align:center">
-                           <div>
-                              <img id="blah" for="file" src="img/Photo-icon.png" class="img-size-150" />
-                                <div style="margin-top:10px">
-                                 <label class="input-group-btn">
-                                 <span class="btn btn-primary"> Chọn File Ảnh:
-                                    <input type="file" id="imgInp" name="file" style="display: none;" />
-                                  </span>
-                                 </label>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-3" style="text-align:center">
+                                <div>
+                                    <img id="blah" for="file" src="img/Photo-icon.png" class="img-size-150" />
+                                    <div style="margin-top:10px">
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-primary"> Chọn File Ảnh:
+                                                <input type="file" id="imgInp" name="file" style="display: none;" />
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
-                          </div>
-                       </div>
-                      <div class="col-sm-9">
-                       <div class="row">
-                             <div class="col-sm-6">
-                             <label class="control-label" for="item_name">Tên Nhà Sản Xuất:</label>
-                               <input type="text" class="form-control" id="item_name" name="item_name" autofocus required />
-                                 <br />
-                             </div>
-                            <div class="col-sm-6">
-                              <label class="control-label" for="tinhtrang">Tình Trạng:</label>
-                              <select class="form-control" type="text" id="tinhtrang" name="tinhtrang" autofocus required>
-                              <option   value="0">Hiện</option>
-                              <option  value="1">Ẩn</option>
-                              </select>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label class="control-label" for="item_name">Tên Nhà Sản Xuất:</label>
+                                        <input type="text" class="form-control" id="item_name" name="item_name"
+                                            autofocus required />
+                                        <br />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="control-label" for="tinhtrang">Tình Trạng:</label>
+                                        <select class="form-control" type="text" id="tinhtrang" name="tinhtrang"
+                                            autofocus required>
+                                            <option value="0">Hiện</option>
+                                            <option value="1">Ẩn</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                      </div>
-                     </div>
-                </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success" name="add_item">
                             <span class="glyphicon glyphicon-plus"></span> Thêm
                         </button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">
                             <span class="glyphicon glyphicon-remove-circle"></span> Hủy
-                        </button> 
+                        </button>
                     </div>
 
                 </form>
@@ -423,10 +444,7 @@ if(isset($_POST['update_item'])){
         $("#imgInp").change(function () {
             readURL(this);
         });
-
-
-
-
     </script>
 </body>
+
 </html>

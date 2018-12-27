@@ -57,6 +57,7 @@ if(isset($_POST['update_item'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -102,7 +103,8 @@ if(isset($_POST['update_item'])){
                         <div class="card-body">
                             <a href="#add" data-toggle="modal">
                                 <button type='button' class='btn btn-success btn-sm mb-2'>
-                                    <span class='glyphicon glyphicon-plus' aria-hidden='true'></span> Thêm Loại Sản Phẩm
+                                    <span class='glyphicon glyphicon-plus' aria-hidden='true'></span> Thêm Loại Sản
+                                    Phẩm
                                 </button>
                             </a>
                             <table id="example" cellspacing="0" class="table table-hover table-striped">
@@ -144,7 +146,8 @@ if(isset($_POST['update_item'])){
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Edit">
                                                 <a href="#edit<?php echo $rowlspl['MaLoaiSanPham'];?>" data-toggle="modal">
-                                                    <button class="btn btn-primary" data-title="Edit" data-toggle="modal" data-target="#edit">
+                                                    <button class="btn btn-primary" data-title="Edit" data-toggle="modal"
+                                                        data-target="#edit">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </button>
                                                 </a>
@@ -153,7 +156,8 @@ if(isset($_POST['update_item'])){
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Delete">
                                                 <a href="#delete<?php echo $rowlspl['MaLoaiSanPham'];?>" data-toggle="modal">
-                                                    <button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                    <button class="btn btn-danger" data-title="Delete" data-toggle="modal"
+                                                        data-target="#delete">
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </a>
@@ -162,87 +166,100 @@ if(isset($_POST['update_item'])){
                                         </td>
                                     </tr>
 
-                                      <!--        khúc này là popup thông báo xóa loại sản phẩm lên    -->
+                                    <!--        khúc này là popup thông báo xóa loại sản phẩm lên    -->
 
-                              <div id="delete<?php echo $rowlspl['MaLoaiSanPham'];  ?>" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <form method="post">
-                                <!-- Modal content-->
-                                       <div class="modal-content">
-                                          <div class="modal-header">
-                                                <h4 class="modal-title">Xóa Loại Sản Phẩm</h4>
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                             
-                                          </div>  
-                                          <div class="modal-body">
-                                            <input type="hidden" name="delete_id" value="<?php echo $rowlspl['MaLoaiSanPham']; ?>">
-                                                <div class="alert alert-danger">Bạn có chắc muốn xóa loại sản phẩm 
-                                                     <strong> <?php echo $rowlspl['TenLoaiSanPham']; ?> </strong> này ?
-                                                 </div>
-                                          
-                                         </div>
+                                    <div id="delete<?php echo $rowlspl['MaLoaiSanPham'];  ?>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <form method="post">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Xóa Loại Sản Phẩm</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                           <div class="modal-footer">
-                                            <button type="submit" name="delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Không</button>
-                                        </div>
-                                        </div>
-                                   </form>
-                              </div>
-                             </div>
-                                  <!--    kết thúc popup xóa loai sản phẩm-->
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="delete_id" value="<?php echo $rowlspl['MaLoaiSanPham']; ?>">
+                                                        <div class="alert alert-danger">Bạn có chắc muốn xóa loại sản
+                                                            phẩm
+                                                            <strong>
+                                                                <?php echo $rowlspl['TenLoaiSanPham']; ?> </strong> này
+                                                            ?
+                                                        </div>
 
-                                    
-                                  <!--        khúc này là popup sửa loai sản phẩm  -->
+                                                    </div>
 
-                                <div id="edit<?php echo  $rowlspl['MaLoaiSanPham'];  ?>" class="modal fade" role="dialog">
-                                    <form method="post" class="form-horizontal" role="form">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Sửa Loại Sản Phẩm</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                                                    <div class="modal-footer">
+                                                        <button type="submit" name="delete" class="btn btn-danger"><span
+                                                                class="glyphicon glyphicon-trash"></span> Xóa</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span
+                                                                class="glyphicon glyphicon-remove-circle"></span> Không</button>
+                                                    </div>
                                                 </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--    kết thúc popup xóa loai sản phẩm-->
 
-                                                <div class="modal-body">
-                                                       <input type="hidden" name="edit_id" value="<?php echo  $rowlspl['MaLoaiSanPham']; ?>">
-                                                       <div class="row">
-                                                          <div class="col-sm-6">
-                                                              <label class="control-label" for="item_nameedit">Tên Loại Sản Phẩm:</label>
-                                                              <input type="text" class="form-control" id="item_nameedit" name="item_nameedit" autofocus required  value="<?php echo $rowlspl['TenLoaiSanPham']  ?>"/>
-                                                              <br />
-                                           
-                                                           </div>
 
-                                                           <div class="col-sm-6">
-                                           
-                                                                <label class="control-label" for="tinhtrang">Tình Trạng:</label>
-                                                                <select class="form-control" type="text" id="tinhtrang" name="tinhtrang" autofocus required>
-                                                                    <option  <?php if($rowlspl['BiXoa']== 0) echo "selected"  ?>   value="0">Hiện</option>
-                                                                    <option  <?php if($rowlspl['BiXoa']== 1) echo "selected"  ?>  value="1">Ẩn</option>
+                                    <!--        khúc này là popup sửa loai sản phẩm  -->
+
+                                    <div id="edit<?php echo  $rowlspl['MaLoaiSanPham'];  ?>" class="modal fade" role="dialog">
+                                        <form method="post" class="form-horizontal" role="form">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Sửa Loại Sản Phẩm</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="edit_id" value="<?php echo  $rowlspl['MaLoaiSanPham']; ?>">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label class="control-label" for="item_nameedit">Tên
+                                                                    Loại Sản Phẩm:</label>
+                                                                <input type="text" class="form-control" id="item_nameedit"
+                                                                    name="item_nameedit" autofocus required value="<?php echo $rowlspl['TenLoaiSanPham']  ?>" />
+                                                                <br />
+
+                                                            </div>
+
+                                                            <div class="col-sm-6">
+
+                                                                <label class="control-label" for="tinhtrang">Tình
+                                                                    Trạng:</label>
+                                                                <select class="form-control" type="text" id="tinhtrang"
+                                                                    name="tinhtrang" autofocus required>
+                                                                    <option <?php if($rowlspl['BiXoa']==0) echo
+                                                                                      "selected" ?> value="0">Hiện</option>
+                                                                    <option <?php if($rowlspl['BiXoa']==1) echo
+                                                                                      "selected" ?> value="1">Ẩn</option>
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                    </div>
+
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success" name="update_item"><span
+                                                                class="glyphicon glyphicon-edit"></span>
+                                                            Sửa</button>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                                                class="glyphicon glyphicon-remove-circle"></span>
+                                                            Hủy</button>
+                                                    </div>
+
+
                                                 </div>
-
-
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success" name="update_item"><span class="glyphicon glyphicon-edit"></span>
-                                                    Sửa</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>
-                                                    Hủy</button>
-                                                </div>
-
-
                                             </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
 
 
 
-                                  <!--      kết thúc popup sửa loai sản phẩm  -->
+                                    <!--      kết thúc popup sửa loai sản phẩm  -->
 
 
                                     <?php }?>
@@ -261,40 +278,42 @@ if(isset($_POST['update_item'])){
     include 'modules/footer.php';
     ?>
 
-               <!--        khúc này là popup thêm loai san phẩm    -->
+    <!--        khúc này là popup thêm loai san phẩm    -->
     <div id="add" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
+                <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm Loại Sản Phẩm</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="modal-body">                      
+                    <div class="modal-body">
                         <div class="row">
-                      
+
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label class="control-label" for="item_name">Tên Loại Sản Phẩm:</label>
-                                            <input type="text" class="form-control" id="item_name" name="item_name" autofocus required />
+                                            <input type="text" class="form-control" id="item_name" name="item_name"
+                                                autofocus required />
                                             <br />
-                                           
+
                                         </div>
 
                                         <div class="col-sm-6">
-                                           
+
                                             <label class="control-label" for="tinhtrang">Tình Trạng:</label>
-                                            <select class="form-control" type="text" id="tinhtrang" name="tinhtrang" autofocus required>
+                                            <select class="form-control" type="text" id="tinhtrang" name="tinhtrang"
+                                                autofocus required>
                                                 <option value="0">Hiện</option>
                                                 <option value="1">Ẩn</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
 
@@ -306,7 +325,7 @@ if(isset($_POST['update_item'])){
                         </button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">
                             <span class="glyphicon glyphicon-remove-circle"></span> Hủy
-                        </button> 
+                        </button>
                     </div>
 
                 </form>
@@ -324,4 +343,5 @@ if(isset($_POST['update_item'])){
 
     <script src="js/dashboard3.js"></script>
 </body>
+
 </html>

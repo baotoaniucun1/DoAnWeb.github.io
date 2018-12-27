@@ -54,13 +54,12 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     $rs1 = load($query1);
                     if($rs1->num_rows <=0)
                     {
-                       
+
                         exit();
                     }
                     else
                     {
-                        while($row1 = $rs1->fetch_assoc())
-                        {
+                        while($row1 = $rs1->fetch_assoc()) {
                 ?>
 
                 <h3 class="pb-3 mb-4 font-italic border-bottom" style=" padding-top:20px;">
@@ -118,7 +117,7 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                                             </h5>
                                             <div style="text-align: center;">
 
-                                               
+
                                                 <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
                                                     <button class="btn btn-giohang">
                                                         <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
@@ -162,10 +161,15 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                         {
                         ?>
                         <li class="page-item ">
-                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=1" style="font-size:16px;">Đầu </a>
+                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=1" style="font-size:16px;">
+                                Đầu
+                            </a>
                         </li>
                         <li class="page-item ">
-                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $curPage-1; ?>" style="font-size:16px;">Trước</a>
+                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $curPage-1; ?>"
+                                style="font-size:16px;">
+                                Trước
+                            </a>
                         </li>
                         <?php
                         }
@@ -181,10 +185,16 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                         {
                         ?>
                         <li class='page-item'>
-                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $curPage+1; ?>" style="font-size:16px;">Sau </a>
+                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $curPage+1; ?>"
+                                style="font-size:16px;">
+                                Sau
+                            </a>
                         </li>
                         <li class='page-item'>
-                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $sotrang; ?>" style="font-size:16px;"> Cuối</a>
+                            <a class="page-link" href="product.php?maloai=<?php echo $maloai ?>&page=<?php echo $sotrang; ?>"
+                                style="font-size:16px;">
+                                Cuối
+                            </a>
                         </li>
                         <?php
                         }
@@ -318,10 +328,15 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     {
                         ?>
                         <li class="page-item ">
-                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=1" style="font-size:16px;">Đầu </a>
+                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=1" style="font-size:16px;">
+                                Đầu
+                            </a>
                         </li>
                         <li class="page-item ">
-                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $curPage-1; ?>" style="font-size:16px;">Trước</a>
+                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $curPage-1; ?>"
+                                style="font-size:16px;">
+                                Trước
+                            </a>
                         </li>
                         <?php
                     }
@@ -337,10 +352,16 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
                     {
                         ?>
                         <li class='page-item'>
-                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $curPage+1; ?>" style="font-size:16px;">Sau </a>
+                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $curPage+1; ?>"
+                                style="font-size:16px;">
+                                Sau
+                            </a>
                         </li>
                         <li class='page-item'>
-                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $sotrang; ?>" style="font-size:16px;"> Cuối</a>
+                            <a class="page-link" href="product.php?mahangsx=<?php echo $mahangsx ?>&page=<?php echo $sotrang; ?>"
+                                style="font-size:16px;">
+                                Cuối
+                            </a>
                         </li>
                         <?php
                     }
@@ -371,4 +392,3 @@ if((!isset($_GET["maloai"])) && (!isset($_GET["mahangsx"])))
 </body>
 
 </html>
-
