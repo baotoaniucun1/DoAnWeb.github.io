@@ -117,8 +117,7 @@ if(isset($_POST['delete'])){
                                     while($rowlspl = $rslsp->fetch_assoc())
                                     {
                                     ?>
-                                <tr style="text-align:center; <?php if($rowlspl['TenTinhTrang'] == " Đã Giao") echo
-                                                                        "background-color: #0eff00a8;" ?>">
+                                <tr style="text-align:center; <?php if($rowlspl['TenTinhTrang'] == "Đã Giao") echo  "background-color:#0eff00a8;" ?>">
                                     <td>
                                         <?php echo $rowlspl['MaDonDatHang']; ?>
                                     </td>
