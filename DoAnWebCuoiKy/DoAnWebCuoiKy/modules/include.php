@@ -9,15 +9,7 @@
  <script src="assets/js/jquery-1.11.1.min.js"></script>
 <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″/>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
-
 <?php
 	require_once "lib/db.php";
 ?>
 
-
-	
-<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>   -->

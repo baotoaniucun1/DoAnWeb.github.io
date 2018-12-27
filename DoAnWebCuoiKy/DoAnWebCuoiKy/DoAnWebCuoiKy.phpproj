@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>index.php</SpecificPageValue>
+    <SpecificPageValue>search.php</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -33,7 +33,6 @@
     <Compile Include="assets\js\process.php" />
     <Compile Include="orderhistory.php" />
     <Compile Include="cartproduct.php" />
-    <Compile Include="config.php" />
     <Compile Include="details.php" />
     <Compile Include="cart.php" />
     <Compile Include="lib\Class.validate.php" />
@@ -42,7 +41,6 @@
     <Compile Include="Logout.php" />
     <Compile Include="modules\include.php" />
     <Compile Include="modules\menu.php" />
-    <Compile Include="nhap.php" />
     <Compile Include="process.php" />
     <Compile Include="search.php" />
     <Compile Include="product.php" />
@@ -72,9 +70,6 @@
     <Folder Include="modules\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="400x460.png" />
-    <Content Include="700x400.png" />
-    <Content Include="900x350.png" />
     <Content Include="Admin\css\adminlte.css" />
     <Content Include="Admin\css\font-awesome\css\font-awesome.css" />
     <Content Include="Admin\css\font-awesome\css\font-awesome.css.map" />
