@@ -2,7 +2,9 @@
 session_start();
 require_once 'lib/db.php';
 require_once 'vendor/autoload.php';
+
 use Gregwar\Captcha\CaptchaBuilder;
+
 if (isset($_SESSION["dang_nhap_chua"])) {
 
     header('Location: index.php');

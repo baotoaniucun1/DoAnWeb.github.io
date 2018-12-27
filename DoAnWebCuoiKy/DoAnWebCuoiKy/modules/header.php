@@ -117,7 +117,7 @@ if (isset($_POST["btndangxuat"])) {
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-                             <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
+                             <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
                         <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </form>';
@@ -135,7 +135,7 @@ if (isset($_POST["btndangxuat"])) {
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-                         <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
+                         <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
                         <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </form>';
@@ -159,7 +159,7 @@ if (isset($_POST["btndangxuat"])) {
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-                         <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
+                         <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
                       <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </div>
