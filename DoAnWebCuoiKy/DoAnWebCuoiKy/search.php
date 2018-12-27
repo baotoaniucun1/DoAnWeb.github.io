@@ -3,7 +3,8 @@ session_start();
 
 require_once "lib/db.php";
 $ketqua= "";
-if(isset($_POST['locsanpham'])){
+if(isset($_POST['locsanpham']))
+{
     unset($_GET["qu"]);
     $_SESSION["Timkiem"] = 1;
     $gan_and = 1;
@@ -29,8 +30,8 @@ if(isset($_POST['locsanpham'])){
         unset($_SESSION['bonhotrong']);
     }
 
-    $sqlnhieutieuchi = "select sp.* FROM motasanpham as mtsp, sanpham as sp,  hangsanxuat as hsx , loaisanpham as lsp where 1=1  and  sp.MaSanPham = mtsp.MaSanPham and hsx.MaHangSanXuat = sp.MaHangSanXuat and lsp.MaLoaiSanPham = sp.MaLoaiSanPham  ";
-    $sqldem = " FROM motasanpham as mtsp, sanpham as sp,  hangsanxuat as hsx , loaisanpham as lsp where 1=1  and  sp.MaSanPham = mtsp.MaSanPham and hsx.MaHangSanXuat = sp.MaHangSanXuat and lsp.MaLoaiSanPham = sp.MaLoaiSanPham ";
+    //$sqlnhieutieuchi = "select sp.* FROM motasanpham as mtsp, sanpham as sp,  hangsanxuat as hsx , loaisanpham as lsp where 1=1  and  sp.MaSanPham = mtsp.MaSanPham and hsx.MaHangSanXuat = sp.MaHangSanXuat and lsp.MaLoaiSanPham = sp.MaLoaiSanPham  ";
+    //$sqldem = " FROM motasanpham as mtsp, sanpham as sp,  hangsanxuat as hsx , loaisanpham as lsp where 1=1  and  sp.MaSanPham = mtsp.MaSanPham and hsx.MaHangSanXuat = sp.MaHangSanXuat and lsp.MaLoaiSanPham = sp.MaLoaiSanPham ";
     if(!empty($_POST['hangsanxuat']))
     {
         $dem=1;
@@ -42,27 +43,49 @@ if(isset($_POST['locsanpham'])){
             if($dem ==1)
             {
                 $ketqua =$ketqua."$value".",";
-                $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( hsx.TenHangSanXuat = '$value' ";
-                $sqldem = $sqldem . " and ( hsx.TenHangSanXuat = '$value' ";
+                //$sqlnhieutieuchi = $sqlnhieutieuchi . " and ( hsx.TenHangSanXuat = '$value' ";
+                //$sqldem = $sqldem . " and ( hsx.TenHangSanXuat = '$value' ";
                 $dem +=1;
             }
             else
             {
                 $ketqua =$ketqua."$value".",";
-                $sqlnhieutieuchi = $sqlnhieutieuchi . " or hsx.TenHangSanXuat = '$value' ";
-                $sqldem = $sqldem." or hsx.TenHangSanXuat = '$value' ";
+                //$sqlnhieutieuchi = $sqlnhieutieuchi . " or hsx.TenHangSanXuat = '$value' ";
+                //$sqldem = $sqldem." or hsx.TenHangSanXuat = '$value' ";
             }
         }
-        $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-        $sqldem=$sqldem. " ) ";
-        $gan_and +=1;
+        //$sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //$sqldem=$sqldem. " ) ";
+        //$gan_and +=1;
     }
 
     if(!empty($_POST['loaisanpham']))
     {
         $dem=1;
-        if($gan_and >1)
-        {
+        //if($gan_and >1)
+        //{
+        //    foreach($_POST['loaisanpham'] as $value) {
+
+
+        //        $_SESSION['loaisanpham'][$value] = $value;
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " and ( lsp.TenLoaiSanPham = '$value' ";
+        //            //$sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
+        //            //$sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
+        //        }
+        //    }
+        //    $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    $sqldem=$sqldem. " ) ";
+        //}
+        //else{
             foreach($_POST['loaisanpham'] as $value) {
 
 
@@ -70,48 +93,48 @@ if(isset($_POST['locsanpham'])){
                 if($dem ==1)
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . "  and ( lsp.TenLoaiSanPham = '$value' ";
+                    //$sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
                     $dem +=1;
                 }
                 else
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
+                    //$sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
                 }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
-            foreach($_POST['loaisanpham'] as $value) {
-
-
-                $_SESSION['loaisanpham'][$value] = $value;
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . "  and ( lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
+            //}
+            //$sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+            //$sqldem=$sqldem. " ) ";
         }
     }
     if(!empty($_POST['hedieuhanh']))
     {
         $dem=1;
-        if($gan_and >1)
-        {
+        //if($gan_and >1)
+        //{
+        //    foreach($_POST['hedieuhanh'] as $value) {
+
+
+        //        $_SESSION['hedieuhanh'][$value] = $value;
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.HeDieuHanh like '%$value%' ";
+        //            //$sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%'  ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%'  ";
+        //            //$sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%'  ";
+        //        }
+        //    }
+        //    $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    $sqldem=$sqldem. " ) ";
+        //}
+        //else{
             foreach($_POST['hedieuhanh'] as $value) {
 
 
@@ -119,41 +142,19 @@ if(isset($_POST['locsanpham'])){
                 if($dem ==1)
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.HeDieuHanh like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%'  ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . "  and (  mtsp.HeDieuHanh like '%$value%' ";
+                    //$sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%' ";
                     $dem +=1;
                 }
                 else
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%'  ";
-                    $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%'  ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
+                    //$sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
                 }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
-            foreach($_POST['hedieuhanh'] as $value) {
-
-
-                $_SESSION['hedieuhanh'][$value] = $value;
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . "  and (  mtsp.HeDieuHanh like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
-                    $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
+            //}
+            //$sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+            //$sqldem=$sqldem. " ) ";
         }
     }
 
@@ -161,8 +162,30 @@ if(isset($_POST['locsanpham'])){
     if(!empty($_POST['bonhotrong']))
     {
         $dem=1;
-        if($gan_and >1)
-        {
+        //if($gan_and >1)
+        //{
+        //    foreach($_POST['bonhotrong'] as $value) {
+
+
+        //        $_SESSION['bonhotrong'][$value] = $value;
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.BoNhoTrong like '%$value%' ";
+        //            //$sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%'  ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            //$sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%'  ";
+        //            //$sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%'  ";
+        //        }
+        //    }
+        //    //$sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    //$sqldem=$sqldem. " ) ";
+        //}
+        //else{
             foreach($_POST['bonhotrong'] as $value) {
 
 
@@ -170,41 +193,19 @@ if(isset($_POST['locsanpham'])){
                 if($dem ==1)
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.BoNhoTrong like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%'  ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . "  and (  mtsp.BoNhoTrong like '%$value%' ";
+                    //$sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%' ";
                     $dem +=1;
                 }
                 else
                 {
                     $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%'  ";
-                    $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%'  ";
+                    //$sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%' ";
+                    //$sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%'";
                 }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
-            foreach($_POST['bonhotrong'] as $value) {
-
-
-                $_SESSION['bonhotrong'][$value] = $value;
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . "  and (  mtsp.BoNhoTrong like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%' ";
-                    $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%'";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
+            //}
+            //$sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+            //$sqldem=$sqldem. " ) ";
         }
 
 
@@ -237,31 +238,31 @@ if(isset($_SESSION["Timkiem"]))
         }
         $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
         $sqldem=$sqldem. " ) ";
-        $gan_and +=1;
+        //$gan_and +=1;
     }
     if(!empty($_SESSION['loaisanpham'])) {
-        if($gan_and > 1)
-        {
-            $dem=1;
-            foreach($_SESSION['loaisanpham'] as $value) {
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
-                    $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
+        //if($gan_and > 1)
+        //{
+        //    $dem=1;
+        //    foreach($_SESSION['loaisanpham'] as $value) {
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( lsp.TenLoaiSanPham = '$value' ";
+        //            $sqldem = $sqldem . " and ( lsp.TenLoaiSanPham = '$value' ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
+        //            $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
+        //        }
+        //    }
+        //    $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    $sqldem=$sqldem. " ) ";
+        //}
+        //else{
             $dem=1;
             foreach($_SESSION['loaisanpham'] as $value) {
                 if($dem ==1)
@@ -277,34 +278,34 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or lsp.TenLoaiSanPham = '$value' ";
                     $sqldem = $sqldem." or lsp.TenLoaiSanPham = '$value' ";
                 }
-            }
+            //}
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
         }
     }
     if(!empty($_SESSION['hedieuhanh'])) {
-        if($gan_and > 1)
-        {
-            $dem=1;
-            foreach($_SESSION['hedieuhanh'] as $value) {
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and (  mtsp.HeDieuHanh like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
-                    $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
+        //if($gan_and > 1)
+        //{
+        //    $dem=1;
+        //    foreach($_SESSION['hedieuhanh'] as $value) {
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " and (  mtsp.HeDieuHanh like '%$value%' ";
+        //            $sqldem = $sqldem . " and (  mtsp.HeDieuHanh like '%$value%' ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
+        //            $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
+        //        }
+        //    }
+        //    $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    $sqldem=$sqldem. " ) ";
+        //}
+        //else{
             $dem=1;
             foreach($_SESSION['hedieuhanh'] as $value) {
                 if($dem ==1)
@@ -320,7 +321,7 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.HeDieuHanh like '%$value%' ";
                     $sqldem = $sqldem." or  mtsp.HeDieuHanh like '%$value%' ";
                 }
-            }
+            //}
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
         }
@@ -328,28 +329,28 @@ if(isset($_SESSION["Timkiem"]))
 
 
     if(!empty($_SESSION['bonhotrong'])) {
-        if($gan_and > 1)
-        {
-            $dem=1;
-            foreach($_SESSION['bonhotrong'] as $value) {
-                if($dem ==1)
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.BoNhoTrong like '%$value%' ";
-                    $sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%' ";
-                    $dem +=1;
-                }
-                else
-                {
-                    $ketqua =$ketqua."$value".",";
-                    $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%' ";
-                    $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%' ";
-                }
-            }
-            $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
-            $sqldem=$sqldem. " ) ";
-        }
-        else{
+        //if($gan_and > 1)
+        //{
+        //    $dem=1;
+        //    foreach($_SESSION['bonhotrong'] as $value) {
+        //        if($dem ==1)
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " and ( mtsp.BoNhoTrong like '%$value%' ";
+        //            $sqldem = $sqldem . " and (  mtsp.BoNhoTrong like '%$value%' ";
+        //            $dem +=1;
+        //        }
+        //        else
+        //        {
+        //            $ketqua =$ketqua."$value".",";
+        //            $sqlnhieutieuchi = $sqlnhieutieuchi . " or  mtsp.BoNhoTrong like '%$value%' ";
+        //            $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%' ";
+        //        }
+        //    }
+        //    $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
+        //    $sqldem=$sqldem. " ) ";
+        //}
+        //else{
             $dem=1;
             foreach($_SESSION['bonhotrong'] as $value) {
                 if($dem ==1)
@@ -365,7 +366,7 @@ if(isset($_SESSION["Timkiem"]))
                     $sqlnhieutieuchi = $sqlnhieutieuchi . " or mtsp.BoNhoTrong like '%$value%' ";
                     $sqldem = $sqldem." or  mtsp.BoNhoTrong like '%$value%' ";
                 }
-            }
+            //}
             $sqlnhieutieuchi = $sqlnhieutieuchi . " ) ";
             $sqldem=$sqldem. " ) ";
         }

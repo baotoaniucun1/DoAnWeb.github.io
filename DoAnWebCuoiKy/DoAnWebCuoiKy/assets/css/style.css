@@ -1164,8 +1164,13 @@ input[type="checkbox"], input[type="radio"]{
 /*Check box*/
 @font-face {
     font-family: 'FontAwesome';
+<<<<<<< HEAD
     
     src: url('../fonts/fontawesome-webfont.ttf') format('truetype');
+=======
+  src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
+>>>>>>> 7f9daf412c012ce90f12ad41cdb79a299feff4c8
 }
 input[type="checkbox"] + .label-text:before{
 	content: "\f096";
