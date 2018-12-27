@@ -162,13 +162,15 @@ if(isset($_POST['dongythanhtoan'])){
                         <td>
                             <?php echo  number_format($value['ThanhTien']);
                                   $tongtien += $value['ThanhTien'];
-                            ?> đ
+                            ?>
+                            đ
                         </td>
 
                         <td>
                             <p data-placement="top" data-toggle="tooltip" title="Edit">
                                 <a href="#edit<?php echo $value['MaSanPham'];?>" data-toggle="modal">
-                                    <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
+                                    <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"
+                                        data-target="#edit">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </button>
                                 </a>
@@ -178,7 +180,8 @@ if(isset($_POST['dongythanhtoan'])){
                         <td>
                             <p data-placement="top" data-toggle="tooltip" title="Delete">
                                 <a href="#delete<?php echo $value['MaSanPham'];?>" data-toggle="modal">
-                                    <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                    <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </button>
                                 </a>
@@ -187,101 +190,105 @@ if(isset($_POST['dongythanhtoan'])){
                         </td>
 
                     </tr>
-                    
 
-            <!--        khúc này là popup thông báo xóa sản phẩm lên    -->
 
-            <div id="delete<?php echo $value['MaSanPham'];  ?>" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <form method="post">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Xóa Sản Phẩm</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <!--        khúc này là popup thông báo xóa sản phẩm lên    -->
 
-                            </div>
-                            <div class="modal-body">
-                                <input type="hidden" name="delete_id" value="<?php echo $value['MaSanPham']; ?>" />
-                                <div class="alert alert-danger">
-                                    Bạn có chắc muốn xóa sản phẩm
-                                    <strong>
-                                        <?php echo $value['TenSanPham']; ?>?
-                                    </strong>
+                    <div id="delete<?php echo $value['MaSanPham'];  ?>" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <form method="post">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xóa Sản Phẩm</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="delete_id" value="<?php echo $value['MaSanPham']; ?>" />
+                                        <div class="alert alert-danger">
+                                            Bạn có chắc muốn xóa sản phẩm
+                                            <strong>
+                                                <?php echo $value['TenSanPham']; ?>?
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" name="delete" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash"></span> Xóa
+                                        </button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            <span class="glyphicon glyphicon-remove-circle"></span> Không
+                                        </button>
+                                    </div>
                                 </div>
-
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="submit" name="delete" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-trash"></span> Xóa
-                                </button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                    <span class="glyphicon glyphicon-remove-circle"></span> Không
-                                </button>
-                            </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </div>
-            <!--    kết thúc popup xóa sản phẩm-->
+                    </div>
+                    <!--    kết thúc popup xóa sản phẩm-->
 
 
 
-            <!--        khúc này là popup sửa sản phẩm  -->
+                    <!--        khúc này là popup sửa sản phẩm  -->
 
-            <div id="edit<?php echo $value['MaSanPham']; ?>" class="modal fade" role="dialog">
-                <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Sửa Sản Phẩm</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
+                    <div id="edit<?php echo $value['MaSanPham']; ?>" class="modal fade" role="dialog">
+                        <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Sửa Sản Phẩm</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                            <div class="modal-body">
-                                <input type="hidden" name="edit_id" value="<?php echo $value['MaSanPham']; ?>" />
-                                <div class="row">
-                                      <div class="col-md-12">
-                                      <select class="form-control" type="text" id="item_sluongsp" name="item_sluongsp" autofocus >
-                                    <?php 
+                                    <div class="modal-body">
+                                        <input type="hidden" name="edit_id" value="<?php echo $value['MaSanPham']; ?>" />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <select class="form-control" type="text" id="item_sluongsp" name="item_sluongsp"
+                                                    autofocus>
+                                                    <?php 
                               $i =1;
                               while($i<= 10)
                               {
-                                    ?>     
-                                           <option <?php  if($value['SoLuong']==$i) echo "selected"?> value="<?php echo $i;?>"><?php echo $i;?></option>  
-                                          
-                                    <?php 
+                                                    ?>
+                                                    <option <?php if($value['SoLuong']==$i) echo "selected" ?> value="
+                                                        <?php echo $i;?>">
+                                                        <?php echo $i;?>
+                                                    </option>
+
+                                                    <?php 
                                   
                                   $i +=1;   
                               } 
-                                    ?> 
-                                    </select>
-                                          </div>
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success" name="update_item">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            Sửa
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                            Hủy
+                                        </button>
+                                    </div>
+
+
                                 </div>
                             </div>
-
-
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success" name="update_item">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    Sửa
-                                </button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">
-                                    <span class="glyphicon glyphicon-remove-circle"></span>
-                                    Hủy
-                                </button>
-                            </div>
-
-
-                        </div>
+                        </form>
                     </div>
-                </form>
-            </div>
 
 
 
-            <!--      kết thúc popup sửa sản phẩm  -->
+                    <!--      kết thúc popup sửa sản phẩm  -->
 
                     <?php endforeach ?>
 
@@ -304,13 +311,14 @@ if(isset($_POST['dongythanhtoan'])){
             </table>
 
             <div id="edit" style="text-align:center;margin-bottom:30px">
-        
-              <a href="#thanhtoan" data-toggle="modal">
-                 <button style="font-weight:bold" class="btn btn-warning btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
-                             Thanh Toán</button>
-                   </a>
-            </div> 
-           
+
+                <a href="#thanhtoan" data-toggle="modal">
+                    <button style="font-weight:bold" class="btn btn-warning btn-xs" data-title="Delete" data-toggle="modal"
+                        data-target="#delete">
+                        Thanh Toán</button>
+                </a>
+            </div>
+
             <?php
 
 
@@ -326,53 +334,55 @@ if(isset($_POST['dongythanhtoan'])){
             ?>
         </div>
 
-              <!--        khúc này là popup hỏi thanh toán    -->
+        <!--        khúc này là popup hỏi thanh toán    -->
 
-            <div id="thanhtoan" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <form method="post">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Thanh Toán</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div id="thanhtoan" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <form method="post">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thanh Toán</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                            </div>
-                            <div class="modal-body">
-                             
-                                <div class="alert alert-success">
-                                  
-                                    <strong>
-                                       Bạn có chắc muốn Thanh Toán ?
-                                    </strong>
-                                       <?php    $taikhoan = $_SESSION['username'];
-                                                $sqldiachi = "SELECT * FROM TaiKhoan where TenDangNhap = '$taikhoan'"; 
-                                               $rsdiachi = load($sqldiachi);
-                                               while($rowdiachi = $rsdiachi->fetch_assoc())
-                                               {?>
+                        </div>
+                        <div class="modal-body">
 
-                                            <p> Địa chỉ: <?php echo $rowdiachi['DiaChi'];?> <br />
-                                                 Số Điện Thoại: <?php  echo $rowdiachi['SoDienThoai']; ?>
+                            <div class="alert alert-success">
 
-                                            
-                                                  </p>
-                                        <?php }?>
-                                </div>
-                            </div>
+                                <strong>
+                                    Bạn có chắc muốn Thanh Toán ?
+                                </strong>
+                                <?php    $taikhoan = $_SESSION['username'];
+                                         $sqldiachi = "SELECT * FROM TaiKhoan where TenDangNhap = '$taikhoan'"; 
+                                         $rsdiachi = load($sqldiachi);
+                                         while($rowdiachi = $rsdiachi->fetch_assoc())
+                                         {?>
 
-                            <div class="modal-footer">
-                                <button type="submit" name="dongythanhtoan" class="btn btn-success">
-                                    <span class="glyphicon glyphicon-ok"></span> Đống Ý
-                                </button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">
-                                    <span class="glyphicon glyphicon-remove-circle"></span> Không
-                                </button>
+                                <p> Địa chỉ:
+                                    <?php echo $rowdiachi['DiaChi'];?> <br />
+                                    Số Điện Thoại:
+                                    <?php  echo $rowdiachi['SoDienThoai']; ?>
+
+
+                                </p>
+                                <?php }?>
                             </div>
                         </div>
-                    </form>
-                </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" name="dongythanhtoan" class="btn btn-success">
+                                <span class="glyphicon glyphicon-ok"></span> Đống Ý
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove-circle"></span> Không
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!--    kết thúc popup hỏi thanh toán-->
+        </div>
+        <!--    kết thúc popup hỏi thanh toán-->
 
 
 

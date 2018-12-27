@@ -50,6 +50,7 @@ if(isset($_POST['delete'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -109,14 +110,15 @@ if(isset($_POST['delete'])){
                                     </tr>
                                 </thead>
 
-                                <?php
-                                $showlsp = "select ddh.MaDonDatHang,ddh.NgayLap,ddh.TongThanhTien,ddh.MaTaiKhoan,tk.TenHienThi,tt.TenTinhTrang,tk.DiaChi from taikhoan as tk, dondathang as ddh, tinhtrang as tt
-where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDER BY NgayLap DESC";
-                                $rslsp = load($showlsp);
-                                while($rowlspl = $rslsp->fetch_assoc())
-                                {
-                                ?>
-                                <tr style="text-align:center; <?php if($rowlspl['TenTinhTrang'] == "Đã Giao") echo "background-color: #0eff00a8;" ?>">
+                                    <?php
+                                    $showlsp = "select ddh.MaDonDatHang,ddh.NgayLap,ddh.TongThanhTien,ddh.MaTaiKhoan,tk.TenHienThi,tt.TenTinhTrang,tk.DiaChi from taikhoan as tk, dondathang as ddh, tinhtrang as tt
+                                    where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDER BY NgayLap DESC";
+                                    $rslsp = load($showlsp);
+                                    while($rowlspl = $rslsp->fetch_assoc())
+                                    {
+                                    ?>
+                                <tr style="text-align:center; <?php if($rowlspl['TenTinhTrang'] == " Đã Giao") echo
+                                                                        "background-color: #0eff00a8;" ?>">
                                     <td>
                                         <?php echo $rowlspl['MaDonDatHang']; ?>
                                     </td>
@@ -138,28 +140,31 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
                                         <?php echo  number_format($rowlspl['TongThanhTien']); ?> đồng
                                     </td>
                                     <td>
-                                        <?php echo $rowlspl['TenTinhTrang']; ?>         
-                                     <!--<p data-placement="top" data-toggle="tooltip" title="Edit" style="margin:auto">-->
-                                           <a href="#edit<?php echo $rowlspl['MaDonDatHang']; ?>" data-toggle="modal">
-                                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
+                                        <?php echo $rowlspl['TenTinhTrang']; ?>
+                                        <!--<p data-placement="top" data-toggle="tooltip" title="Edit" style="margin:auto">-->
+                                        <a href="#edit<?php echo $rowlspl['MaDonDatHang']; ?>" data-toggle="modal">
+                                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"
+                                                data-target="#edit">
                                                 <span class="glyphicon glyphicon-pencil"></span>
                                             </button>
-                                           </a>
+                                        </a>
                                         <!--</p>-->
                                     </td>
                                     <td>
-                                        <p data-placement="top" data-toggle="tooltip" title="Info"  style="margin:auto">
+                                        <p data-placement="top" data-toggle="tooltip" title="Info" style="margin:auto">
                                             <a href="#info<?php echo $rowlspl['MaDonDatHang'];?>" data-toggle="modal">
-                                                <button class="btn btn-success btn-xs" data-title="Info" data-toggle="modal" data-target="#Info">
+                                                <button class="btn btn-success btn-xs" data-title="Info" data-toggle="modal"
+                                                    data-target="#Info">
                                                     <span class="glyphicon glyphicon-info-sign"></span>
                                                 </button>
                                             </a>
                                         </p>
                                     </td>
                                     <td>
-                                        <p data-placement="top" data-toggle="tooltip" title="Delete"  style="margin:auto">
+                                        <p data-placement="top" data-toggle="tooltip" title="Delete" style="margin:auto">
                                             <a href="#delete<?php echo $rowlspl['MaDonDatHang'];?>" data-toggle="modal">
-                                                <button class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                <button class="btn btn-danger" data-title="Delete" data-toggle="modal"
+                                                    data-target="#delete">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                 </button>
                                             </a>
@@ -210,8 +215,8 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
                                 </div>
                                 <!--    kết thúc popup xóa loai sản phẩm-->
 
-                                
-                                  <!--        khúc này là popup sửa tình trạng  -->
+
+                                <!--        khúc này là popup sửa tình trạng  -->
 
                                 <div id="edit<?php echo $rowlspl['MaDonDatHang'];  ?>" class="modal fade" role="dialog">
                                     <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -219,43 +224,51 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Sửa Tình Trạng:</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
-                                               
+
                                                 <div class="modal-body">
-                                                       <input type="hidden" name="edit_id" value="<?php echo $rowlspl['MaDonDatHang'];  ?>">
+                                                    <input type="hidden" name="edit_id" value="<?php echo $rowlspl['MaDonDatHang'];  ?>">
 
                                                     <div class="row">
-                                                     
-                                                            <label class="control-label" for="item_loaitinhtrang">Tình Trạng:</label>
-                                                           <select class="form-control" type="text" id="item_loaitinhtrang" name="item_loaitinhtrang" autofocus required>
-                                                               
-                                                <?php 
 
-                                    $laytinhtrang = "SELECT *  FROM tinhtrang";
+                                                        <label class="control-label" for="item_loaitinhtrang">Tình
+                                                            Trạng:</label>
+                                                        <select class="form-control" type="text" id="item_loaitinhtrang"
+                                                            name="item_loaitinhtrang" autofocus required>
 
-                                    $rstinhtrang = load($laytinhtrang);
-                                    while($rowtinhtrang = $rstinhtrang->fetch_assoc())
-                                    {
-                                        
-                                        
+                                                            <?php 
 
-                                                ?>
-                                                 <option   <?php if($rowlspl['TenTinhTrang']== $rowtinhtrang["TenTinhTrang"]) echo "selected"  ?>   value="<?php echo $rowtinhtrang["MaTinhTrang"]?>"><?php  echo $rowtinhtrang["TenTinhTrang"] ?></option>
+                                        $laytinhtrang = "SELECT *  FROM tinhtrang";
 
-                                                <?php  } ?>
-                                                          
+                                        $rstinhtrang = load($laytinhtrang);
+                                        while($rowtinhtrang = $rstinhtrang->fetch_assoc())
+                                        {
+                                            
+                                            
+
+                                                            ?>
+                                                            <option <?php if($rowlspl['TenTinhTrang']==$rowtinhtrang["TenTinhTrang"])
+                                                                              echo "selected" ?> value="
+                                                                <?php echo $rowtinhtrang["MaTinhTrang"]?>">
+                                                                <?php  echo $rowtinhtrang["TenTinhTrang"] ?>
+                                                            </option>
+
+                                                            <?php  } ?>
+
                                                         </select>
-                                                        </div>
                                                     </div>
-                                                
+                                                </div>
+
 
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success" name="update_item"><span class="glyphicon glyphicon-edit"></span>
-                                                    Sửa</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>
-                                                    Hủy</button>
+                                                    <button type="submit" class="btn btn-success" name="update_item"><span
+                                                            class="glyphicon glyphicon-edit"></span>
+                                                        Sửa</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                                            class="glyphicon glyphicon-remove-circle"></span>
+                                                        Hủy</button>
                                                 </div>
 
 
@@ -266,7 +279,7 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
 
 
 
-                                  <!--      kết thúc popup sửa tình trạng  -->
+                                <!--      kết thúc popup sửa tình trạng  -->
 
 
 
@@ -301,7 +314,9 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
                 <!-- Modal content-->
                 <div class="modal-content" style="width:150% !important;">
                     <div class="modal-header">
-                        <h4 class="modal-title">Chi Tiết Đơn Hàng: <?php echo $rowganid['MaDonDatHang'];  ?> </h4>
+                        <h4 class="modal-title">Chi Tiết Đơn Hàng:
+                            <?php echo $rowganid['MaDonDatHang'];  ?>
+                        </h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                     </div>
@@ -321,21 +336,29 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
                                 <?php
                                 $madondathang = $rowganid["MaDonDatHang"];
                                 $chitetdonhang = "select *, sp.TenSanPham,sp.GiaSanPham from chitietdonhang as ctdh, sanpham as sp where MaDonDatHang = '$madondathang' and sp.MaSanPham = ctdh.MaSanPham ";
-                                 $rschitietdonhang = load($chitetdonhang);
-                                 while($rowchitietdonhang = $rschitietdonhang->fetch_assoc())
-                             {
+                                $rschitietdonhang = load($chitetdonhang);
+                                while($rowchitietdonhang = $rschitietdonhang->fetch_assoc())
+                                {
                                 ?>
                                 <tr style="text-align:center">
-                                    <td scope="col"><?php echo $rowchitietdonhang["MaSanPham"];?></td>
-                                    <td scope="col"><?php echo $rowchitietdonhang["TenSanPham"];?></td>
-                                    <td scope="col"> <?php echo  number_format($rowchitietdonhang["GiaSanPham"]);?></td>
-                                    <td scope="col"><?php echo $rowchitietdonhang["SoLuongSanPhamMua"];?></td>
+                                    <td scope="col">
+                                        <?php echo $rowchitietdonhang["MaSanPham"];?>
+                                    </td>
+                                    <td scope="col">
+                                        <?php echo $rowchitietdonhang["TenSanPham"];?>
+                                    </td>
+                                    <td scope="col">
+                                        <?php echo  number_format($rowchitietdonhang["GiaSanPham"]);?>
+                                    </td>
+                                    <td scope="col">
+                                        <?php echo $rowchitietdonhang["SoLuongSanPhamMua"];?>
+                                    </td>
                                     <td scope="col" style="color:red;font-weight:bold">
                                         <?php echo  number_format($rowchitietdonhang["SoLuongSanPhamMua"]* $rowchitietdonhang["GiaSanPham"]);?>
                                     </td>
 
                                 </tr>
-                         <?php }  ?>
+                                <?php }  ?>
                             </tbody>
                         </table>
                     </div>
@@ -357,4 +380,5 @@ where tk.MaTaiKhoan = ddh.MaTaiKhoan and ddh.MaTinhTrang = tt.MaTinhTrang   ORDE
 
     <script src="js/dashboard3.js"></script>
 </body>
+
 </html>

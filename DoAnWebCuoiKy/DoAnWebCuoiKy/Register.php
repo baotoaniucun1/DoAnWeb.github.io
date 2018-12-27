@@ -75,21 +75,26 @@ if (isset($_POST["txtUserInput"])) {
 
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Họ Và Tên *" value="" id="txthoten" name="txthoten" required/ />
+                                            <input type="text" class="form-control" placeholder="Họ Và Tên *" value=""
+                                                id="txthoten" name="txthoten" required/ />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="txtUsername" name="txtUsername" placeholder="Tên Đăng Nhập *" value="" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Mật Khẩu *" value="" id="txtPWD" name="txtPWD" required/ />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Nhập Lại Mật Khẩu *" value="" id="txtPWD2" name="txtPWD2" required/ />
+                                            <input type="text" class="form-control" id="txtUsername" name="txtUsername"
+                                                placeholder="Tên Đăng Nhập *" value="" required />
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="txtUserInput" name="txtUserInput" placeholder="Captcha*" required />
+                                            <input type="password" class="form-control" placeholder="Mật Khẩu *" value=""
+                                                id="txtPWD" name="txtPWD" required/ />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Nhập Lại Mật Khẩu *"
+                                                value="" id="txtPWD2" name="txtPWD2" required/ />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="txtUserInput" name="txtUserInput"
+                                                placeholder="Captcha*" required />
                                         </div>
 
                                         <div class="form-group">
@@ -103,11 +108,14 @@ if (isset($_POST["txtUserInput"])) {
 
 
                                         <b class="error" style="font-size:19px; padding-top:20px;color:red;display:none;"></b>
-                                        <button type="submit" class="btnRegister" id="btnRegister" name="btnRegister">Đăng Ký</button>
+                                        <button type="submit" class="btnRegister" id="btnRegister" name="btnRegister">
+                                            Đăng
+                                            Ký
+                                        </button>
                                     </div>
 
 
-                                  
+
                                     <div class="col-md-2"></div>
 
 
@@ -164,7 +172,7 @@ if (isset($_POST["txtUserInput"])) {
             //                 }
             //           }
             //       });
-         
+
             $.getJSON(url, function (data) {
 
 
@@ -173,20 +181,15 @@ if (isset($_POST["txtUserInput"])) {
                     $('.error').show();
                     $('.error').html('Tên Đăng Nhập Đã Tồn Tại');
                     //alert();
-                }
-
-                else {
+                } else {
                     var cap1 = $('#txtUserInput').val();
                     var cap2 = '<?php echo $_SESSION["captcha"]?>';
-                  
-                    if (cap1 != cap2)
-                    {
+
+                    if (cap1 != cap2) {
                         $('.error').show();
                         $('.error').html('Captcha sai');
-                       
-                    }
-                    else
-                    {
+
+                    } else {
                         form.submit();
                     }
 
@@ -199,4 +202,3 @@ if (isset($_POST["txtUserInput"])) {
 </body>
 
 </html>
-

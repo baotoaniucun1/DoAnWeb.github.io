@@ -1,6 +1,3 @@
-
-
-
 <div class="row">
     <div class="col"></div>
 
@@ -84,7 +81,7 @@
                         <div class="col-3 col-md-3 mb-4">
                             <div class="card h-1100">
                                 <div class="preview_image">
-                              
+
                                     <a href="details.php?idsanpham=<?php echo $row['MaSanPham'];?>">
                                         <img class="card-img-top" src="<?php echo $row['HinhURL']; ?>" alt="" />
                                     </a>
@@ -98,18 +95,19 @@
                                             <?php echo $row['TenSanPham']; ?></a>
                                     </h6>
 
-                                    <h5><b><?php echo number_format($row['GiaSanPham']); ?> ₫</b></h5>
+                                    <h5><b>
+                                            <?php echo number_format($row['GiaSanPham']); ?> ₫</b></h5>
                                     <div style="text-align: center;">
-                                       
-                                             <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
-                                                   <button class="btn btn-giohang">
+
+                                        <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                            <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                             </a>
-                                          
-                                        
+                                        </a>
+
+
 
                                     </div>
 
@@ -207,14 +205,14 @@
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style="text-align: center;">
 
-                                            <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
-                                                   <button class="btn btn-giohang">
+                                        <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                            <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                             </a>
-                                          
+                                        </a>
+
 
                                     </div>
                                 </div>
@@ -310,14 +308,14 @@
                                         <?php echo number_format($row['GiaSanPham']); ?> ₫</h5>
                                     <div style="text-align: center;">
 
-                                           <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
-                                                   <button class="btn btn-giohang">
+                                        <a href="../cartproduct.php?idsanpham=<?php echo $row['MaSanPham']; ?>">
+                                            <button class="btn btn-giohang">
 
                                                 <i class="fa fa-search fa-fw"></i> Thêm vào giỏ
 
                                             </button>
-                                             </a>
-                                          
+                                        </a>
+
 
                                     </div>
                                 </div>

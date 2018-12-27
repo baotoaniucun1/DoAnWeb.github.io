@@ -108,16 +108,14 @@ if (isset($_POST["btndangxuat"])) {
                 if($dem<=0)
                 {
                     echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-                            <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
-                             </a>';
+                            <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span></a>';
                     echo  $member = '<form method="POST" style="margin-block-end: unset;"><div class="dropdown ml-2">
                     <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
                         <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-                             <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
+                        <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
                         <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
                 </form>';
@@ -125,20 +123,19 @@ if (isset($_POST["btndangxuat"])) {
                 else
                 {
                     echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-                     <span class="badge badge-danger">'.$dem.'</span>
-                <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
-                      </a>';
+                        <span class="badge badge-danger">'.$dem.'</span>
+                        <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span></a>';
                     echo  $member = '<form method="POST" style="margin-block-end: unset;"><div class="dropdown ml-2">
-                    <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 <a  data-toggle="dropdown">'.$_SESSION['TenHienThi'].'</a>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                        <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
-                         <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
-                        <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
-                    </div>
-                </form>';
+                                <a class="dropdown-item" href="../profile.php?user='.$_SESSION['username'].'">Thông Tin Tài Khoản</a>
+                                 <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
+                                <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
+                            </div>
+                        </form>';
                 }
 
                 echo $register = '';
@@ -162,16 +159,14 @@ if (isset($_POST["btndangxuat"])) {
                          <a class="dropdown-item" href="../orderhistory.php">Lịch Sử Mua Hàng</a>
                       <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
-                </div>
- </form>';
+                    </div>
+                    </form>';
                     echo  $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
 
                 }
                 else{
-                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
-    <span class="badge badge-danger">'.$dem.'</span>
-<span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
-   </a>';
+                    echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php"><span class="badge badge-danger">'.$dem.'</span>
+                    <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span></a>';
                     echo $member = '<form method="POST" style="margin-block-end: unset;">
                     <div class="dropdown ml-2">
                     <button class="btn btn-sm btn-giohang1"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -183,8 +178,8 @@ if (isset($_POST["btndangxuat"])) {
                         <a class="dropdown-item" href="orderhistory.php">Lịch Sử Mua Hàng</a>
                       <button name="btndangxuat" type="submit" class="dropdown-item">Đăng Xuất</button>
                     </div>
-                </div>
- </form>';
+                    </div>
+                    </form>';
                     echo  $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="Admin/index.php"> <span class="glyphicon glyphicon-user"></span> Administrator</a></li>';
 
                 }
@@ -194,17 +189,14 @@ if (isset($_POST["btndangxuat"])) {
             else {
                 echo $card = '<a class="btn btn-sm btn-giohang1 ml-2 btn-5" href="cart.php">
 
-            <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
+                <span class="glyphicon glyphicon-shopping-cart gly-flip-horizontal"></span>
                                         </a>';
                 echo $member = ' <a class="btn btn-sm btn-giohang1 ml-2" href="login.php">Đăng Nhập</a>';
                 echo $register = '<a class="btn btn-sm btn-giohang1 ml-2" href="register.php">Đăng Ký</a>';
 
             }
 
-
             ?>
-
-
 
         </div>
     </div>

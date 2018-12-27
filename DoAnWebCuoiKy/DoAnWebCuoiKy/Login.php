@@ -49,23 +49,17 @@
 
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
     <title>Login</title>
     <?php
     include 'modules/include.php';
     ?>
-
 </head>
-
 <body>
     <div class="container">
         <?php
         include 'modules/header.php';
         ?>
-
-
         <div class="container login-container">
             <div class="row">
                 <div class="col-md-3"></div>
@@ -73,17 +67,20 @@
                     <h3>Đăng Nhập</h3>
                     <form method="post" action="">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="Your Email *" value="" />
+                            <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="Your Email *"
+                                value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Your Password *" value="" />
+                            <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Your Password *"
+                                value="" />
                         </div>
-                        
+
                         <div class="form-group" style="text-align:center">
                             <input type="submit" name="btnLogin" class="btnSubmit" value="Đăng Nhập" />
                         </div>
                         <div class="form-group" style="text-align:center">
-                            <a href="register.php" class="ForgetPwd" value="Register">Đăng Ký
+                            <a href="register.php" class="ForgetPwd" value="Register">
+                                Đăng Ký
                             </a>
                         </div>
                         <div style="text-align:center; color:yellow">
@@ -95,23 +92,16 @@
                             }
                             ?>
                         </div>
-
-
                     </form>
-
                 </div>
-
-
-
                 <div class="col-md-3"></div>
             </div>
         </div>
-      
+
     </div>
     <?php
-        include 'modules/footer.php';
-        ?>
+    include 'modules/footer.php';
+    ?>
     <script src="/assets/js/theme-bundle.main.js"></script>
 </body>
-
 </html>
